@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A28D98_userpolizasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PolizasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Registro" EntityType="DB_A28D98_userpolizasModel.Registro" />
+    <EntitySet Name="Rol" EntityType="DB_A28D98_userpolizasModel.Rol" />
+    <EntitySet Name="Usuario" EntityType="DB_A28D98_userpolizasModel.Usuario" />
+    <AssociationSet Name="FK_Registro_Usuario" Association="DB_A28D98_userpolizasModel.FK_Registro_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Registro" EntitySet="Registro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registro_Usuario1" Association="DB_A28D98_userpolizasModel.FK_Registro_Usuario1">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Registro" EntitySet="Registro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="DB_A28D98_userpolizasModel.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Registro">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="IdUsarioAlta" Type="Int32" />
+    <Property Name="FechaAlta" Type="DateTime" Precision="3" />
+    <Property Name="IdUsuarioModifico" Type="Int32" />
+    <Property Name="IdFechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UsuarioAlta" Relationship="DB_A28D98_userpolizasModel.FK_Registro_Usuario" FromRole="Registro" ToRole="Usuario" />
+    <NavigationProperty Name="UsuarioModifico" Relationship="DB_A28D98_userpolizasModel.FK_Registro_Usuario1" FromRole="Registro" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="DB_A28D98_userpolizasModel.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdRol" Type="Int32" />
+    <Property Name="Habilitado" Type="Boolean" />
+    <NavigationProperty Name="RegistroAlta" Relationship="DB_A28D98_userpolizasModel.FK_Registro_Usuario" FromRole="Usuario" ToRole="Registro" />
+    <NavigationProperty Name="RegistroModifico" Relationship="DB_A28D98_userpolizasModel.FK_Registro_Usuario1" FromRole="Usuario" ToRole="Registro" />
+    <NavigationProperty Name="Rol" Relationship="DB_A28D98_userpolizasModel.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="FK_Registro_Usuario">
+    <End Type="DB_A28D98_userpolizasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="DB_A28D98_userpolizasModel.Registro" Role="Registro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registro">
+        <PropertyRef Name="IdUsarioAlta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registro_Usuario1">
+    <End Type="DB_A28D98_userpolizasModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="DB_A28D98_userpolizasModel.Registro" Role="Registro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registro">
+        <PropertyRef Name="IdUsuarioModifico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Type="DB_A28D98_userpolizasModel.Rol" Role="Rol" Multiplicity="0..1" />
+    <End Type="DB_A28D98_userpolizasModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

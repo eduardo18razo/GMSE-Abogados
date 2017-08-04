@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52DC2A72-3DCD-4CBD-B08E-8DF4615BFB06}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Polizas</RootNamespace>
+    <AssemblyName>Polizas</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dropbox.Api.4.3.0\lib\net45\Dropbox.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrador\FrmAltaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FrmAltaUsuario.Designer.cs">
+      <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acceso\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acceso\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acceso\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acceso\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acceso\FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acceso\FrmSplash.Designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FrmConsultaRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\FrmConsultaRegistros.Designer.cs">
+      <DependentUpon>FrmConsultaRegistros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FrmDetalleRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\FrmDetalleRegistro.Designer.cs">
+      <DependentUpon>FrmDetalleRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FrmResgistroPersonaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\FrmResgistroPersonaFisica.Designer.cs">
+      <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\UsrCtrlFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Operacion\UsrCtrlFile.Designer.cs">
+      <DependentUpon>UsrCtrlFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\FrmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\FrmAgenda.Designer.cs">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Mensajes.cs" />
+    <EmbeddedResource Include="Administrador\FrmAltaUsuario.resx">
+      <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acceso\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acceso\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acceso\FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FrmConsultaRegistros.resx">
+      <DependentUpon>FrmConsultaRegistros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FrmDetalleRegistro.resx">
+      <DependentUpon>FrmDetalleRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FrmResgistroPersonaFisica.resx">
+      <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\UsrCtrlFile.resx">
+      <DependentUpon>UsrCtrlFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Test\FrmAgenda.resx">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Templates\Machote Prueba.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Machote Prueba.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\LOGO-WEB-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessPolizas\Polizas.Business.csproj">
+      <Project>{967b6a5c-3392-433a-a2b3-01a7a89ed152}</Project>
+      <Name>Polizas.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Polizas.Entities\Polizas.Entities.csproj">
+      <Project>{8090AF69-5F45-476B-9D0C-7CEEEC7465E9}</Project>
+      <Name>Polizas.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto01-90x74.jpg" />
+    <None Include="Resources\foto01-A.jpg" />
+    <None Include="Resources\Splash.jpg" />
+    <Content Include="Temporales\Log.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
