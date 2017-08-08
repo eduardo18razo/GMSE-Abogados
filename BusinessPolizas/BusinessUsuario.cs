@@ -64,7 +64,7 @@ namespace Polizas.Business
             return result;
         }
 
-        public List<Usuario> ObtenerRegistros(bool insertarSeleccion)
+        public List<Usuario> ObtenerUsuarios(bool insertarSeleccion)
         {
             List<Usuario> result;
             PolizasModelContextBase db = new PolizasModelContextBase();
@@ -95,7 +95,7 @@ namespace Polizas.Business
             return result;
         }
 
-        public List<Usuario> BuscarRegistro(string nombre)
+        public List<Usuario> BuscarUsuarios(string nombre)
         {
             List<Usuario> result;
             PolizasModelContextBase db = new PolizasModelContextBase();

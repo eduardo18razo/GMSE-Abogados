@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Polizas.Administrador;
 using Polizas.Entities;
 using Polizas.Operacion;
+using Polizas.Utils;
 
 namespace Polizas.Acceso
 {
@@ -49,6 +50,20 @@ namespace Polizas.Acceso
             FrmConsultaRegistros frmConsultaRegistros = new FrmConsultaRegistros();
             frmConsultaRegistros.MdiParent = this;
             frmConsultaRegistros.Show();
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmDayView frmAgenda = new FrmDayView();
+                frmAgenda.MdiParent = this;
+                frmAgenda.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
         }
     }
 }

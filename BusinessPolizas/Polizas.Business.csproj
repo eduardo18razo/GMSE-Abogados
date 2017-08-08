@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessCita.cs" />
     <Compile Include="BusinessRegistro.cs" />
     <Compile Include="BusinessRol.cs" />
     <Compile Include="BusinessSecurity.cs" />

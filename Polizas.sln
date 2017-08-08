@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polizas.Entities", "Polizas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polizas.Data", "Polizas.Data\Polizas.Data.csproj", "{EBC1219C-2259-4EC1-96A2-B5D70F55919B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polizas.Controls", "Polizas.Controls\Polizas.Controls.csproj", "{E0C46A04-9F0D-404D-B543-B16715E4C0D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EBC1219C-2259-4EC1-96A2-B5D70F55919B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBC1219C-2259-4EC1-96A2-B5D70F55919B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBC1219C-2259-4EC1-96A2-B5D70F55919B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C46A04-9F0D-404D-B543-B16715E4C0D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C46A04-9F0D-404D-B543-B16715E4C0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C46A04-9F0D-404D-B543-B16715E4C0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C46A04-9F0D-404D-B543-B16715E4C0D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{52DC2A72-3DCD-4CBD-B08E-8DF4615BFB06} = {FE6E9B9D-07AD-4782-866D-397CA1291CC6}
 		{967B6A5C-3392-433A-A2B3-01A7A89ED152} = {D2D63EF0-55CC-4215-B916-7B3F4FB2DF06}
+		{E0C46A04-9F0D-404D-B543-B16715E4C0D2} = {D2D63EF0-55CC-4215-B916-7B3F4FB2DF06}
 		{8090AF69-5F45-476B-9D0C-7CEEEC7465E9} = {7B87CCCA-2E70-4615-9F4F-0DB86821D516}
 		{EBC1219C-2259-4EC1-96A2-B5D70F55919B} = {7B87CCCA-2E70-4615-9F4F-0DB86821D516}
 	EndGlobalSection

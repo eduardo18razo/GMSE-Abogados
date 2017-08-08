@@ -32,12 +32,13 @@
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personaFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personaMoralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.consultaRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -49,6 +50,7 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrosToolStripMenuItem,
+            this.agendaToolStripMenuItem,
             this.toolConfiguracion});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -82,6 +84,23 @@
             this.personaMoralToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
             this.personaMoralToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.personaMoralToolStripMenuItem.Text = "Persona Moral";
+            // 
+            // consultaRegistrosToolStripMenuItem
+            // 
+            this.consultaRegistrosToolStripMenuItem.Name = "consultaRegistrosToolStripMenuItem";
+            this.consultaRegistrosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.F)));
+            this.consultaRegistrosToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
+            this.consultaRegistrosToolStripMenuItem.Text = "Consulta Registros";
+            this.consultaRegistrosToolStripMenuItem.Click += new System.EventHandler(this.consultaRegistrosToolStripMenuItem_Click);
+            // 
+            // agendaToolStripMenuItem
+            // 
+            this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
+            this.agendaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.agendaToolStripMenuItem.Size = new System.Drawing.Size(60, 27);
+            this.agendaToolStripMenuItem.Text = "Agenda";
+            this.agendaToolStripMenuItem.Click += new System.EventHandler(this.agendaToolStripMenuItem_Click);
             // 
             // toolConfiguracion
             // 
@@ -129,15 +148,6 @@
             this.panel2.Size = new System.Drawing.Size(1008, 31);
             this.panel2.TabIndex = 5;
             // 
-            // consultaRegistrosToolStripMenuItem
-            // 
-            this.consultaRegistrosToolStripMenuItem.Name = "consultaRegistrosToolStripMenuItem";
-            this.consultaRegistrosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.F)));
-            this.consultaRegistrosToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
-            this.consultaRegistrosToolStripMenuItem.Text = "Consulta Registros";
-            this.consultaRegistrosToolStripMenuItem.Click += new System.EventHandler(this.consultaRegistrosToolStripMenuItem_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,5 +186,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripMenuItem consultaRegistrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agendaToolStripMenuItem;
     }
 }

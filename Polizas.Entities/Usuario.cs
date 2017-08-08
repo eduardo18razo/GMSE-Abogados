@@ -11,6 +11,8 @@ namespace Polizas.Entities
         [DataMember]
         public string Nombre { get; set; }
         [DataMember]
+        public string Correo { get; set; }
+        [DataMember]
         public string NombreUsuario { get; set; }
         [DataMember]
         public string Password { get; set; }
@@ -25,5 +27,7 @@ namespace Polizas.Entities
         public virtual List<Registro> RegistroAlta { get; set; }
         [DataMember]
         public virtual List<Registro> RegistroModifico { get; set; }
+        [DataMember]
+        public virtual List<Cita> Cita { get; set; }
     }
 }

@@ -1,19 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DB_A28D98_userpolizasModelStoreContainer" CdmEntityContainer="PolizasEntities">
-    <EntitySetMapping Name="Registro">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Registro">
-        <MappingFragment StoreEntitySet="Registro">
-          <ScalarProperty Name="IdFechaModificacion" ColumnName="IdFechaModificacion" />
-          <ScalarProperty Name="IdUsuarioModifico" ColumnName="IdUsuarioModifico" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="IdUsarioAlta" ColumnName="IdUsarioAlta" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Rol">
       <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Rol">
         <MappingFragment StoreEntitySet="Rol">
@@ -26,11 +13,40 @@
     <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
           <ScalarProperty Name="IdRol" ColumnName="IdRol" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registro">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Registro">
+        <MappingFragment StoreEntitySet="Registro">
+          <ScalarProperty Name="IdFechaModificacion" ColumnName="IdFechaModificacion" />
+          <ScalarProperty Name="IdUsuarioModifico" ColumnName="IdUsuarioModifico" />
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="IdUsarioAlta" ColumnName="IdUsarioAlta" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cita">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="BorderColor" ColumnName="BorderColor" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

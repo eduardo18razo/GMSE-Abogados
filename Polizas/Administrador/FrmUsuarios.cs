@@ -21,7 +21,7 @@ namespace Polizas.Administrador
             try
             {
                 var source =
-                    _bUsuario.ObtenerRegistros(false)
+                    _bUsuario.ObtenerUsuarios(false)
                         .Select(s =>
                                 new
                                 {

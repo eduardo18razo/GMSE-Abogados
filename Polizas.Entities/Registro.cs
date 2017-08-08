@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Polizas.Entities
@@ -15,6 +16,8 @@ namespace Polizas.Entities
         [DataMember]
         public bool PersonaFisica { get; set; }
         [DataMember]
+        public string Correo { get; set; }
+        [DataMember]
         public int? IdUsarioAlta { get; set; }
         [DataMember]
         public DateTime? FechaAlta { get; set; }
@@ -27,5 +30,7 @@ namespace Polizas.Entities
         public virtual Usuario UsuarioAlta { get; set; }
         [DataMember]
         public virtual Usuario UsuarioModifico { get; set; }
+        [DataMember]
+        public virtual List<Cita> Cita { get; set; }
     }
 }

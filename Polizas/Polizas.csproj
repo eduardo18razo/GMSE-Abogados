@@ -52,6 +52,9 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Polizas.Controls">
+      <HintPath>..\Polizas.Controls\obj\Debug\Polizas.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -101,11 +104,23 @@
     <Compile Include="Operacion\FrmConsultaRegistros.Designer.cs">
       <DependentUpon>FrmConsultaRegistros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operacion\FrmDayView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\FrmDayView.Designer.cs">
+      <DependentUpon>FrmDayView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operacion\FrmDetalleRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Operacion\FrmDetalleRegistro.Designer.cs">
       <DependentUpon>FrmDetalleRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FrmNuevaCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\FrmNuevaCita.Designer.cs">
+      <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\FrmResgistroPersonaFisica.cs">
       <SubType>Form</SubType>
@@ -121,12 +136,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\FrmAgenda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test\FrmAgenda.Designer.cs">
-      <DependentUpon>FrmAgenda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\Mensajes.cs" />
     <EmbeddedResource Include="Administrador\FrmAltaUsuario.resx">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
@@ -146,8 +155,14 @@
     <EmbeddedResource Include="Operacion\FrmConsultaRegistros.resx">
       <DependentUpon>FrmConsultaRegistros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FrmDayView.resx">
+      <DependentUpon>FrmDayView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operacion\FrmDetalleRegistro.resx">
       <DependentUpon>FrmDetalleRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FrmNuevaCita.resx">
+      <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\FrmResgistroPersonaFisica.resx">
       <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
@@ -165,9 +180,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Test\FrmAgenda.resx">
-      <DependentUpon>FrmAgenda.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

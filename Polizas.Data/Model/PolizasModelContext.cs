@@ -30,6 +30,7 @@ namespace Polizas.Data.Model
                 _registros = CreateObjectSet<Registro>();
                 _roles = CreateObjectSet<Rol>();
                 _usuarios = CreateObjectSet<Usuario>();
+                _cita = CreateObjectSet<Cita>();
             }
             catch (Exception ex)
             {
@@ -54,6 +55,7 @@ namespace Polizas.Data.Model
         private readonly ObjectSet<Registro> _registros;
         private readonly ObjectSet<Rol> _roles;
         private readonly ObjectSet<Usuario> _usuarios;
+        private readonly ObjectSet<Cita> _cita;
         public ObjectSet<Registro> Registros
         {
             get
@@ -73,6 +75,14 @@ namespace Polizas.Data.Model
             get
             {
                 return _usuarios;
+            }
+        }
+
+        public ObjectSet<Cita> Cita
+        {
+            get
+            {
+                return _cita;
             }
         }
     }
