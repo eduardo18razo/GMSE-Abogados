@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Polizas.Data.Model;
 using Polizas.Entities;
+using Polizas.Entities.Clientes;
 
 namespace Polizas.Business
 {
@@ -18,7 +19,7 @@ namespace Polizas.Business
             _proxy = proxy;
         }
 
-        public bool GuardarRegistro(Registro data)
+        public bool GuardarRegistro(Cliente data)
         {
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
@@ -42,22 +43,22 @@ namespace Polizas.Business
             return true;
         }
 
-        public List<Registro> ObtenerRegistros(bool insertarSeleccion)
+        public List<Cliente> ObtenerRegistros(bool insertarSeleccion)
         {
-            List<Registro> result;
+            List<Cliente> result;
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
                 result = db.Registros.OrderBy(o => o.Nombre).ToList();
-                foreach (Registro registro in result)
+                foreach (Cliente registro in result)
                 {
                     db.LoadProperty(registro, "UsuarioAlta");
                     db.LoadProperty(registro, "UsuarioModifico");
                 }
                 if (insertarSeleccion)
                     result.Insert(BusinessVariables.ComboBoxCatalogo.IndexSeleccione,
-                        new Registro
+                        new Cliente
                         {
                             Id = BusinessVariables.ComboBoxCatalogo.ValueSeleccione,
                             Nombre = BusinessVariables.ComboBoxCatalogo.DescripcionSeleccione
@@ -74,20 +75,20 @@ namespace Polizas.Business
             return result;
         }
 
-        public List<Registro> BuscarRegistro(string filtro)
+        public List<Cliente> BuscarRegistro(string filtro)
         {
-            List<Registro> result;
+            List<Cliente> result;
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
                 string[] words = filtro.Split(' ');
-                result = new List<Registro>();
+                result = new List<Cliente>();
                 foreach (string word in words)
                 {
                     result.AddRange(db.Registros.Where(w => w.Nombre.Contains(word)).OrderBy(o => o.Nombre).ToList());
                 }
-                foreach (Registro registro in result)
+                foreach (Cliente registro in result)
                 {
                     db.LoadProperty(registro, "UsuarioAlta");
                     db.LoadProperty(registro, "UsuarioModifico");
@@ -104,9 +105,9 @@ namespace Polizas.Business
             return result;
         }
 
-        public Registro ObtenerRegistro(int id)
+        public Cliente ObtenerRegistro(int id)
         {
-            Registro result;
+            Cliente result;
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
             {

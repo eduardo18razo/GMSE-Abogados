@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Polizas.Business;
 using Polizas.Entities;
+using Polizas.Entities.Clientes;
 
 namespace Polizas.Operacion
 {
     public partial class FrmDetalleRegistro : Form
     {
         readonly BusinessRegistro _bRegistro = new BusinessRegistro();
-        private Registro _registro;
+        private Cliente _registro;
         public FrmDetalleRegistro(int idRegistro)
         {
             InitializeComponent();

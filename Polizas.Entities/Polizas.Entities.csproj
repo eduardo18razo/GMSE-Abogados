@@ -40,12 +40,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audiencia.cs" />
+    <Compile Include="Expedientes\Caso.cs" />
     <Compile Include="Cita.cs" />
-    <Compile Include="Registro.cs" />
+    <Compile Include="Clientes\ClienteDireccion.cs" />
+    <Compile Include="Clientes\Cliente.cs" />
+    <Compile Include="Clientes\ClienteTelefono.cs" />
+    <Compile Include="Expedientes\TipoCaso.cs" />
+    <Compile Include="Juzgados\Juzgado.cs" />
+    <Compile Include="Juzgados\JuzgadoDireccion.cs" />
+    <Compile Include="Juzgados\JuzgadoTelefono.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rol.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="Roles\Rol.cs" />
+    <Compile Include="Roles\Pantalla.cs" />
+    <Compile Include="Roles\RolPantalla.cs" />
+    <Compile Include="TipoTelefono.cs" />
+    <Compile Include="Ubicacion\Colonia.cs" />
+    <Compile Include="Ubicacion\Estado.cs" />
+    <Compile Include="Ubicacion\Municipio.cs" />
+    <Compile Include="Ubicacion\Pais.cs" />
+    <Compile Include="Usuarios\Puesto.cs" />
+    <Compile Include="Usuarios\Usuario.cs" />
+    <Compile Include="Usuarios\UsuarioDireccion.cs" />
+    <Compile Include="Usuarios\UsuarioRol.cs" />
+    <Compile Include="Usuarios\UsuarioTelefono.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

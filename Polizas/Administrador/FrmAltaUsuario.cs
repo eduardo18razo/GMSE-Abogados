@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using Polizas.Business;
 using Polizas.Entities;
+using Polizas.Entities.Roles;
+using Polizas.Entities.Usuarios;
 using Polizas.Utils;
 
 namespace Polizas.Administrador

@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Polizas.Entities.Usuarios;
 
-namespace Polizas.Entities
+namespace Polizas.Entities.Clientes
 {
     [DataContract(IsReference = true)]
-    public class Registro
+    public class Cliente
     {
         [DataMember]
-        public int Id { get; set; }
+        public Int64 Id { get; set; }
+        [DataMember]
+        public string Expediente { get; set; }
         [DataMember]
         public string Nombre { get; set; }
         [DataMember]
@@ -18,13 +21,13 @@ namespace Polizas.Entities
         [DataMember]
         public string Correo { get; set; }
         [DataMember]
-        public int? IdUsarioAlta { get; set; }
+        public Int64 IdUsuarioAlta { get; set; }
         [DataMember]
-        public DateTime? FechaAlta { get; set; }
+        public DateTime FechaAlta { get; set; }
         [DataMember]
-        public int? IdUsuarioModifico { get; set; }
+        public Int64 IdUsuarioModifico { get; set; }
         [DataMember]
-        public DateTime? IdFechaModificacion { get; set; }
+        public DateTime IdFechaModificacion { get; set; }
 
         [DataMember]
         public virtual Usuario UsuarioAlta { get; set; }

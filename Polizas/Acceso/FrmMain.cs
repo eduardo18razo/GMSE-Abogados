@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Polizas.Administrador;
 using Polizas.Entities;
+using Polizas.Entities.Usuarios;
 using Polizas.Operacion;
 using Polizas.Utils;
 

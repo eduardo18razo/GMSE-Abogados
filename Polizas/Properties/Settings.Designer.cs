@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using Polizas.Entities;
+using Polizas.Entities.Usuarios;
 
 namespace Polizas.Properties {
     

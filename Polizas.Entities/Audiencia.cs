@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using Polizas.Entities.Clientes;
+using Polizas.Entities.Juzgados;
 using Polizas.Entities.Usuarios;
 
 namespace Polizas.Entities
 {
     [DataContract(IsReference = true)]
-    public class Cita
+    public class Audiencia
     {
         [DataMember]
         public Int64 Id { get; set; }
         [DataMember]
-        public Int64 IdUsuario { get; set; }
+        public Int64 IdUsuarioAsignado { get; set; }
         [DataMember]
-        public Int64 IdCliente { get; set; }
+        public Int64 IdJuzgado { get; set; }
         [DataMember]
-        public DateTime StartDate { get; set; }
+        public DateTime FechaAudiencia { get; set; }
         [DataMember]
-        public DateTime EndDate { get; set; }
+        public TimeSpan HoraAudiencia { get; set; }
         [DataMember]
-        public string BorderColor { get; set; }
+        public String Observaciones { get; set; }
         [DataMember]
-        public string Text { get; set; }
-
+        public virtual Juzgado Juzgado { get; set; }
         [DataMember]
         public virtual Usuario Usuario { get; set; }
-        [DataMember]
-        public virtual Cliente Cliente { get; set; }
     }
 }

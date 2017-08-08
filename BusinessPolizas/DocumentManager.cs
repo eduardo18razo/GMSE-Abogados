@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using Novacode;
 using Polizas.Entities;
+using Polizas.Entities.Clientes;
 using Application = Microsoft.Office.Interop.Word.Application;
 
 namespace Polizas.Business
@@ -16,7 +17,7 @@ namespace Polizas.Business
     {
 
 
-        public void GenerateDocx(Registro persona)
+        public void GenerateDocx(Cliente persona)
         {
             try
             {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Polizas.Data.Model;
 using Polizas.Entities;
+using Polizas.Entities.Usuarios;
 
 namespace Polizas.Business
 {

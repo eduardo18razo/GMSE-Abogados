@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Polizas.Business;
 using Polizas.Entities;
+using Polizas.Entities.Clientes;
 
 namespace Polizas.Operacion
 {
@@ -44,7 +45,7 @@ namespace Polizas.Operacion
                 if (ValidaCaptura())
                 {
                     BusinessRegistro documentManager = new BusinessRegistro();
-                    documentManager.GuardarRegistro(new Registro { Nombre = txtNombre.Text.Trim(), Fecha = DateTime.Now });
+                    documentManager.GuardarRegistro(new Cliente { Nombre = txtNombre.Text.Trim(), Fecha = DateTime.Now });
                 }
 
             }

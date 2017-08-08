@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Polizas.Data.Model;
 using Polizas.Entities;
+using Polizas.Entities.Roles;
 
 namespace Polizas.Business
 {

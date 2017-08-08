@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Polizas.Entities.Clientes;
+using Polizas.Entities.Expedientes;
+
+namespace Polizas.Entities.Usuarios
+{
+    [DataContract(IsReference = true)]
+    public class Usuario
+    {
+        [DataMember]
+        public Int64 Id { get; set; }
+        [DataMember]
+        public Int64 IdPuesto { get; set; }
+        [DataMember]
+        public string Nombre { get; set; }
+        [DataMember]
+        public string Correo { get; set; }
+        [DataMember]
+        public string NombreUsuario { get; set; }
+        [DataMember]
+        public string Password { get; set; }
+        [DataMember]
+        public bool Habilitado { get; set; }
+
+        [DataMember]
+        public virtual List<Cliente> RegistroAlta { get; set; }
+        [DataMember]
+        public virtual List<Cliente> RegistroModifico { get; set; }
+        [DataMember]
+        public virtual List<Cita> Cita { get; set; }
+        [DataMember]
+        public virtual Puesto Puesto { get; set; }
+        [DataMember]
+        public virtual List<UsuarioRol> UsuarioRol { get; set; }
+        [DataMember]
+        public virtual List<UsuarioDireccion> UsuarioDireccion { get; set; }
+        [DataMember]
+        public virtual List<Audiencia> Audiencia { get; set; }
+        [DataMember]
+        public virtual List<UsuarioTelefono> UsuarioTelefono { get; set; }
+        [DataMember]
+        public virtual List<Caso> Caso { get; set; }
+    }
+}
