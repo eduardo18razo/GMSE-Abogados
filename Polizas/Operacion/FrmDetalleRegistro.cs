@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Polizas.Business;
-using Polizas.Entities;
 using Polizas.Entities.Clientes;
 
 namespace Polizas.Operacion

@@ -33,7 +33,7 @@ namespace Polizas.Operacion
                     Appointment app = new Appointment();
                     app.IdCita = cita.Id;
                     app.IdUsuario = cita.IdUsuario;
-                    app.IdCliente = cita.IdRegistro;
+                    app.IdCliente = cita.IdCliente;
                     app.StartDate = cita.StartDate;
                     app.EndDate = cita.EndDate;
                     app.BorderColor = Color.FromName(cita.BorderColor);
@@ -83,7 +83,7 @@ namespace Polizas.Operacion
                             m_App.EndDate = avDay.SelectionEnd;
                             m_App.BorderColor = Color.Red;
                             m_App.IdUsuario = frmNuevaCita.Cita.IdUsuario;
-                            m_App.IdCliente = frmNuevaCita.Cita.IdRegistro;
+                            m_App.IdCliente = frmNuevaCita.Cita.IdCliente;
                             m_App.Title = frmNuevaCita.Cita.Text;
                             //_mAppointments.Add(m_App);
                             CargaCitas();

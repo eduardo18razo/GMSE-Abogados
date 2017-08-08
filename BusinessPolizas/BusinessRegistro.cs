@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Polizas.Data.Model;
-using Polizas.Entities;
 using Polizas.Entities.Clientes;
 
 namespace Polizas.Business
@@ -26,14 +25,14 @@ namespace Polizas.Business
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
                 if (data.Id == 0)
-                    db.Registros.AddObject(data);
+                    db.Cliente.AddObject(data);
                 db.SaveChanges();
                 new DocumentManager().GenerateDocx(data);
             }
             catch (Exception ex)
             {
                 if (data.Id != 0)
-                    db.Registros.DeleteObject(data);
+                    db.Cliente.DeleteObject(data);
                 throw new Exception(ex.Message);
             }
             finally
@@ -50,7 +49,7 @@ namespace Polizas.Business
             try
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
-                result = db.Registros.OrderBy(o => o.Nombre).ToList();
+                result = db.Cliente.OrderBy(o => o.Nombre).ToList();
                 foreach (Cliente registro in result)
                 {
                     db.LoadProperty(registro, "UsuarioAlta");
@@ -86,7 +85,7 @@ namespace Polizas.Business
                 result = new List<Cliente>();
                 foreach (string word in words)
                 {
-                    result.AddRange(db.Registros.Where(w => w.Nombre.Contains(word)).OrderBy(o => o.Nombre).ToList());
+                    result.AddRange(db.Cliente.Where(w => w.Nombre.Contains(word)).OrderBy(o => o.Nombre).ToList());
                 }
                 foreach (Cliente registro in result)
                 {
@@ -112,7 +111,7 @@ namespace Polizas.Business
             try
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
-                result = db.Registros.SingleOrDefault(s => s.Id == id);
+                result = db.Cliente.SingleOrDefault(s => s.Id == id);
                 if(result != null)
                 {
                     db.LoadProperty(result, "UsuarioAlta");

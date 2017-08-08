@@ -55,7 +55,7 @@ namespace Polizas.Business
                     oldDate.EndDate = newDate.EndDate;
                     oldDate.BorderColor = newDate.BorderColor;
                     oldDate.IdUsuario = newDate.IdUsuario;
-                    oldDate.IdRegistro = newDate.IdRegistro;
+                    oldDate.IdCliente = newDate.IdCliente;
                 }
                 db.SaveChanges();
             }

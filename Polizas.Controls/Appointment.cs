@@ -19,12 +19,12 @@ namespace Polizas.Controls
             get;
             set;
         }
-    public int IdUsuario
+    public Int64 IdUsuario
         {
             get;
             set;
         }
-    public int IdCliente
+    public Int64 IdCliente
         {
             get;
             set;

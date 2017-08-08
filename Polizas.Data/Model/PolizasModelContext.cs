@@ -9,6 +9,8 @@
 // ------------------------------------------------------------------------------
 
 using System;
+using System.Data.Entity.Core.EntityClient;
+using System.Data.Entity.Core.Objects;
 using Polizas.Entities;
 using Polizas.Entities.Clientes;
 using Polizas.Entities.Expedientes;
@@ -19,7 +21,7 @@ using Polizas.Entities.Usuarios;
 
 namespace Polizas.Data.Model
 {
-    public class PolizasModelContextBase : ObjectContext
+    public sealed class PolizasModelContextBase : ObjectContext
     {
         private readonly EntityConnection _connection;
         private readonly string _connectionString;
@@ -31,29 +33,29 @@ namespace Polizas.Data.Model
         {
             try
             {
-                _Audiencia = CreateObjectSet<Audiencia>();
-                _Caso = CreateObjectSet<Caso>();
-                _Cita = CreateObjectSet<Cita>();
-                _Cliente = CreateObjectSet<Cliente>();
-                _ClienteDireccion = CreateObjectSet<ClienteDireccion>();
-                _ClienteTelefono = CreateObjectSet<ClienteTelefono>();
-                _Colonia = CreateObjectSet<Colonia>();
-                _Estado = CreateObjectSet<Estado>();
-                _Juzgado = CreateObjectSet<Juzgado>();
-                _JuzgadoDireccion = CreateObjectSet<JuzgadoDireccion>();
-                _JuzgadoTelefono = CreateObjectSet<JuzgadoTelefono>();
-                _Municipio = CreateObjectSet<Municipio>();
-                _Pais = CreateObjectSet<Pais>();
-                _Pantalla = CreateObjectSet<Pantalla>();
-                _Puesto = CreateObjectSet<Puesto>();
-                _Rol = CreateObjectSet<Rol>();
-                _RolPantalla = CreateObjectSet<RolPantalla>();
-                _TipoCaso = CreateObjectSet<TipoCaso>();
-                _TipoTelefono = CreateObjectSet<TipoTelefono>();
-                _Usuario = CreateObjectSet<Usuario>();
-                _UsuarioDireccion = CreateObjectSet<UsuarioDireccion>();
-                _UsuarioRol = CreateObjectSet<UsuarioRol>();
-                _UsuarioTelefono = CreateObjectSet<UsuarioTelefono>();
+                _audiencia = CreateObjectSet<Audiencia>();
+                _caso = CreateObjectSet<Caso>();
+                _cita = CreateObjectSet<Cita>();
+                _cliente = CreateObjectSet<Cliente>();
+                _clienteDireccion = CreateObjectSet<ClienteDireccion>();
+                _clienteTelefono = CreateObjectSet<ClienteTelefono>();
+                _colonia = CreateObjectSet<Colonia>();
+                _estado = CreateObjectSet<Estado>();
+                _juzgado = CreateObjectSet<Juzgado>();
+                _juzgadoDireccion = CreateObjectSet<JuzgadoDireccion>();
+                _juzgadoTelefono = CreateObjectSet<JuzgadoTelefono>();
+                _municipio = CreateObjectSet<Municipio>();
+                _pais = CreateObjectSet<Pais>();
+                _pantalla = CreateObjectSet<Pantalla>();
+                _puesto = CreateObjectSet<Puesto>();
+                _rol = CreateObjectSet<Rol>();
+                _rolPantalla = CreateObjectSet<RolPantalla>();
+                _tipoCaso = CreateObjectSet<TipoCaso>();
+                _tipoTelefono = CreateObjectSet<TipoTelefono>();
+                _usuario = CreateObjectSet<Usuario>();
+                _usuarioDireccion = CreateObjectSet<UsuarioDireccion>();
+                _usuarioRol = CreateObjectSet<UsuarioRol>();
+                _usuarioTelefono = CreateObjectSet<UsuarioTelefono>();
             }
             catch (Exception ex)
             {
@@ -75,52 +77,143 @@ namespace Polizas.Data.Model
             _connection = connection;
         }
 
-        private readonly ObjectSet<Audiencia> _Audiencia;
-        private readonly ObjectSet<Caso> _Caso;
-        private readonly ObjectSet<Cita> _Cita;
-        private readonly ObjectSet<Cliente> _Cliente;
-        private readonly ObjectSet<ClienteDireccion> _ClienteDireccion;
-        private readonly ObjectSet<ClienteTelefono> _ClienteTelefono;
-        private readonly ObjectSet<Colonia> _Colonia;
-        private readonly ObjectSet<Estado> _Estado;
-        private readonly ObjectSet<Juzgado> _Juzgado;
-        private readonly ObjectSet<JuzgadoDireccion> _JuzgadoDireccion;
-        private readonly ObjectSet<JuzgadoTelefono> _JuzgadoTelefono;
-        private readonly ObjectSet<Municipio> _Municipio;
-        private readonly ObjectSet<Pais> _Pais;
-        private readonly ObjectSet<Pantalla> _Pantalla;
-        private readonly ObjectSet<Puesto> _Puesto;
-        private readonly ObjectSet<Rol> _Rol;
-        private readonly ObjectSet<RolPantalla> _RolPantalla;
-        private readonly ObjectSet<TipoCaso> _TipoCaso;
-        private readonly ObjectSet<TipoTelefono> _TipoTelefono;
-        private readonly ObjectSet<Usuario> _Usuario;
-        private readonly ObjectSet<UsuarioDireccion> _UsuarioDireccion;
-        private readonly ObjectSet<UsuarioRol> _UsuarioRol;
-        private readonly ObjectSet<UsuarioTelefono> _UsuarioTelefono;
-        public ObjectSet<Audiencia> Audiencias { get { return _Audiencia; } }
-        public ObjectSet<Caso> Casos { get { return _Caso; } }
-        public ObjectSet<Cita> Citas { get { return _Cita; } }
-        public ObjectSet<Cliente> Clientes { get { return _Cliente; } }
-        public ObjectSet<ClienteDireccion> ClienteDireccions { get { return _ClienteDireccion; } }
-        public ObjectSet<ClienteTelefono> ClienteTelefonos { get { return _ClienteTelefono; } }
-        public ObjectSet<Colonia> Colonias { get { return _Colonia; } }
-        public ObjectSet<Estado> Estados { get { return _Estado; } }
-        public ObjectSet<Juzgado> Juzgados { get { return _Juzgado; } }
-        public ObjectSet<JuzgadoDireccion> JuzgadoDireccions { get { return _JuzgadoDireccion; } }
-        public ObjectSet<JuzgadoTelefono> JuzgadoTelefonos { get { return _JuzgadoTelefono; } }
-        public ObjectSet<Municipio> Municipios { get { return _Municipio; } }
-        public ObjectSet<Pais> Paiss { get { return _Pais; } }
-        public ObjectSet<Pantalla> Pantallas { get { return _Pantalla; } }
-        public ObjectSet<Puesto> Puestos { get { return _Puesto; } }
-        public ObjectSet<Rol> Rols { get { return _Rol; } }
-        public ObjectSet<RolPantalla> RolPantallas { get { return _RolPantalla; } }
-        public ObjectSet<sysdiagrams> sysdiagramss { get { return _sysdiagrams; } }
-        public ObjectSet<TipoCaso> TipoCasos { get { return _TipoCaso; } }
-        public ObjectSet<TipoTelefono> TipoTelefonos { get { return _TipoTelefono; } }
-        public ObjectSet<Usuario> Usuarios { get { return _Usuario; } }
-        public ObjectSet<UsuarioDireccion> UsuarioDireccions { get { return _UsuarioDireccion; } }
-        public ObjectSet<UsuarioRol> UsuarioRols { get { return _UsuarioRol; } }
-        public ObjectSet<UsuarioTelefono> UsuarioTelefonos { get { return _UsuarioTelefono; } }
+        private readonly ObjectSet<Audiencia> _audiencia;
+        private readonly ObjectSet<Caso> _caso;
+        private readonly ObjectSet<Cita> _cita;
+        private readonly ObjectSet<Cliente> _cliente;
+        private readonly ObjectSet<ClienteDireccion> _clienteDireccion;
+        private readonly ObjectSet<ClienteTelefono> _clienteTelefono;
+        private readonly ObjectSet<Colonia> _colonia;
+        private readonly ObjectSet<Estado> _estado;
+        private readonly ObjectSet<Juzgado> _juzgado;
+        private readonly ObjectSet<JuzgadoDireccion> _juzgadoDireccion;
+        private readonly ObjectSet<JuzgadoTelefono> _juzgadoTelefono;
+        private readonly ObjectSet<Municipio> _municipio;
+        private readonly ObjectSet<Pais> _pais;
+        private readonly ObjectSet<Pantalla> _pantalla;
+        private readonly ObjectSet<Puesto> _puesto;
+        private readonly ObjectSet<Rol> _rol;
+        private readonly ObjectSet<RolPantalla> _rolPantalla;
+        private readonly ObjectSet<TipoCaso> _tipoCaso;
+        private readonly ObjectSet<TipoTelefono> _tipoTelefono;
+        private readonly ObjectSet<Usuario> _usuario;
+        private readonly ObjectSet<UsuarioDireccion> _usuarioDireccion;
+        private readonly ObjectSet<UsuarioRol> _usuarioRol;
+        private readonly ObjectSet<UsuarioTelefono> _usuarioTelefono;
+
+        public ObjectSet<Audiencia> Audiencia
+        {
+            get { return _audiencia; }
+        }
+
+        public ObjectSet<Caso> Caso
+        {
+            get { return _caso; }
+        }
+
+        public ObjectSet<Cita> Cita
+        {
+            get { return _cita; }
+        }
+
+        public ObjectSet<Cliente> Cliente
+        {
+            get { return _cliente; }
+        }
+
+        public ObjectSet<ClienteDireccion> ClienteDireccion
+        {
+            get { return _clienteDireccion; }
+        }
+
+        public ObjectSet<ClienteTelefono> ClienteTelefono
+        {
+            get { return _clienteTelefono; }
+        }
+
+        public ObjectSet<Colonia> Colonia
+        {
+            get { return _colonia; }
+        }
+
+        public ObjectSet<Estado> Estado
+        {
+            get { return _estado; }
+        }
+
+        public ObjectSet<Juzgado> Juzgado
+        {
+            get { return _juzgado; }
+        }
+
+        public ObjectSet<JuzgadoDireccion> JuzgadoDireccion
+        {
+            get { return _juzgadoDireccion; }
+        }
+
+        public ObjectSet<JuzgadoTelefono> JuzgadoTelefono
+        {
+            get { return _juzgadoTelefono; }
+        }
+
+        public ObjectSet<Municipio> Municipio
+        {
+            get { return _municipio; }
+        }
+
+        public ObjectSet<Pais> Pais
+        {
+            get { return _pais; }
+        }
+
+        public ObjectSet<Pantalla> Pantalla
+        {
+            get { return _pantalla; }
+        }
+
+        public ObjectSet<Puesto> Puesto
+        {
+            get { return _puesto; }
+        }
+
+        public ObjectSet<Rol> Rol
+        {
+            get { return _rol; }
+        }
+
+        public ObjectSet<RolPantalla> RolPantalla
+        {
+            get { return _rolPantalla; }
+        }
+
+        public ObjectSet<TipoCaso> TipoCaso
+        {
+            get { return _tipoCaso; }
+        }
+
+        public ObjectSet<TipoTelefono> TipoTelefono
+        {
+            get { return _tipoTelefono; }
+        }
+
+        public ObjectSet<Usuario> Usuario
+        {
+            get { return _usuario; }
+        }
+
+        public ObjectSet<UsuarioDireccion> UsuarioDireccion
+        {
+            get { return _usuarioDireccion; }
+        }
+
+        public ObjectSet<UsuarioRol> UsuarioRol
+        {
+            get { return _usuarioRol; }
+        }
+
+        public ObjectSet<UsuarioTelefono> UsuarioTelefono
+        {
+            get { return _usuarioTelefono; }
+        }
     }
 }

@@ -99,14 +99,14 @@ namespace Polizas.Administrador
                     _empleado.Nombre = txtNombre.Text.Trim();
                     _empleado.NombreUsuario = txtNombreUsuario.Text.Trim();
                     _empleado.Password = txtPsw.Text.Trim();
-                    _empleado.IdRol = ((Rol)cmbRol.SelectedItem).Id;
+                    //_empleado.IdRol = ((Rol)cmbRol.SelectedItem).Id;
                 }
                 else
                 {
                     _empleado.Nombre = txtNombre.Text.Trim();
                     _empleado.NombreUsuario = txtNombreUsuario.Text.Trim();
                     _empleado.Password = txtPsw.Text.Trim();
-                    _empleado.IdRol = ((Rol)cmbRol.SelectedItem).Id;
+                    //_empleado.IdRol = ((Rol)cmbRol.SelectedItem).Id;
                 }
 
                 _bUsuario.GuardarUsuario(_empleado);

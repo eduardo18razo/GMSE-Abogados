@@ -662,7 +662,7 @@ namespace Polizas.Controls
                     Appointment app = new Appointment();
                     app.IdCita = cita.Id;
                     app.IdUsuario = cita.IdUsuario;
-                    app.IdCliente = cita.IdRegistro;
+                    app.IdCliente = cita.IdCliente;
                     app.StartDate = cita.StartDate;
                     app.EndDate = cita.EndDate;
                     app.BorderColor = Color.FromName(cita.BorderColor);
@@ -710,7 +710,7 @@ namespace Polizas.Controls
                     Cita dataUpdate = new Cita();
                     dataUpdate.Id = selectedAppointment.IdCita;
                     dataUpdate.IdUsuario = selectedAppointment.IdUsuario;
-                    dataUpdate.IdRegistro = selectedAppointment.IdCliente;
+                    dataUpdate.IdCliente = selectedAppointment.IdCliente;
                     dataUpdate.StartDate = selectedAppointment.StartDate;
                     dataUpdate.EndDate = selectedAppointment.EndDate;
                     dataUpdate.BorderColor = selectedAppointment.BorderColor.Name;

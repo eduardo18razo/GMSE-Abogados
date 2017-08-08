@@ -20,7 +20,7 @@ namespace Polizas.Acceso
         {
             InitializeComponent();
             Properties.Settings.userData = userData;
-            toolConfiguracion.Visible = !(userData.IdRol == 2);
+            //toolConfiguracion.Visible = !(userData.IdRol == 2);
             Text = string.Format("Polizas Juridicas - {0}", userData.Nombre);
         }
 

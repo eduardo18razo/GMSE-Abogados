@@ -54,7 +54,7 @@
             this.ForeColor = System.Drawing.Color.MediumBlue;
             this.MinimumSize = new System.Drawing.Size(764, 584);
             this.Name = "FrmDetalleRegistro";
-            this.Text = "FrmDetalleRegistro";
+            this.Text = "Detalle Registro";
             this.Load += new System.EventHandler(this.FrmDetalleRegistro_Load);
             this.ResumeLayout(false);
 

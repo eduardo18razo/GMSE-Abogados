@@ -67,7 +67,7 @@ namespace Polizas.Operacion
                     throw new Exception("Ingrese una descripción para la cita");
                 }
                 Cita.IdUsuario = int.Parse(cmbUsuario.SelectedValue.ToString());
-                Cita.IdRegistro = int.Parse(cmbCliente.SelectedValue.ToString());
+                Cita.IdCliente = int.Parse(cmbCliente.SelectedValue.ToString());
                 Cita.Text = txtDescripcion.Text.Trim();
                 _bCita.CrearCita(Cita);
                 DialogResult = DialogResult.OK;

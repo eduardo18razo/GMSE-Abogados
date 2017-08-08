@@ -30,7 +30,7 @@ namespace Polizas.Administrador
                                     s.Nombre,
                                     s.NombreUsuario,
                                     s.Password,
-                                    Rol = s.Rol.Descripcion,
+                                    //Rol = s.Rol.Descripcion,
                                     Habilitado = s.Habilitado ? "Si" : "No"
                                 })
                         .ToList();
