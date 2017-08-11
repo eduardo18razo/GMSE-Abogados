@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Polizas.Administrador;
+using Polizas.Administrador.Consultas;
 using Polizas.Entities;
 using Polizas.Entities.Usuarios;
 using Polizas.Operacion;
@@ -53,13 +54,55 @@ namespace Polizas.Acceso
             frmConsultaRegistros.Show();
         }
 
-        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmRol frmRoles = new FrmRol();
+                frmRoles.MdiParent = this;
+                frmRoles.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+        private void agendatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 FrmDayView frmAgenda = new FrmDayView();
                 frmAgenda.MdiParent = this;
                 frmAgenda.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+        private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmRolPantalla frmRolPantalla = new FrmRolPantalla();
+                frmRolPantalla.MdiParent = this;
+                frmRolPantalla.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+        private void puestosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmPuestos frmPuesto = new FrmPuestos();
+                frmPuesto.MdiParent = this;
+                frmPuesto.Show();
             }
             catch (Exception ex)
             {

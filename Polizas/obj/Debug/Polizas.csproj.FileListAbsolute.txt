@@ -21,7 +21,6 @@ C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\DocX.dll
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Dropbox.Api.dll
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.dll
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Business.dll
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Entities.dll
@@ -30,10 +29,18 @@ C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Entities.pdb
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Dropbox.Api.xml
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.xml
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Controls.pdb
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Data.pdb
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.exe
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.pdb
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Controls.dll
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.FrmRol.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.FrmRolPantalla.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.UcTelefonos.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.UcDireccion.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Altas.FrmAltaPuesto.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Consultas.FrmPuestos.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Temporales.FrmConfiguracionTemplate.resources

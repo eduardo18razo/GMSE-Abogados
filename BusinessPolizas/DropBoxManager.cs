@@ -73,7 +73,7 @@ namespace Polizas.Business
         /// This method is to generate Authentication URL to redirect user for login process in Dropbox.  
         /// </summary>  
         /// <returns></returns>  
-        public string GeneratedAuthenticationURL()
+        public string GeneratedAuthenticationUrl()
         {
             try
             {
@@ -251,6 +251,23 @@ namespace Polizas.Business
                 var response = DBClient.Files.DownloadAsync(dropboxFolderPath + "/" + dropboxFileName);
                 var result = response.Result.GetContentAsStreamAsync(); //Added to wait for the result from Async method  
 
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+        public bool RenameFolder(string folderOriginPath, string folderDestinityPath)
+        {
+            try
+            {
+                if (!FolderExists(BusinessVariables.Directorio.CarpetaPrincipalDropBox))
+                    CreateFolder(BusinessVariables.Directorio.CarpetaPrincipalDropBox);
+                var response = DBClient.Files.MoveAsync(BusinessVariables.Directorio.CarpetaPrincipalDropBox + folderOriginPath, BusinessVariables.Directorio.CarpetaPrincipalDropBox + folderDestinityPath);
+                var rest = response.Result; //Added to wait for the result from Async method  
                 return true;
             }
             catch (Exception ex)

@@ -8,12 +8,12 @@ namespace Polizas.Operacion
 {
     public partial class FrmDetalleRegistro : Form
     {
-        readonly BusinessRegistro _bRegistro = new BusinessRegistro();
+        readonly BusinessCliente _bRegistro = new BusinessCliente();
         private Cliente _registro;
         public FrmDetalleRegistro(int idRegistro)
         {
             InitializeComponent();
-            _registro = _bRegistro.ObtenerRegistro(idRegistro);
+            _registro = _bRegistro.ObtenerCliente(idRegistro);
         }
 
         

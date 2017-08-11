@@ -47,6 +47,8 @@
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteTelefono.cs" />
     <Compile Include="Expedientes\TipoCaso.cs" />
+    <Compile Include="Helpers\HelperDireccion.cs" />
+    <Compile Include="Helpers\HelperTelefonos.cs" />
     <Compile Include="Juzgados\Juzgado.cs" />
     <Compile Include="Juzgados\JuzgadoDireccion.cs" />
     <Compile Include="Juzgados\JuzgadoTelefono.cs" />

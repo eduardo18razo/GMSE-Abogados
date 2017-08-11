@@ -18,5 +18,7 @@ namespace Polizas.Entities.Clientes
         public string Extensiones { get; set; }
         [DataMember]
         public virtual TipoTelefono TipoTelefono { get; set; }
+        [DataMember]
+        public virtual Cliente Cliente { get; set; }
     }
 }

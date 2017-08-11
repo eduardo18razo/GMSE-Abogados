@@ -6,3 +6,4 @@ D:\Repositorio\GMSE Abogados\Polizas\Polizas.Entities\bin\Debug\Polizas.Entities
 D:\Repositorio\GMSE Abogados\Polizas\Polizas.Entities\bin\Debug\Polizas.Entities.pdb
 D:\Repositorio\GMSE Abogados\Polizas\Polizas.Entities\obj\Debug\Polizas.Entities.dll
 D:\Repositorio\GMSE Abogados\Polizas\Polizas.Entities\obj\Debug\Polizas.Entities.pdb
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas.Entities\obj\Debug\Polizas.Entities.csprojResolveAssemblyReference.cache

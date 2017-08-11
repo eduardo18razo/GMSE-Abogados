@@ -72,9 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessCita.cs" />
-    <Compile Include="BusinessRegistro.cs" />
+    <Compile Include="BusinessCliente.cs" />
+    <Compile Include="BusinessColonia.cs" />
+    <Compile Include="BusinessPuesto.cs" />
     <Compile Include="BusinessRol.cs" />
     <Compile Include="BusinessSecurity.cs" />
+    <Compile Include="BusinessTipoTelefono.cs" />
     <Compile Include="BusinessVariables.cs" />
     <Compile Include="DocumentManager.cs" />
     <Compile Include="DropBoxManager.cs" />

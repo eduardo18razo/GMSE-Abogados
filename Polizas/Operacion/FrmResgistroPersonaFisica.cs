@@ -44,8 +44,8 @@ namespace Polizas.Operacion
             {
                 if (ValidaCaptura())
                 {
-                    BusinessRegistro documentManager = new BusinessRegistro();
-                    documentManager.GuardarRegistro(new Cliente { Nombre = txtNombre.Text.Trim(), Fecha = DateTime.Now });
+                    BusinessCliente documentManager = new BusinessCliente();
+                    documentManager.GuardarCliente(new Cliente { Nombre = txtNombre.Text.Trim(), Fecha = DateTime.Now });
                 }
 
             }

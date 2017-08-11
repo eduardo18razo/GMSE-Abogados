@@ -11,7 +11,7 @@ namespace Polizas.Operacion
 {
     public partial class FrmConsultaRegistros : Form
     {
-        private readonly BusinessRegistro _bRegistro = new BusinessRegistro();
+        private readonly BusinessCliente _bRegistro = new BusinessCliente();
         public FrmConsultaRegistros()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace Polizas.Operacion
             try
             {
                 string filtro = txtFiltro.Text.Trim();
-                List<Cliente> lstRegistros = string.IsNullOrEmpty(filtro) ? _bRegistro.ObtenerRegistros(false) : _bRegistro.BuscarRegistro(filtro);
+                List<Cliente> lstRegistros = string.IsNullOrEmpty(filtro) ? _bRegistro.ObtenerClientes(false) : _bRegistro.BuscarClientes(filtro);
                 dgvRegistros.DataSource = lstRegistros.Select(s => new { s.Id, s.Nombre, s.Fecha, s.UsuarioAlta.NombreUsuario, s.FechaAlta }).ToList();
                 dgvRegistros.Columns[0].Visible = false;
             }

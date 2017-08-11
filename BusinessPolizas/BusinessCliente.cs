@@ -6,19 +6,19 @@ using Polizas.Entities.Clientes;
 
 namespace Polizas.Business
 {
-    public class BusinessRegistro
+    public class BusinessCliente
     {
         private bool _proxy;
         public void Dispose()
         {
 
         }
-        public BusinessRegistro(bool proxy = false)
+        public BusinessCliente(bool proxy = false)
         {
             _proxy = proxy;
         }
 
-        public bool GuardarRegistro(Cliente data)
+        public bool GuardarCliente(Cliente data)
         {
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
@@ -42,7 +42,7 @@ namespace Polizas.Business
             return true;
         }
 
-        public List<Cliente> ObtenerRegistros(bool insertarSeleccion)
+        public List<Cliente> ObtenerClientes(bool insertarSeleccion)
         {
             List<Cliente> result;
             PolizasModelContextBase db = new PolizasModelContextBase();
@@ -74,7 +74,7 @@ namespace Polizas.Business
             return result;
         }
 
-        public List<Cliente> BuscarRegistro(string filtro)
+        public List<Cliente> BuscarClientes(string filtro)
         {
             List<Cliente> result;
             PolizasModelContextBase db = new PolizasModelContextBase();
@@ -104,7 +104,7 @@ namespace Polizas.Business
             return result;
         }
 
-        public Cliente ObtenerRegistro(int id)
+        public Cliente ObtenerCliente(int id)
         {
             Cliente result;
             PolizasModelContextBase db = new PolizasModelContextBase();

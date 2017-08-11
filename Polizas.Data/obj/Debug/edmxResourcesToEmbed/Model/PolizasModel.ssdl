@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DB_A28D98_userpolizasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DB_A28D98_userpolizasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Audiencia">
     <Key>
       <PropertyRef Name="Id" />
@@ -141,6 +141,8 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdPadre" Type="bigint" />
+    <Property Name="EsMenu" Type="bit" />
     <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="Puesto">
@@ -173,6 +175,15 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Habilitado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoTelefono">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Extension" Type="bit" />
     <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -301,6 +312,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Cliente_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdUsuarioAlta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Usuario1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdUsuarioModifico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ClienteDireccion_Cliente">
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
     <End Role="ClienteDireccion" Type="Self.ClienteDireccion" Multiplicity="*" />
@@ -334,6 +369,18 @@
       </Principal>
       <Dependent Role="ClienteTelefono">
         <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClienteTelefono_TipoTelefono">
+    <End Role="TipoTelefono" Type="Self.TipoTelefono" Multiplicity="0..1" />
+    <End Role="ClienteTelefono" Type="Self.ClienteTelefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoTelefono">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClienteTelefono">
+        <PropertyRef Name="IdTipoTelefono" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -397,6 +444,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_JuzgadoTelefono_TipoTelefono">
+    <End Role="TipoTelefono" Type="Self.TipoTelefono" Multiplicity="0..1" />
+    <End Role="JuzgadoTelefono" Type="Self.JuzgadoTelefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoTelefono">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JuzgadoTelefono">
+        <PropertyRef Name="IdTipoTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Municipio_Estado">
     <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
     <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
@@ -438,18 +497,6 @@
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Puesto">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="IdPuesto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Usuario_UsuarioTelefono">
-    <End Role="UsuarioTelefono" Type="Self.UsuarioTelefono" Multiplicity="0..1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UsuarioTelefono">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Usuario">
@@ -505,6 +552,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UsuarioTelefono_TipoTelefono">
+    <End Role="TipoTelefono" Type="Self.TipoTelefono" Multiplicity="0..1" />
+    <End Role="UsuarioTelefono" Type="Self.UsuarioTelefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoTelefono">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioTelefono">
+        <PropertyRef Name="IdTipoTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioTelefono_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="UsuarioTelefono" Type="Self.UsuarioTelefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuarioTelefono">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="DB_A28D98_userpolizasModelStoreContainer">
     <EntitySet Name="Audiencia" EntityType="Self.Audiencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Caso" EntityType="Self.Caso" Schema="dbo" store:Type="Tables" />
@@ -524,6 +595,7 @@
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolPantalla" EntityType="Self.RolPantalla" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoCaso" EntityType="Self.TipoCaso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoTelefono" EntityType="Self.TipoTelefono" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioDireccion" EntityType="Self.UsuarioDireccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioRol" EntityType="Self.UsuarioRol" Schema="dbo" store:Type="Tables" />
@@ -556,6 +628,14 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Usuario1" Association="Self.FK_Cliente_Usuario1">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
     <AssociationSet Name="FK_ClienteDireccion_Cliente" Association="Self.FK_ClienteDireccion_Cliente">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="ClienteDireccion" EntitySet="ClienteDireccion" />
@@ -566,6 +646,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_ClienteTelefono_Cliente" Association="Self.FK_ClienteTelefono_Cliente">
       <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="ClienteTelefono" EntitySet="ClienteTelefono" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClienteTelefono_TipoTelefono" Association="Self.FK_ClienteTelefono_TipoTelefono">
+      <End Role="TipoTelefono" EntitySet="TipoTelefono" />
       <End Role="ClienteTelefono" EntitySet="ClienteTelefono" />
     </AssociationSet>
     <AssociationSet Name="FK_Colonia_Municipio" Association="Self.FK_Colonia_Municipio">
@@ -588,6 +672,10 @@
       <End Role="Juzgado" EntitySet="Juzgado" />
       <End Role="JuzgadoTelefono" EntitySet="JuzgadoTelefono" />
     </AssociationSet>
+    <AssociationSet Name="FK_JuzgadoTelefono_TipoTelefono" Association="Self.FK_JuzgadoTelefono_TipoTelefono">
+      <End Role="TipoTelefono" EntitySet="TipoTelefono" />
+      <End Role="JuzgadoTelefono" EntitySet="JuzgadoTelefono" />
+    </AssociationSet>
     <AssociationSet Name="FK_Municipio_Estado" Association="Self.FK_Municipio_Estado">
       <End Role="Estado" EntitySet="Estado" />
       <End Role="Municipio" EntitySet="Municipio" />
@@ -602,10 +690,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_Usuario_Puesto" Association="Self.FK_Usuario_Puesto">
       <End Role="Puesto" EntitySet="Puesto" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Usuario_UsuarioTelefono" Association="Self.FK_Usuario_UsuarioTelefono">
-      <End Role="UsuarioTelefono" EntitySet="UsuarioTelefono" />
       <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
     <AssociationSet Name="FK_UsuarioDireccion_Colonia" Association="Self.FK_UsuarioDireccion_Colonia">
@@ -623,6 +707,14 @@
     <AssociationSet Name="FK_UsuarioRol_Usuario" Association="Self.FK_UsuarioRol_Usuario">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="UsuarioRol" EntitySet="UsuarioRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioTelefono_TipoTelefono" Association="Self.FK_UsuarioTelefono_TipoTelefono">
+      <End Role="TipoTelefono" EntitySet="TipoTelefono" />
+      <End Role="UsuarioTelefono" EntitySet="UsuarioTelefono" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioTelefono_Usuario" Association="Self.FK_UsuarioTelefono_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioTelefono" EntitySet="UsuarioTelefono" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -40,7 +40,6 @@ namespace Polizas.Business
                 result = db.Usuario.FirstOrDefault(w => w.NombreUsuario == username && w.Password == hashedPdw && w.Habilitado);
                 if (result == null)
                     throw new Exception("Usuairo y/o contraseña incorrectos");
-                db.LoadProperty(result, "Rol");
             }
             catch (Exception ex)
             {

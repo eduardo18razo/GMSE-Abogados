@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mime;
-using Microsoft.Office.Interop.Word;
 using Polizas.Data.Model;
 using Polizas.Entities;
 

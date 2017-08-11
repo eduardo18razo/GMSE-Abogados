@@ -25,9 +25,9 @@ namespace Polizas.Entities.Usuarios
         public bool Habilitado { get; set; }
 
         [DataMember]
-        public virtual List<Cliente> RegistroAlta { get; set; }
+        public virtual List<Cliente> ClienteAlta { get; set; }
         [DataMember]
-        public virtual List<Cliente> RegistroModifico { get; set; }
+        public virtual List<Cliente> ClienteModifico { get; set; }
         [DataMember]
         public virtual List<Cita> Cita { get; set; }
         [DataMember]

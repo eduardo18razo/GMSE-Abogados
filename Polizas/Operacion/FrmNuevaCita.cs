@@ -9,7 +9,7 @@ namespace Polizas.Operacion
     public partial class FrmNuevaCita : Form
     {
         readonly BusinessUsuario _bUsuarios = new BusinessUsuario();
-        readonly BusinessRegistro _bRegistros = new BusinessRegistro();
+        readonly BusinessCliente _bRegistros = new BusinessCliente();
         readonly BusinessCita _bCita = new BusinessCita();
         public FrmNuevaCita()
         {
@@ -25,7 +25,7 @@ namespace Polizas.Operacion
                 cmbUsuario.DataSource = _bUsuarios.ObtenerUsuarios(true);
                 cmbUsuario.DisplayMember = "Nombre";
                 cmbUsuario.ValueMember = "Id";
-                cmbCliente.DataSource = _bRegistros.ObtenerRegistros(true);
+                cmbCliente.DataSource = _bRegistros.ObtenerClientes(true);
                 cmbCliente.DisplayMember = "Nombre";
                 cmbCliente.ValueMember = "Id";
             }

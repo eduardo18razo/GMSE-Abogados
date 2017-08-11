@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -10,13 +11,46 @@ using Novacode;
 using Polizas.Entities;
 using Polizas.Entities.Clientes;
 using Application = Microsoft.Office.Interop.Word.Application;
+using Bookmark = Novacode.Bookmark;
 
 namespace Polizas.Business
 {
     public class DocumentManager
     {
 
+        public List<string> GetMarkers(string file)
+        {
+            List<string> marcadores = null;
+            try
+            {
+                //using (DocX docX = DocX.Load(string.Format("{0}{1}{2}", BusinessVariables.Directorio.DirectorioAplciacion, BusinessVariables.Directorio.CarpetaPlantillas, BusinessVariables.Files.File1)))
+                using (DocX docX = DocX.Load(file))
+                {
+                    var z = docX.Bookmarks;
+                    marcadores = new List<string>();
+                    foreach (Bookmark bookmark in docX.Bookmarks)
+                    {
+                        marcadores.Add(bookmark.Name);
+                    }
+                    //docX.Bookmarks["Nombre"].SetText(persona.Nombre);
+                    //docX.Bookmarks["Fecha"].SetText(persona.Fecha.ToString("dd/MM/yyyy"));
+                    //string fileName = string.Format("{0}.docx", persona.Nombre);
+                    //string sourceFile = pathSave + fileName;
+                    //docX.SaveAs(string.Format(sourceFile));
+                    //if (new DropBoxManager().Upload(persona.Nombre, fileName, sourceFile))
+                    //{
+                    //    EliminarDocumentoTemporal(fileName);
+                    //    throw new Exception("Se registro correctamente.");
+                    //}
 
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return marcadores;
+        }
         public void GenerateDocx(Cliente persona)
         {
             try
@@ -41,7 +75,7 @@ namespace Polizas.Business
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 
@@ -116,7 +150,7 @@ namespace Polizas.Business
                     //        ;
                     docToPrint.Print();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
                 }
@@ -136,7 +170,7 @@ namespace Polizas.Business
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception(ex.Message);
             }
         }
     }

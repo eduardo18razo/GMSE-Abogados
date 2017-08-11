@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows.Forms;
 using Polizas.Business;
-using Polizas.Entities;
 using Polizas.Entities.Usuarios;
 using Polizas.Utils;
 
@@ -21,13 +20,15 @@ namespace Polizas.Administrador
         {
             try
             {
-                var source =
-                    _bUsuario.ObtenerUsuarios(false)
+                Cursor = Cursors.WaitCursor;
+                var source = _bUsuario.ObtenerUsuarios(false)
                         .Select(s =>
                                 new
                                 {
                                     s.Id,
                                     s.Nombre,
+                                    s.Correo,
+                                    Puesto = s.Puesto.Descripcion,
                                     s.NombreUsuario,
                                     s.Password,
                                     //Rol = s.Rol.Descripcion,
@@ -43,6 +44,8 @@ namespace Polizas.Administrador
             {
                 throw new Exception(ex.Message);
             }
+            finally { Cursor = Cursors.Default; }
+            
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -88,9 +91,10 @@ namespace Polizas.Administrador
         {
             try
             {
-                //UsuarioSeleccionado = _bUsuario.ObtenerUsuario(int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                //DialogResult = DialogResult.OK;
-                //Hide();
+                UsuarioSeleccionado = _bUsuario.ObtenerUsuario(int.Parse(dgvUsuarios.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                FrmAltaUsuario frmAlta = new FrmAltaUsuario {Usuario = UsuarioSeleccionado};
+                frmAlta.ShowDialog(this);
+                ObtenerUsuarios();
             }
             catch (Exception ex)
             {
@@ -103,7 +107,6 @@ namespace Polizas.Administrador
         {
             try
             {
-                
                 FrmAltaUsuario frmAltaUsuario = new FrmAltaUsuario();
                 frmAltaUsuario.StartPosition = FormStartPosition.CenterParent;
                 frmAltaUsuario.ShowDialog(this);

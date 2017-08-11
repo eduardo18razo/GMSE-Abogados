@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Polizas.Entities.Usuarios
@@ -6,7 +7,7 @@ namespace Polizas.Entities.Usuarios
     public class Puesto
     {
         [DataMember]
-        public int Id { get; set; }
+        public Int64 Id { get; set; }
         [DataMember]
         public string Descripcion { get; set; }
         [DataMember]

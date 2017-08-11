@@ -19,7 +19,7 @@ namespace Polizas.Business
             _proxy = proxy;
         }
 
-        public bool GuardarUsuario(Usuario data)
+        public bool Guardar(Usuario data)
         {
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
@@ -29,6 +29,59 @@ namespace Polizas.Business
                 if (data.Id == 0)
                     db.Usuario.AddObject(data);
                 db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return true;
+        }
+
+        public bool Actualizar(Usuario data)
+        {
+            PolizasModelContextBase db = new PolizasModelContextBase();
+            try
+            {
+                Usuario user = db.Usuario.SingleOrDefault(s => s.Id == data.Id);
+                if (user != null)
+                {
+                    user.Nombre = data.Nombre;
+                    user.IdPuesto = data.IdPuesto;
+                    user.Correo = data.Correo;
+                    user.NombreUsuario = data.NombreUsuario;
+                    user.UsuarioDireccion = user.UsuarioDireccion ?? new List<UsuarioDireccion>();
+                    user.UsuarioTelefono = user.UsuarioTelefono ?? new List<UsuarioTelefono>();
+
+                    foreach (UsuarioRol rol in data.UsuarioRol)
+                    {
+                        if (!db.UsuarioRol.Any(a => a.IdRol == rol.IdRol && a.IdUsuario == user.Id))
+                            db.UsuarioRol.AddObject(new UsuarioRol { IdRol = rol.IdRol, IdUsuario = user.Id });
+                    }
+
+                    if (user.UsuarioDireccion.Any())
+                    {
+                        user.UsuarioDireccion.First().IdColonia = data.UsuarioDireccion.First().IdColonia;
+                        user.UsuarioDireccion.First().Calle = data.UsuarioDireccion.First().Calle;
+                        user.UsuarioDireccion.First().NoExt = data.UsuarioDireccion.First().NoExt;
+                        user.UsuarioDireccion.First().NoInt = data.UsuarioDireccion.First().NoInt;
+                    }
+                    else
+                        user.UsuarioDireccion = data.UsuarioDireccion;
+                    if (user.UsuarioTelefono.Any())
+                    {
+                        foreach (UsuarioTelefono telefono in user.UsuarioTelefono)
+                        {
+                            db.UsuarioTelefono.DeleteObject(telefono);
+                        }
+                    }
+                    user.UsuarioTelefono = data.UsuarioTelefono;
+
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -51,7 +104,26 @@ namespace Polizas.Business
                 result = db.Usuario.SingleOrDefault(w => w.Id == id);
                 if (result != null)
                 {
-                    db.LoadProperty(result, "Rol");
+                    db.LoadProperty(result, "Puesto");
+                    db.LoadProperty(result, "UsuarioRol");
+                    db.LoadProperty(result, "UsuarioDireccion");
+                    db.LoadProperty(result, "UsuarioTelefono");
+                    foreach (UsuarioRol rol in result.UsuarioRol)
+                    {
+                        db.LoadProperty(rol, "Rol");
+                        db.LoadProperty(rol.Rol, "RolPantalla");
+                    }
+                    foreach (UsuarioDireccion direccion in result.UsuarioDireccion)
+                    {
+                        db.LoadProperty(direccion, "Colonia");
+                        db.LoadProperty(direccion.Colonia, "Municipio");
+                        db.LoadProperty(direccion.Colonia.Municipio, "Estado");
+                        db.LoadProperty(direccion.Colonia.Municipio.Estado, "Pais");
+                    }
+                    foreach (UsuarioTelefono telefono in result.UsuarioTelefono)
+                    {
+                        db.LoadProperty(telefono, "TipoTelefono");
+                    }
                 }
             }
             catch (Exception ex)
@@ -75,7 +147,27 @@ namespace Polizas.Business
                 result = db.Usuario.OrderBy(o => o.Nombre).ToList();
                 foreach (Usuario usuario in result)
                 {
-                    db.LoadProperty(usuario, "Rol");
+                    db.LoadProperty(usuario, "Puesto");
+                    db.LoadProperty(usuario, "UsuarioRol");
+                    db.LoadProperty(usuario, "UsuarioDireccion");
+                    db.LoadProperty(usuario, "UsuarioTelefono");
+                    foreach (UsuarioRol rol in usuario.UsuarioRol)
+                    {
+                        db.LoadProperty(rol, "Rol");
+                        db.LoadProperty(rol.Rol, "RolPantalla");
+                    }
+                    foreach (UsuarioDireccion direccion in usuario.UsuarioDireccion)
+                    {
+                        db.LoadProperty(direccion, "Colonia");
+                        db.LoadProperty(direccion.Colonia, "Municipio");
+                        db.LoadProperty(direccion.Colonia.Municipio, "Estado");
+                        db.LoadProperty(direccion.Colonia.Municipio.Estado, "Pais");
+                    }
+                    foreach (UsuarioTelefono telefono in usuario.UsuarioTelefono)
+                    {
+                        db.LoadProperty(telefono, "TipoTelefono");
+                    }
+
                 }
                 if (insertarSeleccion)
                     result.Insert(BusinessVariables.ComboBoxCatalogo.IndexSeleccione,
