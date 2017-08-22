@@ -26,9 +26,9 @@ namespace Polizas.Entities.Clientes
         [DataMember]
         public DateTime FechaAlta { get; set; }
         [DataMember]
-        public Int64 IdUsuarioModifico { get; set; }
+        public Int64? IdUsuarioModifico { get; set; }
         [DataMember]
-        public DateTime IdFechaModificacion { get; set; }
+        public DateTime? IdFechaModificacion { get; set; }
 
         [DataMember]
         public virtual Usuario UsuarioAlta { get; set; }

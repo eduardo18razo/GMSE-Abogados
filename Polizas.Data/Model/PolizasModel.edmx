@@ -1780,7 +1780,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram DiagramId="016e8cf4875e482c90e5c0ea6d8c171c" Name="Diagram1">
+      <Diagram DiagramId="016e8cf4875e482c90e5c0ea6d8c171c" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.Audiencia" Width="1.5" PointX="8.25" PointY="13.5" />
         <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.Caso" Width="1.5" PointX="7.5" PointY="23.25" />
         <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.Cita" Width="1.5" PointX="10.5" PointY="23.25" />
