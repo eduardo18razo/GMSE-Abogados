@@ -6,6 +6,7 @@ using Polizas.Entities.Usuarios;
 
 namespace Polizas.Entities.Clientes
 {
+    //prueba git
     [DataContract(IsReference = true)]
     public class Cliente
     {
