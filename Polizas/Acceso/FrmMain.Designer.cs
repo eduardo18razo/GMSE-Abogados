@@ -33,16 +33,19 @@
             this.personaFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personaMoralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.polizasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.esencialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.totalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.permisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.puestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.puestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,6 +57,7 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrosToolStripMenuItem,
+            this.polizasToolStripMenuItem,
             this.agendaToolStripMenuItem,
             this.toolConfiguracion});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -88,6 +92,7 @@
             this.personaMoralToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
             this.personaMoralToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.personaMoralToolStripMenuItem.Text = "Persona Moral";
+            this.personaMoralToolStripMenuItem.Click += new System.EventHandler(this.personaMoralToolStripMenuItem_Click);
             // 
             // consultaRegistrosToolStripMenuItem
             // 
@@ -97,6 +102,28 @@
             this.consultaRegistrosToolStripMenuItem.Size = new System.Drawing.Size(258, 22);
             this.consultaRegistrosToolStripMenuItem.Text = "Consulta Registros";
             this.consultaRegistrosToolStripMenuItem.Click += new System.EventHandler(this.consultaRegistrosToolStripMenuItem_Click);
+            // 
+            // polizasToolStripMenuItem
+            // 
+            this.polizasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.esencialToolStripMenuItem,
+            this.totalToolStripMenuItem});
+            this.polizasToolStripMenuItem.Name = "polizasToolStripMenuItem";
+            this.polizasToolStripMenuItem.Size = new System.Drawing.Size(55, 27);
+            this.polizasToolStripMenuItem.Text = "Polizas";
+            // 
+            // esencialToolStripMenuItem
+            // 
+            this.esencialToolStripMenuItem.Name = "esencialToolStripMenuItem";
+            this.esencialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.esencialToolStripMenuItem.Text = "Esencial";
+            this.esencialToolStripMenuItem.Click += new System.EventHandler(this.esencialToolStripMenuItem_Click);
+            // 
+            // totalToolStripMenuItem
+            // 
+            this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
+            this.totalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.totalToolStripMenuItem.Text = "Total";
             // 
             // agendaToolStripMenuItem
             // 
@@ -128,23 +155,30 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.usuarioToolStripMenuItem.Text = "Usuarios";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // rolesToolStripMenuItem
             // 
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.rolesToolStripMenuItem.Text = "Roles";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
             // permisosToolStripMenuItem
             // 
             this.permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
-            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.permisosToolStripMenuItem.Text = "Permisos";
             this.permisosToolStripMenuItem.Click += new System.EventHandler(this.permisosToolStripMenuItem_Click);
+            // 
+            // puestosToolStripMenuItem
+            // 
+            this.puestosToolStripMenuItem.Name = "puestosToolStripMenuItem";
+            this.puestosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.puestosToolStripMenuItem.Text = "Puestos";
+            this.puestosToolStripMenuItem.Click += new System.EventHandler(this.puestosToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -176,13 +210,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1008, 31);
             this.panel2.TabIndex = 5;
-            // 
-            // puestosToolStripMenuItem
-            // 
-            this.puestosToolStripMenuItem.Name = "puestosToolStripMenuItem";
-            this.puestosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.puestosToolStripMenuItem.Text = "Puestos";
-            this.puestosToolStripMenuItem.Click += new System.EventHandler(this.puestosToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -227,5 +254,8 @@
         private System.Windows.Forms.ToolStripMenuItem agendatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem puestosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem polizasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem esencialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem totalToolStripMenuItem;
     }
 }

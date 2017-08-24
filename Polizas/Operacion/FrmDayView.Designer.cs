@@ -1,4 +1,6 @@
-﻿namespace Polizas.Operacion
+﻿using Polizas.Controls;
+
+namespace Polizas.Operacion
 {
     partial class FrmDayView
     {
@@ -28,10 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Polizas.Controls.DrawTool drawTool1 = new Polizas.Controls.DrawTool();
+            DrawTool drawTool1 = new DrawTool();
             this.pnlAppoiment = new System.Windows.Forms.Panel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.avDay = new Polizas.Controls.DayView();
+            this.avDay = new DayView();
             this.pnlAppoiment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             this.avDay.TabIndex = 0;
             this.avDay.Text = "dayView1";
             this.avDay.SelectionChanged += new System.EventHandler(this.avDay_SelectionChanged);
-            this.avDay.ResolveAppointments += new Polizas.Controls.ResolveAppointmentsEventHandler(this.avDay_ResolveAppointments);
+            this.avDay.ResolveAppointments += new ResolveAppointmentsEventHandler(this.avDay_ResolveAppointments);
             // 
             // FrmDayView
             // 

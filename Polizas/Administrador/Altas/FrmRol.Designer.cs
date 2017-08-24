@@ -1,4 +1,4 @@
-﻿namespace Polizas.Administrador
+﻿namespace Polizas.Administrador.Altas
 {
     partial class FrmRol
     {

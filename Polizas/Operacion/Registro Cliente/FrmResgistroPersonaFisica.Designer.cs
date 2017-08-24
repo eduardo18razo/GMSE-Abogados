@@ -1,4 +1,6 @@
-﻿namespace Polizas.Operacion
+﻿using Polizas.Administrador;
+
+namespace Polizas.Operacion
 {
     partial class FrmRegistroPersonaFisica
     {
@@ -32,13 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.txtExpediente = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.FechaGeneracion = new System.Windows.Forms.Label();
-            this.ucDireccion1 = new Polizas.Administrador.UcDireccion();
-            this.ucTelefonos = new Polizas.Administrador.UcTelefonos();
+            this.ucDireccion1 = new UcDireccion();
+            this.ucTelefonos = new UcTelefonos();
             this.SuspendLayout();
             // 
             // btnGenerardocumento
@@ -76,14 +76,6 @@
             this.txtNombre.Size = new System.Drawing.Size(237, 20);
             this.txtNombre.TabIndex = 1;
             // 
-            // dpFecha
-            // 
-            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(93, 82);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(323, 20);
-            this.dpFecha.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -107,25 +99,16 @@
             this.txtCorreo.Size = new System.Drawing.Size(237, 20);
             this.txtCorreo.TabIndex = 2;
             // 
-            // FechaGeneracion
-            // 
-            this.FechaGeneracion.AutoSize = true;
-            this.FechaGeneracion.Location = new System.Drawing.Point(24, 88);
-            this.FechaGeneracion.Name = "FechaGeneracion";
-            this.FechaGeneracion.Size = new System.Drawing.Size(35, 13);
-            this.FechaGeneracion.TabIndex = 9;
-            this.FechaGeneracion.Text = "label4";
-            // 
             // ucDireccion1
             // 
-            this.ucDireccion1.Location = new System.Drawing.Point(27, 118);
+            this.ucDireccion1.Location = new System.Drawing.Point(27, 93);
             this.ucDireccion1.Name = "ucDireccion1";
             this.ucDireccion1.Size = new System.Drawing.Size(640, 140);
             this.ucDireccion1.TabIndex = 4;
             // 
             // ucTelefonos
             // 
-            this.ucTelefonos.Location = new System.Drawing.Point(27, 264);
+            this.ucTelefonos.Location = new System.Drawing.Point(27, 248);
             this.ucTelefonos.Name = "ucTelefonos";
             this.ucTelefonos.Size = new System.Drawing.Size(640, 225);
             this.ucTelefonos.TabIndex = 5;
@@ -139,11 +122,9 @@
             this.ClientSize = new System.Drawing.Size(748, 545);
             this.Controls.Add(this.ucTelefonos);
             this.Controls.Add(this.ucDireccion1);
-            this.Controls.Add(this.FechaGeneracion);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtExpediente);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dpFecha);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -165,11 +146,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.DateTimePicker dpFecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtExpediente;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.Label FechaGeneracion;
         private Administrador.UcDireccion ucDireccion1;
         private Administrador.UcTelefonos ucTelefonos;
     }

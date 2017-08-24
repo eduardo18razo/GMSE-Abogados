@@ -41,7 +41,6 @@
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Expediente" Type="nvarchar" MaxLength="250" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="PersonaFisica" Type="bit" Nullable="false" />
     <Property Name="Correo" Type="nvarchar" MaxLength="150" />
     <Property Name="IdUsuarioAlta" Type="bigint" Nullable="false" />

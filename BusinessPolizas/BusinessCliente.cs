@@ -24,41 +24,12 @@ namespace Polizas.Business
             PolizasModelContextBase db = new PolizasModelContextBase();
             try
             {
-                System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US");
-                DateTime paramFromDate;
-                DateTime paramToDate;
-                string StartDate = "07/01/2015";
-                string EndDate = "07/30/2015";
-                Boolean goodStartDate = false;
-                Boolean goodEndDate = false;
-                goodStartDate
-                    = DateTime.TryParseExact(StartDate, "MM/dd/yyyy", enUS,
-                                             System.Globalization.DateTimeStyles.None,
-                                             out paramFromDate);
-                goodEndDate
-                    = DateTime.TryParseExact(EndDate, "MM/dd/yyyy", enUS,
-                                             System.Globalization.DateTimeStyles.None,
-                                             out paramToDate);
-                if (goodStartDate) Console.WriteLine(paramFromDate);
-                if (goodEndDate) Console.WriteLine(paramToDate);
-                if (goodStartDate && goodEndDate)
-                {
-                    String FromDate
-                        = paramFromDate.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                                                 System.Globalization.CultureInfo.InvariantCulture);
-                    String ToDate
-                        = paramToDate.ToString("yyyy-MM-dd HH:mm:ss.fff",
-                                               System.Globalization.CultureInfo.InvariantCulture);
-                    Console.WriteLine(FromDate);
-                    Console.WriteLine(ToDate);
-                }
-
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
                 data.FechaAlta = DateTime.ParseExact(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff"), "yyyy-MM-dd HH:mm:ss:fff", CultureInfo.InvariantCulture);
                 if (data.Id == 0)
                     db.Cliente.AddObject(data);
                 db.SaveChanges();
-                new DocumentManager().GenerateDocx(data);
+                new DropBoxManager().CreateFolder(data.Nombre);
             }
             catch (Exception ex)
             {

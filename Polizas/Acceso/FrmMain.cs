@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
 using Polizas.Administrador;
+using Polizas.Administrador.Altas;
 using Polizas.Administrador.Consultas;
 using Polizas.Entities;
 using Polizas.Entities.Usuarios;
 using Polizas.Operacion;
+using Polizas.Operacion.Polizas;
 using Polizas.Utils;
 
 namespace Polizas.Acceso
@@ -25,6 +27,11 @@ namespace Polizas.Acceso
             Text = string.Format("Polizas Juridicas - {0}", userData.Nombre);
         }
 
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.userData = null;
+
+        }
 
 
         private void personaFisicaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,10 +41,11 @@ namespace Polizas.Acceso
             registroPersonafisica.Show();
         }
 
-        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        private void personaMoralToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Properties.Settings.userData = null;
-
+            FrmRegistroPersonaMoral registroPersonafisica = new FrmRegistroPersonaMoral();
+            registroPersonafisica.MdiParent = this;
+            registroPersonafisica.Show();
         }
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,5 +117,21 @@ namespace Polizas.Acceso
                 Mensajes.Error(ex.Message);
             }
         }
+
+        private void esencialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmPolizaEscencial frmPoliza = new FrmPolizaEscencial();
+                frmPoliza.MdiParent = this;
+                frmPoliza.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+        
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using Polizas.Administrador.Altas;
 using Polizas.Business;
 using Polizas.Entities.Usuarios;
 using Polizas.Utils;
 
-namespace Polizas.Administrador
+namespace Polizas.Administrador.Consultas
 {
     public partial class FrmUsuarios : Form
     {

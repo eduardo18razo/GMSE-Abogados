@@ -155,6 +155,12 @@
     <Compile Include="Operacion\FrmNuevaCita.Designer.cs">
       <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operacion\Polizas\FrmPolizaEscencial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Polizas\FrmPolizaEscencial.Designer.cs">
+      <DependentUpon>FrmPolizaEscencial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     </Compile>
     <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.Designer.cs">
       <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\FrmTipoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\FrmTipoCliente.Designer.cs">
+      <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\UsrCtrlFile.cs">
       <SubType>UserControl</SubType>
@@ -233,11 +245,17 @@
     <EmbeddedResource Include="Operacion\FrmNuevaCita.resx">
       <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\Polizas\FrmPolizaEscencial.resx">
+      <DependentUpon>FrmPolizaEscencial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.resx">
       <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.resx">
       <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\Registro Cliente\FrmTipoCliente.resx">
+      <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\UsrCtrlFile.resx">
       <DependentUpon>UsrCtrlFile.cs</DependentUpon>

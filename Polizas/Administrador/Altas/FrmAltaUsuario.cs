@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using Polizas.Administrador.Altas;
 using Polizas.Business;
 using Polizas.Entities.Helpers;
 using Polizas.Entities.Roles;
 using Polizas.Entities.Usuarios;
 using Polizas.Utils;
-using CheckBox = System.Web.UI.WebControls.CheckBox;
 
-namespace Polizas.Administrador
+namespace Polizas.Administrador.Altas
 {
     public partial class FrmAltaUsuario : Form
     {

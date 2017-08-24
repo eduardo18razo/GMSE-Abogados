@@ -14,6 +14,8 @@ namespace Polizas.Operacion
             InitializeComponent();
         }
 
+        public bool EsDialog { get; set; }
+
         private bool ValidaCaptura()
         {
             bool result = true;
@@ -22,14 +24,6 @@ namespace Polizas.Operacion
                 MessageBox.Show("Capture nombre", "Polizas Juridicas");
                 txtNombre.Focus();
                 result = false;
-            }
-            if (dpFecha.Text.Trim() == DateTime.Now.ToString("dd/MM/yyyy"))
-            {
-                if (MessageBox.Show("La fecha es la misma que hoy \n¿Esta seguro?", "Polizas Juridicas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
-                    dpFecha.Focus();
-                    result = false;
-                }
             }
             return result;
         }
@@ -74,6 +68,11 @@ namespace Polizas.Operacion
                         });
                     }
                     documentManager.GuardarCliente(cte);
+                    if (EsDialog)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        Close();
+                    }
                 }
 
             }

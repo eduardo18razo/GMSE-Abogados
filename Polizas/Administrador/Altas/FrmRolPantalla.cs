@@ -6,7 +6,7 @@ using Polizas.Business;
 using Polizas.Entities.Roles;
 using Polizas.Utils;
 
-namespace Polizas.Administrador
+namespace Polizas.Administrador.Altas
 {
     public partial class FrmRolPantalla : Form
     {

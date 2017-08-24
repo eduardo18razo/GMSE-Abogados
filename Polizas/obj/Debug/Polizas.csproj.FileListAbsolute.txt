@@ -1,6 +1,4 @@
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.csprojResolveAssemblyReference.cache
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.FrmAltaUsuario.resources
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.FrmUsuarios.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Acceso.FrmLogin.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Acceso.FrmMain.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Acceso.FrmSplash.resources
@@ -35,8 +33,6 @@ C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.exe
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.pdb
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Polizas.Controls.dll
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.FrmRol.resources
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.FrmRolPantalla.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.UcTelefonos.resources
@@ -45,3 +41,9 @@ C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Consultas.FrmPuestos.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Temporales.FrmConfiguracionTemplate.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.FrmRegistroPersonaMoral.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Altas.FrmAltaUsuario.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Altas.FrmRol.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Altas.FrmRolPantalla.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Consultas.FrmUsuarios.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Polizas.FrmPolizaEscencial.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.FrmTipoCliente.resources
