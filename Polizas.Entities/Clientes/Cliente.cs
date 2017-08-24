@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using Polizas.Entities.Expedientes;
 using Polizas.Entities.Usuarios;
@@ -16,8 +17,6 @@ namespace Polizas.Entities.Clientes
         public string Expediente { get; set; }
         [DataMember]
         public string Nombre { get; set; }
-        [DataMember]
-        public DateTime Fecha { get; set; }
         [DataMember]
         public bool PersonaFisica { get; set; }
         [DataMember]

@@ -155,10 +155,16 @@
     <Compile Include="Operacion\FrmNuevaCita.Designer.cs">
       <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\FrmResgistroPersonaFisica.cs">
+    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\FrmResgistroPersonaFisica.Designer.cs">
+    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.Designer.cs">
+      <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.Designer.cs">
       <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\UsrCtrlFile.cs">
@@ -227,7 +233,10 @@
     <EmbeddedResource Include="Operacion\FrmNuevaCita.resx">
       <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\FrmResgistroPersonaFisica.resx">
+    <EmbeddedResource Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.resx">
+      <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.resx">
       <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\UsrCtrlFile.resx">
@@ -268,7 +277,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Operacion\GenracionDocumentos\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOGO-WEB-1.png" />
   </ItemGroup>

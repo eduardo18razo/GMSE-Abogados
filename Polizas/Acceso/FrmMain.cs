@@ -29,7 +29,7 @@ namespace Polizas.Acceso
 
         private void personaFisicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistroPersonaFisica registroPersonafisica = new frmRegistroPersonaFisica();
+            FrmRegistroPersonaFisica registroPersonafisica = new FrmRegistroPersonaFisica();
             registroPersonafisica.MdiParent = this;
             registroPersonafisica.Show();
         }

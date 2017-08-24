@@ -44,3 +44,4 @@ C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Altas.FrmAltaPuesto.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Administrador.Consultas.FrmPuestos.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Temporales.FrmConfiguracionTemplate.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.FrmRegistroPersonaMoral.resources

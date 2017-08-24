@@ -1,6 +1,6 @@
 ﻿namespace Polizas.Operacion
 {
-    partial class frmRegistroPersonaFisica
+    partial class FrmRegistroPersonaMoral
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -33,6 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtExpediente = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.FechaGeneracion = new System.Windows.Forms.Label();
+            this.ucDireccion1 = new Polizas.Administrador.UcDireccion();
+            this.ucTelefonos = new Polizas.Administrador.UcTelefonos();
             this.SuspendLayout();
             // 
             // btnGenerardocumento
@@ -48,7 +54,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Location = new System.Drawing.Point(24, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 1;
@@ -57,26 +63,73 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Location = new System.Drawing.Point(24, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha";
+            this.label2.Text = "Expediente";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(62, 34);
+            this.txtNombre.Location = new System.Drawing.Point(93, 56);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(324, 20);
+            this.txtNombre.Size = new System.Drawing.Size(237, 20);
             this.txtNombre.TabIndex = 4;
             // 
             // dpFecha
             // 
             this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(63, 60);
+            this.dpFecha.Location = new System.Drawing.Point(93, 82);
             this.dpFecha.Name = "dpFecha";
             this.dpFecha.Size = new System.Drawing.Size(323, 20);
             this.dpFecha.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(361, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Correo";
+            // 
+            // txtExpediente
+            // 
+            this.txtExpediente.Location = new System.Drawing.Point(93, 30);
+            this.txtExpediente.Name = "txtExpediente";
+            this.txtExpediente.Size = new System.Drawing.Size(100, 20);
+            this.txtExpediente.TabIndex = 7;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(430, 56);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(237, 20);
+            this.txtCorreo.TabIndex = 8;
+            // 
+            // FechaGeneracion
+            // 
+            this.FechaGeneracion.AutoSize = true;
+            this.FechaGeneracion.Location = new System.Drawing.Point(24, 88);
+            this.FechaGeneracion.Name = "FechaGeneracion";
+            this.FechaGeneracion.Size = new System.Drawing.Size(35, 13);
+            this.FechaGeneracion.TabIndex = 9;
+            this.FechaGeneracion.Text = "label4";
+            // 
+            // ucDireccion1
+            // 
+            this.ucDireccion1.Location = new System.Drawing.Point(27, 118);
+            this.ucDireccion1.Name = "ucDireccion1";
+            this.ucDireccion1.Size = new System.Drawing.Size(640, 140);
+            this.ucDireccion1.TabIndex = 10;
+            // 
+            // ucTelefonos
+            // 
+            this.ucTelefonos.Location = new System.Drawing.Point(27, 264);
+            this.ucTelefonos.Name = "ucTelefonos";
+            this.ucTelefonos.Size = new System.Drawing.Size(640, 225);
+            this.ucTelefonos.TabIndex = 11;
+            this.ucTelefonos.Telefonos = null;
             // 
             // frmRegistroPersonaFisica
             // 
@@ -84,6 +137,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(748, 545);
+            this.Controls.Add(this.ucTelefonos);
+            this.Controls.Add(this.ucDireccion1);
+            this.Controls.Add(this.FechaGeneracion);
+            this.Controls.Add(this.txtCorreo);
+            this.Controls.Add(this.txtExpediente);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dpFecha);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
@@ -91,7 +150,7 @@
             this.Controls.Add(this.btnGenerardocumento);
             this.ForeColor = System.Drawing.Color.MediumBlue;
             this.MinimumSize = new System.Drawing.Size(764, 584);
-            this.Name = "frmRegistroPersonaFisica";
+            this.Name = "FrmRegistroPersonaFisica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Persona Fisica";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -107,6 +166,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtExpediente;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label FechaGeneracion;
+        private Administrador.UcDireccion ucDireccion1;
+        private Administrador.UcTelefonos ucTelefonos;
     }
 }
 

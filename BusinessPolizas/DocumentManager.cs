@@ -53,30 +53,30 @@ namespace Polizas.Business
         }
         public void GenerateDocx(Cliente persona)
         {
-            try
-            {
-                string pathSave = BusinessVariables.Directorio.DirectorioAplciacion + BusinessVariables.Directorio.CarpetaTemporales;
-                using (DocX docX = DocX.Load(string.Format("{0}{1}{2}", BusinessVariables.Directorio.DirectorioAplciacion, BusinessVariables.Directorio.CarpetaPlantillas, BusinessVariables.Files.File1)))
-                {
-                    docX.Bookmarks["Nombre"].SetText(persona.Nombre);
-                    docX.Bookmarks["Fecha"].SetText(persona.Fecha.ToString("dd/MM/yyyy"));
-                    string fileName = string.Format("{0}.docx", persona.Nombre);
-                    string sourceFile = pathSave + fileName;
-                    docX.SaveAs(string.Format(sourceFile));
-                    if (new DropBoxManager().Upload(persona.Nombre, fileName, sourceFile))
-                    {
-                        EliminarDocumentoTemporal(fileName);
-                        throw new Exception("Se registro correctamente.");
-                    }
+            //try
+            //{
+            //    string pathSave = BusinessVariables.Directorio.DirectorioAplciacion + BusinessVariables.Directorio.CarpetaTemporales;
+            //    using (DocX docX = DocX.Load(string.Format("{0}{1}{2}", BusinessVariables.Directorio.DirectorioAplciacion, BusinessVariables.Directorio.CarpetaPlantillas, BusinessVariables.Files.File1)))
+            //    {
+            //        docX.Bookmarks["Nombre"].SetText(persona.Nombre);
+            //        docX.Bookmarks["Fecha"].SetText(persona.Fecha.ToString("dd/MM/yyyy"));
+            //        string fileName = string.Format("{0}.docx", persona.Nombre);
+            //        string sourceFile = pathSave + fileName;
+            //        docX.SaveAs(string.Format(sourceFile));
+            //        if (new DropBoxManager().Upload(persona.Nombre, fileName, sourceFile))
+            //        {
+            //            EliminarDocumentoTemporal(fileName);
+            //            throw new Exception("Se registro correctamente.");
+            //        }
 
-                }
+            //    }
 
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
         }
 
         public void PrintWordDocument(string file)
