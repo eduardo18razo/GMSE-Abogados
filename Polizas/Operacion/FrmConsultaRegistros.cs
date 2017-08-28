@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Operacion;
 using Polizas.Entities.Clientes;
 using Polizas.Utils;
 
@@ -22,7 +23,7 @@ namespace Polizas.Operacion
             {
                 string filtro = txtFiltro.Text.Trim();
                 List<Cliente> lstRegistros = string.IsNullOrEmpty(filtro) ? _bRegistro.ObtenerClientes(false) : _bRegistro.BuscarClientes(filtro);
-                dgvRegistros.DataSource = lstRegistros.Select(s => new { s.Id, s.Nombre, s.Correo, s.UsuarioAlta.NombreUsuario, s.FechaAlta }).ToList();
+                dgvRegistros.DataSource = lstRegistros.Select(s => new { s.Id, s.Nombre, s.Correo, s.FechaAlta }).ToList();
                 dgvRegistros.Columns[0].Visible = false;
             }
             catch (Exception e)

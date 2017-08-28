@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Polizas.Administrador.Altas;
 using Polizas.Business;
+using Polizas.Business.Catalogos;
 using Polizas.Utils;
 
 namespace Polizas.Administrador.Consultas

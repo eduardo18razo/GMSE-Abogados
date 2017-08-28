@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Operacion;
 using Polizas.Controls;
 using Polizas.Entities;
 using Polizas.Utils;

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Polizas.Entities.Clientes;
-using Polizas.Entities.Expedientes;
 
 namespace Polizas.Entities.Usuarios
 {
@@ -37,10 +36,8 @@ namespace Polizas.Entities.Usuarios
         [DataMember]
         public virtual List<UsuarioDireccion> UsuarioDireccion { get; set; }
         [DataMember]
-        public virtual List<Audiencia> Audiencia { get; set; }
-        [DataMember]
         public virtual List<UsuarioTelefono> UsuarioTelefono { get; set; }
         [DataMember]
-        public virtual List<Caso> Caso { get; set; }
+        public virtual List<Cliente> ClientesReferenciados { get; set; }
     }
 }

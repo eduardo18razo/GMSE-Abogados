@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Polizas.Business.Operacion;
 using Polizas.Utils;
 
 namespace Polizas.Operacion.Polizas
@@ -15,7 +16,7 @@ namespace Polizas.Operacion.Polizas
         {
             try
             {
-                cmbCliente.DataSource = new Business.BusinessCliente().ObtenerClientes(true);
+                cmbCliente.DataSource = new BusinessCliente().ObtenerClientes(true);
                 cmbCliente.DisplayMember = "Nombre";
                 cmbCliente.ValueMember = "Id";
             }

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Polizas.Administrador.Altas;
 using Polizas.Business;
+using Polizas.Business.Operacion;
 using Polizas.Entities.Usuarios;
 using Polizas.Utils;
 

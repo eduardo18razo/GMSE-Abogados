@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Catalogos;
+using Polizas.Business.Manager;
 using Polizas.Entities.Roles;
 using Polizas.Utils;
 

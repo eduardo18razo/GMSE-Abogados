@@ -283,12 +283,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Templates\Machote Prueba.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Templates\Machote Prueba.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Templates\AUTORIZACIÓN CONSULTA BURO DE CRÉDITO.docx" />
+    <None Include="Templates\AVISO DE PRIVACIDAD.docx" />
+    <None Include="Templates\CONTRATO DE ARRENDAMIENTO NUEVO MEJORADO.docx" />
+    <None Include="Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES ESENCIAL.docx" />
+    <None Include="Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES TOTAL.docx" />
+    <None Include="Templates\ETIQUETAS PARA POLIZA.docx" />
+    <None Include="Templates\FORMATO ATENCION TELEFONICA.xlsx" />
+    <None Include="Templates\PAGARÉS.doc" />
+    <None Include="Templates\RECIBOS DE PAGO.doc" />
+    <None Include="Templates\SEGURIDAD EN ARRENDAMIENTO ESENCIAL 1RA VEZ.docx" />
+    <None Include="Templates\SEGURIDAD EN ARRENDAMIENTO TOTAL 1RA VEZ.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -46,7 +46,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(449, 53);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -89,7 +89,7 @@
             this.txtExtension.Location = new System.Drawing.Point(311, 54);
             this.txtExtension.Name = "txtExtension";
             this.txtExtension.Size = new System.Drawing.Size(100, 20);
-            this.txtExtension.TabIndex = 6;
+            this.txtExtension.TabIndex = 3;
             this.txtExtension.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExtension_KeyPress);
             // 
             // lblExtension
@@ -107,7 +107,7 @@
             this.txtNumero.MaxLength = 10;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 20);
-            this.txtNumero.TabIndex = 4;
+            this.txtNumero.TabIndex = 2;
             this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // label2
@@ -126,7 +126,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(22, 54);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(121, 21);
-            this.cmbTipo.TabIndex = 2;
+            this.cmbTipo.TabIndex = 1;
             // 
             // label1
             // 

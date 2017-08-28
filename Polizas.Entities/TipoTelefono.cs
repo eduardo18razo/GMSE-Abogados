@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Polizas.Entities.Arrendatario;
 using Polizas.Entities.Clientes;
-using Polizas.Entities.Juzgados;
 using Polizas.Entities.Usuarios;
 
 namespace Polizas.Entities
@@ -24,7 +24,7 @@ namespace Polizas.Entities
         [DataMember]
         public virtual List<UsuarioTelefono> UsuarioTelefono { get; set; }
         [DataMember]
-        public virtual List<JuzgadoTelefono> JuzgadoTelefono { get; set; }
+        public virtual List<ArrendatarioTelefono> ArrendatarioTelefono { get; set; }
 
     }
 }

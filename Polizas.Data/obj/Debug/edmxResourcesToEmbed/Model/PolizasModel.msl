@@ -1,39 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DB_A28D98_userpolizasModelStoreContainer" CdmEntityContainer="PolizasEntities">
-    <EntitySetMapping Name="Audiencia">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Audiencia">
-        <MappingFragment StoreEntitySet="Audiencia">
-          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-          <ScalarProperty Name="HoraAudiencia" ColumnName="HoraAudiencia" />
-          <ScalarProperty Name="FechaAudiencia" ColumnName="FechaAudiencia" />
-          <ScalarProperty Name="IdJuzgado" ColumnName="IdJuzgado" />
-          <ScalarProperty Name="IdUsuarioAsignado" ColumnName="IdUsuarioAsignado" />
+    <EntitySetMapping Name="Arrendatario">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Arrendatario">
+        <MappingFragment StoreEntitySet="Arrendatario">
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="RepresentanteLegal" ColumnName="RepresentanteLegal" />
+          <ScalarProperty Name="ActividadEmpresarial" ColumnName="ActividadEmpresarial" />
+          <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Caso">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Caso">
-        <MappingFragment StoreEntitySet="Caso">
-          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-          <ScalarProperty Name="IdEstatus" ColumnName="IdEstatus" />
-          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-          <ScalarProperty Name="IdUsuarioAsignado" ColumnName="IdUsuarioAsignado" />
-          <ScalarProperty Name="IdTipoCaso" ColumnName="IdTipoCaso" />
+    <EntitySetMapping Name="ArrendatarioDireccion">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.ArrendatarioDireccion">
+        <MappingFragment StoreEntitySet="ArrendatarioDireccion">
+          <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+          <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="IdColonia" ColumnName="IdColonia" />
+          <ScalarProperty Name="IdArrendatario" ColumnName="IdArrendatario" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Cita">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cita">
-        <MappingFragment StoreEntitySet="Cita">
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="BorderColor" ColumnName="BorderColor" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+    <EntitySetMapping Name="ArrendatarioTelefono">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.ArrendatarioTelefono">
+        <MappingFragment StoreEntitySet="ArrendatarioTelefono">
+          <ScalarProperty Name="Extensiones" ColumnName="Extensiones" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IdTipoTelefono" ColumnName="IdTipoTelefono" />
+          <ScalarProperty Name="IdArrendatario" ColumnName="IdArrendatario" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="RepresentanteLegal" ColumnName="RepresentanteLegal" />
+          <ScalarProperty Name="ActividadEmpresarial" ColumnName="ActividadEmpresarial" />
+          <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NoContrato" ColumnName="NoContrato" />
+          <ScalarProperty Name="IdUsuarioReferencia" ColumnName="IdUsuarioReferencia" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -81,35 +96,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Juzgado">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Juzgado">
-        <MappingFragment StoreEntitySet="Juzgado">
-          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+    <EntitySetMapping Name="InmuebleArrendado">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.InmuebleArrendado">
+        <MappingFragment StoreEntitySet="InmuebleArrendado">
+          <ScalarProperty Name="Vigente" ColumnName="Vigente" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="IdInmueble" ColumnName="IdInmueble" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="JuzgadoDireccion">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.JuzgadoDireccion">
-        <MappingFragment StoreEntitySet="JuzgadoDireccion">
+    <EntitySetMapping Name="InmuebleCliente">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.InmuebleCliente">
+        <MappingFragment StoreEntitySet="InmuebleCliente">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="CantidadDepositos" ColumnName="CantidadDepositos" />
+          <ScalarProperty Name="NumeroDepositos" ColumnName="NumeroDepositos" />
+          <ScalarProperty Name="Mantenimiento" ColumnName="Mantenimiento" />
+          <ScalarProperty Name="Renta" ColumnName="Renta" />
+          <ScalarProperty Name="IdColonia" ColumnName="IdColonia" />
           <ScalarProperty Name="NoInt" ColumnName="NoInt" />
           <ScalarProperty Name="NoExt" ColumnName="NoExt" />
           <ScalarProperty Name="Calle" ColumnName="Calle" />
-          <ScalarProperty Name="IdColonia" ColumnName="IdColonia" />
-          <ScalarProperty Name="IdJuzgado" ColumnName="IdJuzgado" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="JuzgadoTelefono">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.JuzgadoTelefono">
-        <MappingFragment StoreEntitySet="JuzgadoTelefono">
-          <ScalarProperty Name="Extensiones" ColumnName="Extensiones" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="IdAreaJuzgado" ColumnName="IdAreaJuzgado" />
-          <ScalarProperty Name="IdTipoTelefono" ColumnName="IdTipoTelefono" />
-          <ScalarProperty Name="IdJuzgado" ColumnName="IdJuzgado" />
+          <ScalarProperty Name="IdTipoUso" ColumnName="IdTipoUso" />
+          <ScalarProperty Name="IdTipoInmueble" ColumnName="IdTipoInmueble" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -128,6 +140,58 @@
         <MappingFragment StoreEntitySet="Pais">
           <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
           <ScalarProperty Name="RegionCode" ColumnName="RegionCode" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoInmueble">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoInmueble">
+        <MappingFragment StoreEntitySet="TipoInmueble">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoTelefono">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoTelefono">
+        <MappingFragment StoreEntitySet="TipoTelefono">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUso">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoUso">
+        <MappingFragment StoreEntitySet="TipoUso">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cita">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="BorderColor" ColumnName="BorderColor" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pantalla">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Pantalla">
+        <MappingFragment StoreEntitySet="Pantalla">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="EsMenu" ColumnName="EsMenu" />
+          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -156,25 +220,6 @@
         <MappingFragment StoreEntitySet="RolPantalla">
           <ScalarProperty Name="IdPantalla" ColumnName="IdPantalla" />
           <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TipoCaso">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoCaso">
-        <MappingFragment StoreEntitySet="TipoCaso">
-          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TipoTelefono">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoTelefono">
-        <MappingFragment StoreEntitySet="TipoTelefono">
-          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
-          <ScalarProperty Name="Extension" ColumnName="Extension" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -221,32 +266,6 @@
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdTipoTelefono" ColumnName="IdTipoTelefono" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Pantalla">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Pantalla">
-        <MappingFragment StoreEntitySet="Pantalla">
-          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
-          <ScalarProperty Name="EsMenu" ColumnName="EsMenu" />
-          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Cliente">
-      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cliente">
-        <MappingFragment StoreEntitySet="Cliente">
-          <ScalarProperty Name="IdFechaModificacion" ColumnName="IdFechaModificacion" />
-          <ScalarProperty Name="IdUsuarioModifico" ColumnName="IdUsuarioModifico" />
-          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-          <ScalarProperty Name="IdUsuarioAlta" ColumnName="IdUsuarioAlta" />
-          <ScalarProperty Name="Correo" ColumnName="Correo" />
-          <ScalarProperty Name="PersonaFisica" ColumnName="PersonaFisica" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Expediente" ColumnName="Expediente" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Manager;
 using Polizas.Utils;
 
 namespace Polizas.Operacion

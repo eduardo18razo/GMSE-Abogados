@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Catalogos;
+using Polizas.Business.Manager;
 using Polizas.Entities.Helpers;
 using Polizas.Utils;
 
@@ -58,6 +60,7 @@ namespace Polizas.Administrador
                 throw new Exception(e.Message);
             }
         }
+
         private bool ValidaCaptura()
         {
             try

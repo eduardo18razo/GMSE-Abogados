@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Operacion;
 using Polizas.Entities;
 
 namespace Polizas.Controls

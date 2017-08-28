@@ -57,9 +57,10 @@
             this.txtCp.MaxLength = 5;
             this.txtCp.Name = "txtCp";
             this.txtCp.Size = new System.Drawing.Size(69, 20);
-            this.txtCp.TabIndex = 1;
+            this.txtCp.TabIndex = 0;
             this.txtCp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCp_KeyDown);
             this.txtCp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCp_KeyPress);
+            this.txtCp.Leave += new System.EventHandler(this.txtCp_Leave);
             // 
             // label2
             // 
@@ -77,7 +78,7 @@
             this.cmbColonia.Location = new System.Drawing.Point(120, 42);
             this.cmbColonia.Name = "cmbColonia";
             this.cmbColonia.Size = new System.Drawing.Size(309, 21);
-            this.cmbColonia.TabIndex = 3;
+            this.cmbColonia.TabIndex = 1;
             // 
             // label3
             // 
@@ -111,14 +112,14 @@
             this.txtCalle.Location = new System.Drawing.Point(23, 105);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(230, 20);
-            this.txtCalle.TabIndex = 7;
+            this.txtCalle.TabIndex = 2;
             // 
             // txtNoExt
             // 
             this.txtNoExt.Location = new System.Drawing.Point(274, 105);
             this.txtNoExt.Name = "txtNoExt";
             this.txtNoExt.Size = new System.Drawing.Size(69, 20);
-            this.txtNoExt.TabIndex = 8;
+            this.txtNoExt.TabIndex = 3;
             this.txtNoExt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoExt_KeyPress);
             // 
             // txtNoInt
@@ -126,7 +127,7 @@
             this.txtNoInt.Location = new System.Drawing.Point(360, 105);
             this.txtNoInt.Name = "txtNoInt";
             this.txtNoInt.Size = new System.Drawing.Size(69, 20);
-            this.txtNoInt.TabIndex = 9;
+            this.txtNoInt.TabIndex = 4;
             this.txtNoInt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoInt_KeyPress);
             // 
             // gbDireccion
@@ -151,12 +152,12 @@
             this.gbDireccion.TabStop = false;
             this.gbDireccion.Text = "Direccion";
             // 
-            // UsrCtrlDireccion
+            // UcDireccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbDireccion);
-            this.Name = "UsrCtrlDireccion";
+            this.Name = "UcDireccion";
             this.Size = new System.Drawing.Size(455, 140);
             this.gbDireccion.ResumeLayout(false);
             this.gbDireccion.PerformLayout();

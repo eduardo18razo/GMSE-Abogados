@@ -1,46 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
-using Polizas.Entities.Expedientes;
+using Polizas.Entities.Inmueble;
 using Polizas.Entities.Usuarios;
 
 namespace Polizas.Entities.Clientes
 {
-    //prueba git
     [DataContract(IsReference = true)]
     public class Cliente
     {
         [DataMember]
         public Int64 Id { get; set; }
         [DataMember]
-        public string Expediente { get; set; }
+        public Int64? IdUsuarioReferencia { get; set; }
+        [DataMember]
+        public string NoContrato { get; set; }
         [DataMember]
         public string Nombre { get; set; }
         [DataMember]
         public bool PersonaFisica { get; set; }
         [DataMember]
+        public bool ActividadEmpresarial { get; set; }
+        [DataMember]
+        public string Rfc { get; set; }
+        [DataMember]
+        public string RepresentanteLegal { get; set; }
+        [DataMember]
         public string Correo { get; set; }
         [DataMember]
-        public Int64 IdUsuarioAlta { get; set; }
-        [DataMember]
         public DateTime FechaAlta { get; set; }
-        [DataMember]
-        public Int64? IdUsuarioModifico { get; set; }
-        [DataMember]
-        public DateTime? IdFechaModificacion { get; set; }
-
-        [DataMember]
-        public virtual Usuario UsuarioAlta { get; set; }
-        [DataMember]
-        public virtual Usuario UsuarioModifico { get; set; }
+        public virtual Usuario UsuarioReferencia { get; set; }
         [DataMember]
         public virtual List<Cita> Cita { get; set; }
-        [DataMember]
-        public virtual List<Caso> Caso { get; set; }
         [DataMember]
         public virtual List<ClienteDireccion> ClienteDireccion { get; set; }
         [DataMember]
         public virtual List<ClienteTelefono> ClienteTelefono { get; set; }
+        [DataMember]
+        public virtual List<InmuebleCliente> InmuebleCliente { get; set; }
     }
 }

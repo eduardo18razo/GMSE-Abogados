@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Polizas.Entities.Arrendatario;
 using Polizas.Entities.Clientes;
-using Polizas.Entities.Juzgados;
+using Polizas.Entities.Inmueble;
 using Polizas.Entities.Usuarios;
 
 namespace Polizas.Entities.Ubicacion
@@ -24,8 +25,11 @@ namespace Polizas.Entities.Ubicacion
         public virtual List<ClienteDireccion> ClienteDireccion { get; set; }
         [DataMember]
         public virtual List<UsuarioDireccion> UsuarioDireccion { get; set; }
+
         [DataMember]
-        public virtual List<JuzgadoDireccion> JuzgadoDireccion { get; set; }
+        public virtual List<ArrendatarioDireccion> ArrendatarioDireccion { get; set; }
+        [DataMember]
+        public virtual List<InmuebleCliente> InmuebleCliente { get; set; }
 
 
     }

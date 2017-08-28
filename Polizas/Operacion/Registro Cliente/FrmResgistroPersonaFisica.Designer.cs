@@ -39,14 +39,19 @@ namespace Polizas.Operacion
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.ucDireccion1 = new UcDireccion();
             this.ucTelefonos = new UcTelefonos();
+            this.chkActividadEmpresarial = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtRepLegal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtRfc = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnGenerardocumento
             // 
-            this.btnGenerardocumento.Location = new System.Drawing.Point(611, 498);
+            this.btnGenerardocumento.Location = new System.Drawing.Point(542, 522);
             this.btnGenerardocumento.Name = "btnGenerardocumento";
             this.btnGenerardocumento.Size = new System.Drawing.Size(125, 23);
-            this.btnGenerardocumento.TabIndex = 6;
+            this.btnGenerardocumento.TabIndex = 7;
             this.btnGenerardocumento.Text = "Generar Documentos";
             this.btnGenerardocumento.UseVisualStyleBackColor = true;
             this.btnGenerardocumento.Click += new System.EventHandler(this.btnGenerarDocumento_Click);
@@ -65,16 +70,16 @@ namespace Polizas.Operacion
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(24, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Expediente";
+            this.label2.Text = "Contrato";
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(93, 56);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(237, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 2;
             // 
             // label3
             // 
@@ -97,29 +102,78 @@ namespace Polizas.Operacion
             this.txtCorreo.Location = new System.Drawing.Point(430, 56);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(237, 20);
-            this.txtCorreo.TabIndex = 2;
+            this.txtCorreo.TabIndex = 3;
             // 
             // ucDireccion1
             // 
-            this.ucDireccion1.Location = new System.Drawing.Point(27, 93);
+            this.ucDireccion1.Location = new System.Drawing.Point(27, 134);
             this.ucDireccion1.Name = "ucDireccion1";
             this.ucDireccion1.Size = new System.Drawing.Size(640, 140);
-            this.ucDireccion1.TabIndex = 4;
+            this.ucDireccion1.TabIndex = 6;
             // 
             // ucTelefonos
             // 
-            this.ucTelefonos.Location = new System.Drawing.Point(27, 248);
+            this.ucTelefonos.Location = new System.Drawing.Point(27, 280);
             this.ucTelefonos.Name = "ucTelefonos";
             this.ucTelefonos.Size = new System.Drawing.Size(640, 225);
-            this.ucTelefonos.TabIndex = 5;
+            this.ucTelefonos.TabIndex = 7;
             this.ucTelefonos.Telefonos = null;
+            // 
+            // chkActividadEmpresarial
+            // 
+            this.chkActividadEmpresarial.AutoSize = true;
+            this.chkActividadEmpresarial.Checked = true;
+            this.chkActividadEmpresarial.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.chkActividadEmpresarial.Location = new System.Drawing.Point(213, 32);
+            this.chkActividadEmpresarial.Name = "chkActividadEmpresarial";
+            this.chkActividadEmpresarial.Size = new System.Drawing.Size(127, 17);
+            this.chkActividadEmpresarial.TabIndex = 1;
+            this.chkActividadEmpresarial.Text = "Actividad Empresarial";
+            this.chkActividadEmpresarial.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 85);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Representante Legal";
+            // 
+            // txtRepLegal
+            // 
+            this.txtRepLegal.Location = new System.Drawing.Point(136, 82);
+            this.txtRepLegal.Name = "txtRepLegal";
+            this.txtRepLegal.Size = new System.Drawing.Size(531, 20);
+            this.txtRepLegal.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 111);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "R.F.C.";
+            // 
+            // txtRfc
+            // 
+            this.txtRfc.Location = new System.Drawing.Point(93, 108);
+            this.txtRfc.Name = "txtRfc";
+            this.txtRfc.Size = new System.Drawing.Size(237, 20);
+            this.txtRfc.TabIndex = 5;
             // 
             // FrmRegistroPersonaFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(748, 545);
+            this.ClientSize = new System.Drawing.Size(694, 566);
+            this.Controls.Add(this.txtRfc);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtRepLegal);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.chkActividadEmpresarial);
             this.Controls.Add(this.ucTelefonos);
             this.Controls.Add(this.ucDireccion1);
             this.Controls.Add(this.txtCorreo);
@@ -130,7 +184,6 @@ namespace Polizas.Operacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGenerardocumento);
             this.ForeColor = System.Drawing.Color.MediumBlue;
-            this.MinimumSize = new System.Drawing.Size(764, 584);
             this.Name = "FrmRegistroPersonaFisica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Persona Fisica";
@@ -151,6 +204,11 @@ namespace Polizas.Operacion
         private System.Windows.Forms.TextBox txtCorreo;
         private Administrador.UcDireccion ucDireccion1;
         private Administrador.UcTelefonos ucTelefonos;
+        private System.Windows.Forms.CheckBox chkActividadEmpresarial;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtRepLegal;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtRfc;
     }
 }
 

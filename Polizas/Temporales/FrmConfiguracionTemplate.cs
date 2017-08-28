@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Manager;
 using Polizas.Entities.Usuarios;
 using Polizas.Utils;
 

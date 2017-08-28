@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Operacion;
 using Polizas.Entities.Clientes;
 using Polizas.Entities.Helpers;
 
@@ -41,11 +42,12 @@ namespace Polizas.Operacion
                     BusinessCliente documentManager = new BusinessCliente();
                     Cliente cte = new Cliente
                     {
-                        Expediente = txtExpediente.Text,
+                        NoContrato = txtExpediente.Text,
                         Nombre = txtNombre.Text,
                         PersonaFisica = false,
                         Correo = txtCorreo.Text,
-                        IdUsuarioAlta = Properties.Settings.userData.Id,
+                        //TODO: Referenciar a pantalla
+                        //IdUsuarioReferencia= Properties.Settings.userData.Id,
                         ClienteDireccion = new List<ClienteDireccion>
                         {
                             new ClienteDireccion

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Catalogos;
 using Polizas.Entities.Usuarios;
 using Polizas.Utils;
 

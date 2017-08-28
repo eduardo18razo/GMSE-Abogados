@@ -61,6 +61,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,18 +72,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessCita.cs" />
-    <Compile Include="BusinessCliente.cs" />
-    <Compile Include="BusinessColonia.cs" />
-    <Compile Include="BusinessPuesto.cs" />
-    <Compile Include="BusinessRol.cs" />
-    <Compile Include="BusinessSecurity.cs" />
-    <Compile Include="BusinessTipoTelefono.cs" />
-    <Compile Include="BusinessVariables.cs" />
-    <Compile Include="DocumentManager.cs" />
-    <Compile Include="DropBoxManager.cs" />
+    <Compile Include="Operacion\BusinessArrendatario.cs" />
+    <Compile Include="Operacion\BusinessCita.cs" />
+    <Compile Include="Operacion\BusinessCliente.cs" />
+    <Compile Include="Catalogos\BusinessColonia.cs" />
+    <Compile Include="Catalogos\BusinessPuesto.cs" />
+    <Compile Include="Catalogos\BusinessRol.cs" />
+    <Compile Include="Sistema\BusinessSecurity.cs" />
+    <Compile Include="Catalogos\BusinessTipoTelefono.cs" />
+    <Compile Include="Manager\BusinessVariables.cs" />
+    <Compile Include="Manager\DocumentManager.cs" />
+    <Compile Include="Documentos\AutorizacionBuroCredito.cs" />
+    <Compile Include="Documentos\ContratoArrendamiento.cs" />
+    <Compile Include="Documentos\ContratoPolizaTotal.cs" />
+    <Compile Include="Documentos\Marcadores.cs" />
+    <Compile Include="Manager\DropBoxManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BusinessUsuario.cs" />
+    <Compile Include="Operacion\BusinessUsuario.cs" />
+    <Compile Include="Utils\FileManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

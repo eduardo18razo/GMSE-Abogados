@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Polizas.Business;
+using Polizas.Business.Catalogos;
+using Polizas.Business.Manager;
 using Polizas.Entities.Helpers;
 using Polizas.Utils;
 
@@ -18,14 +20,17 @@ namespace Polizas.Administrador
         {
             get
             {
-                return new HelperDireccion
-                {
-                    IdColonia = int.Parse(cmbColonia.SelectedValue.ToString()),
-                    Cp = int.Parse(txtCp.Text.Trim()),
-                    Calle = txtCalle.Text.Trim(),
-                    NoExt = txtNoExt.Text.Trim(),
-                    NoInt = txtNoInt.Text.Trim()
-                };
+                HelperDireccion result = null;
+                if (cmbColonia.SelectedIndex > BusinessVariables.ComboBoxCatalogo.IndexSeleccione)
+                    result = new HelperDireccion
+                    {
+                        IdColonia = int.Parse(cmbColonia.SelectedValue.ToString()),
+                        Cp = int.Parse(txtCp.Text.Trim()),
+                        Calle = txtCalle.Text.Trim(),
+                        NoExt = txtNoExt.Text.Trim(),
+                        NoInt = txtNoInt.Text.Trim()
+                    };
+                return result;
             }
             set
             {
@@ -42,31 +47,29 @@ namespace Polizas.Administrador
         {
             try
             {
-                if (txtCp.Text.Trim() == string.Empty)
+                if (txtCp.Text.Trim() != string.Empty || cmbColonia.SelectedIndex > BusinessVariables.ComboBoxCatalogo.IndexSeleccione || txtCalle.Text.Trim() != string.Empty || txtNoExt.Text.Trim() != string.Empty)
                 {
-                    txtCp.Focus();
-                    throw new Exception("Ingrese un codigo postal valido");
+                    if (txtCp.Text.Trim() == string.Empty)
+                    {
+                        txtCp.Focus();
+                        throw new Exception("Ingrese un codigo postal valido");
+                    }
+                    if (cmbColonia.SelectedIndex <= BusinessVariables.ComboBoxCatalogo.IndexSeleccione)
+                    {
+                        txtCp.Focus();
+                        throw new Exception("Ingrese un codigo postal valido");
+                    }
+                    if (txtCalle.Text.Trim() == string.Empty)
+                    {
+                        txtCalle.Focus();
+                        throw new Exception("Ingrese Calle");
+                    }
+                    if (txtNoExt.Text.Trim() == string.Empty)
+                    {
+                        txtNoExt.Focus();
+                        throw new Exception("Ingrese Numero exterior");
+                    }
                 }
-                if (cmbColonia.SelectedIndex == BusinessVariables.ComboBoxCatalogo.IndexSeleccione)
-                {
-                    txtCp.Focus();
-                    throw new Exception("Ingrese un codigo postal valido");
-                }
-                if (txtCalle.Text.Trim() == string.Empty)
-                {
-                    txtCalle.Focus();
-                    throw new Exception("Ingrese Calle");
-                }
-                if (txtNoExt.Text.Trim() == string.Empty)
-                {
-                    txtNoExt.Focus();
-                    throw new Exception("Ingrese Numero exterior");
-                }
-                //if (txtNoInt.Text.Trim() == string.Empty)
-                //{
-                //    txtCalle.Focus();
-                //    throw new Exception("Ingrese Calle");
-                //}
             }
             catch (Exception ex)
             {
@@ -155,6 +158,19 @@ namespace Polizas.Administrador
                 //{
                 //    e.Handled = true;
                 //}
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+        private void txtCp_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCp.Text.Trim() != string.Empty)
+                    LlenaColonias();
             }
             catch (Exception ex)
             {

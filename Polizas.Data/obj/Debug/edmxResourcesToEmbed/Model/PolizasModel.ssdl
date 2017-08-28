@@ -1,26 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_A28D98_userpolizasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Audiencia">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" Nullable="false" />
-    <Property Name="IdUsuarioAsignado" Type="bigint" />
-    <Property Name="IdJuzgado" Type="bigint" />
-    <Property Name="FechaAudiencia" Type="datetime" />
-    <Property Name="HoraAudiencia" Type="time" Precision="7" />
-    <Property Name="Observaciones" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="Caso">
+  <EntityType Name="Arrendatario">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdTipoCaso" Type="bigint" />
-    <Property Name="IdUsuarioAsignado" Type="bigint" />
-    <Property Name="IdCliente" Type="bigint" />
-    <Property Name="IdEstatus" Type="bigint" />
-    <Property Name="FechaInicio" Type="datetime" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+    <Property Name="PersonaFisica" Type="bit" />
+    <Property Name="ActividadEmpresarial" Type="bit" />
+    <Property Name="RepresentanteLegal" Type="nvarchar" MaxLength="500" />
+    <Property Name="Rfc" Type="nvarchar" MaxLength="15" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ArrendatarioDireccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdArrendatario" Type="bigint" />
+    <Property Name="IdColonia" Type="int" />
+    <Property Name="Calle" Type="nvarchar" MaxLength="150" />
+    <Property Name="NoExt" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoInt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ArrendatarioTelefono">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdArrendatario" Type="bigint" />
+    <Property Name="IdTipoTelefono" Type="bigint" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="Extensiones" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Cita">
     <Key>
@@ -39,14 +50,15 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Expediente" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdUsuarioReferencia" Type="bigint" />
+    <Property Name="NoContrato" Type="nvarchar" MaxLength="250" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="PersonaFisica" Type="bit" Nullable="false" />
+    <Property Name="ActividadEmpresarial" Type="bit" />
+    <Property Name="RepresentanteLegal" Type="nvarchar" MaxLength="500" />
+    <Property Name="Rfc" Type="nvarchar" MaxLength="15" />
     <Property Name="Correo" Type="nvarchar" MaxLength="150" />
-    <Property Name="IdUsuarioAlta" Type="bigint" Nullable="false" />
-    <Property Name="FechaAlta" Type="datetime" Nullable="false" />
-    <Property Name="IdUsuarioModifico" Type="bigint" />
-    <Property Name="IdFechaModificacion" Type="datetime" />
+    <Property Name="FechaAlta" Type="datetime" />
   </EntityType>
   <EntityType Name="ClienteDireccion">
     <Key>
@@ -87,35 +99,33 @@
     <Property Name="Descripcion" Type="nvarchar(max)" />
     <Property Name="RegionCode" Type="nvarchar" MaxLength="150" />
   </EntityType>
-  <EntityType Name="Juzgado">
+  <EntityType Name="InmuebleArrendado">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
-    <Property Name="Habilitado" Type="bit" />
+    <Property Name="IdInmueble" Type="bigint" />
+    <Property Name="FechaInicio" Type="datetime" />
+    <Property Name="FechaFin" Type="datetime" />
+    <Property Name="Vigente" Type="bit" />
   </EntityType>
-  <EntityType Name="JuzgadoDireccion">
+  <EntityType Name="InmuebleCliente">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdJuzgado" Type="bigint" />
-    <Property Name="IdColonia" Type="int" />
+    <Property Name="IdCliente" Type="bigint" />
+    <Property Name="IdTipoInmueble" Type="bigint" />
+    <Property Name="IdTipoUso" Type="int" />
     <Property Name="Calle" Type="nvarchar" MaxLength="150" />
     <Property Name="NoExt" Type="nvarchar" MaxLength="50" />
     <Property Name="NoInt" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="JuzgadoTelefono">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdJuzgado" Type="bigint" />
-    <Property Name="IdTipoTelefono" Type="bigint" />
-    <Property Name="IdAreaJuzgado" Type="bigint" />
-    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
-    <Property Name="Extensiones" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdColonia" Type="int" />
+    <Property Name="Renta" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Mantenimiento" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NumeroDepositos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CantidadDepositos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="Municipio">
     <Key>
@@ -168,12 +178,12 @@
     <Property Name="IdRol" Type="bigint" />
     <Property Name="IdPantalla" Type="bigint" />
   </EntityType>
-  <EntityType Name="TipoCaso">
+  <EntityType Name="TipoInmueble">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
     <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="TipoTelefono">
@@ -183,6 +193,14 @@
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
     <Property Name="Extension" Type="bit" />
+    <Property Name="Habilitado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoUso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
     <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -227,63 +245,51 @@
     <Property Name="Extension" Type="nvarchar" MaxLength="50" />
     <Property Name="Principal" Type="bit" />
   </EntityType>
-  <Association Name="FK_Audiencia_Juzgado">
-    <End Role="Juzgado" Type="Self.Juzgado" Multiplicity="0..1" />
-    <End Role="Audiencia" Type="Self.Audiencia" Multiplicity="*" />
+  <Association Name="FK_ArrendatarioDireccion_Arrendatario">
+    <End Role="Arrendatario" Type="Self.Arrendatario" Multiplicity="0..1" />
+    <End Role="ArrendatarioDireccion" Type="Self.ArrendatarioDireccion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Juzgado">
+      <Principal Role="Arrendatario">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Audiencia">
-        <PropertyRef Name="IdJuzgado" />
+      <Dependent Role="ArrendatarioDireccion">
+        <PropertyRef Name="IdArrendatario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Audiencia_Usuario">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
-    <End Role="Audiencia" Type="Self.Audiencia" Multiplicity="*" />
+  <Association Name="FK_ArrendatarioDireccion_Colonia">
+    <End Role="Colonia" Type="Self.Colonia" Multiplicity="0..1" />
+    <End Role="ArrendatarioDireccion" Type="Self.ArrendatarioDireccion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Usuario">
+      <Principal Role="Colonia">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Audiencia">
-        <PropertyRef Name="IdUsuarioAsignado" />
+      <Dependent Role="ArrendatarioDireccion">
+        <PropertyRef Name="IdColonia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Caso_Cliente">
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
-    <End Role="Caso" Type="Self.Caso" Multiplicity="*" />
+  <Association Name="FK_ArrendatarioTelefono_Arrendatario">
+    <End Role="Arrendatario" Type="Self.Arrendatario" Multiplicity="0..1" />
+    <End Role="ArrendatarioTelefono" Type="Self.ArrendatarioTelefono" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cliente">
+      <Principal Role="Arrendatario">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Caso">
-        <PropertyRef Name="IdCliente" />
+      <Dependent Role="ArrendatarioTelefono">
+        <PropertyRef Name="IdArrendatario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Caso_TipoCaso">
-    <End Role="TipoCaso" Type="Self.TipoCaso" Multiplicity="0..1" />
-    <End Role="Caso" Type="Self.Caso" Multiplicity="*" />
+  <Association Name="FK_ArrendatarioTelefono_TipoTelefono">
+    <End Role="TipoTelefono" Type="Self.TipoTelefono" Multiplicity="0..1" />
+    <End Role="ArrendatarioTelefono" Type="Self.ArrendatarioTelefono" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TipoCaso">
+      <Principal Role="TipoTelefono">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Caso">
-        <PropertyRef Name="IdTipoCaso" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Caso_Usuario">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
-    <End Role="Caso" Type="Self.Caso" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Caso">
-        <PropertyRef Name="IdUsuarioAsignado" />
+      <Dependent Role="ArrendatarioTelefono">
+        <PropertyRef Name="IdTipoTelefono" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -312,18 +318,6 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Cliente_Usuario">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Cliente">
-        <PropertyRef Name="IdUsuarioAlta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Cliente_Usuario1">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
     <ReferentialConstraint>
@@ -331,7 +325,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Cliente">
-        <PropertyRef Name="IdUsuarioModifico" />
+        <PropertyRef Name="IdUsuarioReferencia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -407,51 +401,63 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JuzgadoDireccion_Colonia">
+  <Association Name="FK_InmuebleArrendado_InmuebleCliente">
+    <End Role="InmuebleCliente" Type="Self.InmuebleCliente" Multiplicity="0..1" />
+    <End Role="InmuebleArrendado" Type="Self.InmuebleArrendado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InmuebleCliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InmuebleArrendado">
+        <PropertyRef Name="IdInmueble" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InmuebleCliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="InmuebleCliente" Type="Self.InmuebleCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InmuebleCliente">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InmuebleCliente_Colonia">
     <End Role="Colonia" Type="Self.Colonia" Multiplicity="0..1" />
-    <End Role="JuzgadoDireccion" Type="Self.JuzgadoDireccion" Multiplicity="*" />
+    <End Role="InmuebleCliente" Type="Self.InmuebleCliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Colonia">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="JuzgadoDireccion">
+      <Dependent Role="InmuebleCliente">
         <PropertyRef Name="IdColonia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JuzgadoDireccion_Juzgado">
-    <End Role="Juzgado" Type="Self.Juzgado" Multiplicity="0..1" />
-    <End Role="JuzgadoDireccion" Type="Self.JuzgadoDireccion" Multiplicity="*" />
+  <Association Name="FK_InmuebleCliente_TipoInmueble">
+    <End Role="TipoInmueble" Type="Self.TipoInmueble" Multiplicity="0..1" />
+    <End Role="InmuebleCliente" Type="Self.InmuebleCliente" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Juzgado">
+      <Principal Role="TipoInmueble">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="JuzgadoDireccion">
-        <PropertyRef Name="IdJuzgado" />
+      <Dependent Role="InmuebleCliente">
+        <PropertyRef Name="IdTipoInmueble" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JuzgadoTelefono_Juzgado">
-    <End Role="Juzgado" Type="Self.Juzgado" Multiplicity="0..1" />
-    <End Role="JuzgadoTelefono" Type="Self.JuzgadoTelefono" Multiplicity="*" />
+  <Association Name="FK_InmuebleCliente_TipoUso">
+    <End Role="TipoUso" Type="Self.TipoUso" Multiplicity="0..1" />
+    <End Role="InmuebleCliente" Type="Self.InmuebleCliente" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Juzgado">
+      <Principal Role="TipoUso">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="JuzgadoTelefono">
-        <PropertyRef Name="IdJuzgado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_JuzgadoTelefono_TipoTelefono">
-    <End Role="TipoTelefono" Type="Self.TipoTelefono" Multiplicity="0..1" />
-    <End Role="JuzgadoTelefono" Type="Self.JuzgadoTelefono" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TipoTelefono">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="JuzgadoTelefono">
-        <PropertyRef Name="IdTipoTelefono" />
+      <Dependent Role="InmuebleCliente">
+        <PropertyRef Name="IdTipoUso" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -576,48 +582,45 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DB_A28D98_userpolizasModelStoreContainer">
-    <EntitySet Name="Audiencia" EntityType="Self.Audiencia" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Caso" EntityType="Self.Caso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Arrendatario" EntityType="Self.Arrendatario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArrendatarioDireccion" EntityType="Self.ArrendatarioDireccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArrendatarioTelefono" EntityType="Self.ArrendatarioTelefono" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClienteDireccion" EntityType="Self.ClienteDireccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClienteTelefono" EntityType="Self.ClienteTelefono" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colonia" EntityType="Self.Colonia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Juzgado" EntityType="Self.Juzgado" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="JuzgadoDireccion" EntityType="Self.JuzgadoDireccion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="JuzgadoTelefono" EntityType="Self.JuzgadoTelefono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InmuebleArrendado" EntityType="Self.InmuebleArrendado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InmuebleCliente" EntityType="Self.InmuebleCliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pantalla" EntityType="Self.Pantalla" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolPantalla" EntityType="Self.RolPantalla" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TipoCaso" EntityType="Self.TipoCaso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoInmueble" EntityType="Self.TipoInmueble" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoTelefono" EntityType="Self.TipoTelefono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUso" EntityType="Self.TipoUso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioDireccion" EntityType="Self.UsuarioDireccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioRol" EntityType="Self.UsuarioRol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioTelefono" EntityType="Self.UsuarioTelefono" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Audiencia_Juzgado" Association="Self.FK_Audiencia_Juzgado">
-      <End Role="Juzgado" EntitySet="Juzgado" />
-      <End Role="Audiencia" EntitySet="Audiencia" />
+    <AssociationSet Name="FK_ArrendatarioDireccion_Arrendatario" Association="Self.FK_ArrendatarioDireccion_Arrendatario">
+      <End Role="Arrendatario" EntitySet="Arrendatario" />
+      <End Role="ArrendatarioDireccion" EntitySet="ArrendatarioDireccion" />
     </AssociationSet>
-    <AssociationSet Name="FK_Audiencia_Usuario" Association="Self.FK_Audiencia_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Audiencia" EntitySet="Audiencia" />
+    <AssociationSet Name="FK_ArrendatarioDireccion_Colonia" Association="Self.FK_ArrendatarioDireccion_Colonia">
+      <End Role="Colonia" EntitySet="Colonia" />
+      <End Role="ArrendatarioDireccion" EntitySet="ArrendatarioDireccion" />
     </AssociationSet>
-    <AssociationSet Name="FK_Caso_Cliente" Association="Self.FK_Caso_Cliente">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Caso" EntitySet="Caso" />
+    <AssociationSet Name="FK_ArrendatarioTelefono_Arrendatario" Association="Self.FK_ArrendatarioTelefono_Arrendatario">
+      <End Role="Arrendatario" EntitySet="Arrendatario" />
+      <End Role="ArrendatarioTelefono" EntitySet="ArrendatarioTelefono" />
     </AssociationSet>
-    <AssociationSet Name="FK_Caso_TipoCaso" Association="Self.FK_Caso_TipoCaso">
-      <End Role="TipoCaso" EntitySet="TipoCaso" />
-      <End Role="Caso" EntitySet="Caso" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Caso_Usuario" Association="Self.FK_Caso_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Caso" EntitySet="Caso" />
+    <AssociationSet Name="FK_ArrendatarioTelefono_TipoTelefono" Association="Self.FK_ArrendatarioTelefono_TipoTelefono">
+      <End Role="TipoTelefono" EntitySet="TipoTelefono" />
+      <End Role="ArrendatarioTelefono" EntitySet="ArrendatarioTelefono" />
     </AssociationSet>
     <AssociationSet Name="FK_Cita_Cliente" Association="Self.FK_Cita_Cliente">
       <End Role="Cliente" EntitySet="Cliente" />
@@ -628,10 +631,6 @@
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
     <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Cliente" EntitySet="Cliente" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Cliente_Usuario1" Association="Self.FK_Cliente_Usuario1">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Cliente" EntitySet="Cliente" />
     </AssociationSet>
@@ -659,21 +658,25 @@
       <End Role="Pais" EntitySet="Pais" />
       <End Role="Estado" EntitySet="Estado" />
     </AssociationSet>
-    <AssociationSet Name="FK_JuzgadoDireccion_Colonia" Association="Self.FK_JuzgadoDireccion_Colonia">
+    <AssociationSet Name="FK_InmuebleArrendado_InmuebleCliente" Association="Self.FK_InmuebleArrendado_InmuebleCliente">
+      <End Role="InmuebleCliente" EntitySet="InmuebleCliente" />
+      <End Role="InmuebleArrendado" EntitySet="InmuebleArrendado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InmuebleCliente_Cliente" Association="Self.FK_InmuebleCliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="InmuebleCliente" EntitySet="InmuebleCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InmuebleCliente_Colonia" Association="Self.FK_InmuebleCliente_Colonia">
       <End Role="Colonia" EntitySet="Colonia" />
-      <End Role="JuzgadoDireccion" EntitySet="JuzgadoDireccion" />
+      <End Role="InmuebleCliente" EntitySet="InmuebleCliente" />
     </AssociationSet>
-    <AssociationSet Name="FK_JuzgadoDireccion_Juzgado" Association="Self.FK_JuzgadoDireccion_Juzgado">
-      <End Role="Juzgado" EntitySet="Juzgado" />
-      <End Role="JuzgadoDireccion" EntitySet="JuzgadoDireccion" />
+    <AssociationSet Name="FK_InmuebleCliente_TipoInmueble" Association="Self.FK_InmuebleCliente_TipoInmueble">
+      <End Role="TipoInmueble" EntitySet="TipoInmueble" />
+      <End Role="InmuebleCliente" EntitySet="InmuebleCliente" />
     </AssociationSet>
-    <AssociationSet Name="FK_JuzgadoTelefono_Juzgado" Association="Self.FK_JuzgadoTelefono_Juzgado">
-      <End Role="Juzgado" EntitySet="Juzgado" />
-      <End Role="JuzgadoTelefono" EntitySet="JuzgadoTelefono" />
-    </AssociationSet>
-    <AssociationSet Name="FK_JuzgadoTelefono_TipoTelefono" Association="Self.FK_JuzgadoTelefono_TipoTelefono">
-      <End Role="TipoTelefono" EntitySet="TipoTelefono" />
-      <End Role="JuzgadoTelefono" EntitySet="JuzgadoTelefono" />
+    <AssociationSet Name="FK_InmuebleCliente_TipoUso" Association="Self.FK_InmuebleCliente_TipoUso">
+      <End Role="TipoUso" EntitySet="TipoUso" />
+      <End Role="InmuebleCliente" EntitySet="InmuebleCliente" />
     </AssociationSet>
     <AssociationSet Name="FK_Municipio_Estado" Association="Self.FK_Municipio_Estado">
       <End Role="Estado" EntitySet="Estado" />
