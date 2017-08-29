@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Polizas.Business.Operacion;
+using Polizas.Operacion.Clientes;
 using Polizas.Utils;
 
 namespace Polizas.Operacion.Polizas
@@ -47,28 +48,28 @@ namespace Polizas.Operacion.Polizas
                 DialogResult result = tipoCliente.ShowDialog(this);
                 switch (result)
                 {
-                    case DialogResult.Yes:
-                        FrmRegistroPersonaFisica personaFisica = new FrmRegistroPersonaFisica();
-                        personaFisica.EsDialog = true;
-                        personaFisica.StartPosition = FormStartPosition.CenterParent;
-                        if (personaFisica.ShowDialog(this) == DialogResult.OK)
-                        {
-                            LLenaClientes();
-                        }
-                        break;
-                    case DialogResult.No:
-                        FrmRegistroPersonaMoral personaMoral = new FrmRegistroPersonaMoral();
-                        personaMoral.EsDialog = true;
-                        personaMoral.StartPosition = FormStartPosition.CenterParent;
-                        personaMoral.ShowDialog();
-                        if (personaMoral.ShowDialog(this) == DialogResult.OK)
-                        {
-                            LLenaClientes();
-                        }
-                        break;
-                    case DialogResult.Cancel:
-                        return;
-                        break;
+                    //case DialogResult.Yes:
+                    //    FrmRegistroPersonaFisica personaFisica = new FrmRegistroPersonaFisica();
+                    //    personaFisica.EsDialog = true;
+                    //    personaFisica.StartPosition = FormStartPosition.CenterParent;
+                    //    if (personaFisica.ShowDialog(this) == DialogResult.OK)
+                    //    {
+                    //        LLenaClientes();
+                    //    }
+                    //    break;
+                    //case DialogResult.No:
+                    //    FrmRegistroPersonaMoral personaMoral = new FrmRegistroPersonaMoral();
+                    //    personaMoral.EsDialog = true;
+                    //    personaMoral.StartPosition = FormStartPosition.CenterParent;
+                    //    personaMoral.ShowDialog();
+                    //    if (personaMoral.ShowDialog(this) == DialogResult.OK)
+                    //    {
+                    //        LLenaClientes();
+                    //    }
+                    //    break;
+                    //case DialogResult.Cancel:
+                    //    return;
+                    //    break;
                 }
             }
             catch (Exception ex)

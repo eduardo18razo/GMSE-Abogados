@@ -1,4 +1,6 @@
-﻿namespace Polizas.Administrador.Altas
+﻿using Polizas.UserControls;
+
+namespace Polizas.Administrador.Altas
 {
     partial class FrmAltaUsuario
     {
@@ -42,8 +44,8 @@
             this.txtPsw = new System.Windows.Forms.TextBox();
             this.chkLbxRoles = new System.Windows.Forms.CheckedListBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.ucTelefonos = new Polizas.Administrador.UcTelefonos();
-            this.ucDireccion = new Polizas.Administrador.UcDireccion();
+            //this.ucTelefonos = new UcTelefonos();
+            this.ucDireccion = new UcDireccion();
             this.btnAddPuesto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -165,14 +167,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // ucTelefonos
-            // 
-            this.ucTelefonos.Location = new System.Drawing.Point(15, 313);
-            this.ucTelefonos.Name = "ucTelefonos";
-            this.ucTelefonos.Size = new System.Drawing.Size(534, 225);
-            this.ucTelefonos.TabIndex = 21;
-            this.ucTelefonos.Telefonos = null;
+            
             // 
             // ucDireccion
             // 
@@ -199,7 +194,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(577, 597);
             this.Controls.Add(this.btnAddPuesto);
-            this.Controls.Add(this.ucTelefonos);
             this.Controls.Add(this.ucDireccion);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.chkLbxRoles);
@@ -244,7 +238,6 @@
         private System.Windows.Forms.CheckedListBox chkLbxRoles;
         private System.Windows.Forms.Button btnCancelar;
         private UcDireccion ucDireccion;
-        private UcTelefonos ucTelefonos;
         private System.Windows.Forms.Button btnAddPuesto;
     }
 }

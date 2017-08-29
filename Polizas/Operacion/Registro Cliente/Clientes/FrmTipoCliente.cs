@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Polizas.Operacion
+namespace Polizas.Operacion.Clientes
 {
     public partial class FrmTipoCliente : Form
     {

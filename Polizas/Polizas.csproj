@@ -119,23 +119,41 @@
     <Compile Include="Acceso\FrmSplash.Designer.cs">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\UcTelefonos.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrador\UcTelefonos.Designer.cs">
-      <DependentUpon>UcTelefonos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\UcDireccion.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrador\UcDireccion.Designer.cs">
-      <DependentUpon>UcDireccion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Operacion\FrmConsultaRegistros.cs">
+    <Compile Include="Operacion\FrmAltaTelefono.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\FrmConsultaRegistros.Designer.cs">
-      <DependentUpon>FrmConsultaRegistros.cs</DependentUpon>
+    <Compile Include="Operacion\FrmAltaTelefono.Designer.cs">
+      <DependentUpon>FrmAltaTelefono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmAltainmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmAltainmueble.Designer.cs">
+      <DependentUpon>FrmAltainmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmClientePersonaFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmClientePersonaFisica.Designer.cs">
+      <DependentUpon>FrmClientePersonaFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmResgistroPersonaMoral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmResgistroPersonaMoral.Designer.cs">
+      <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcDireccion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcDireccion.Designer.cs">
+      <DependentUpon>UcDireccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmConsultaClientes.Designer.cs">
+      <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\FrmDayView.cs">
       <SubType>Form</SubType>
@@ -161,22 +179,16 @@
     <Compile Include="Operacion\Polizas\FrmPolizaEscencial.Designer.cs">
       <DependentUpon>FrmPolizaEscencial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.cs">
+    <Compile Include="Operacion\Registro Cliente\FrmAtencionTelefonica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.Designer.cs">
-      <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
+    <Compile Include="Operacion\Registro Cliente\FrmAtencionTelefonica.Designer.cs">
+      <DependentUpon>FrmAtencionTelefonica.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.cs">
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmTipoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.Designer.cs">
-      <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Operacion\Registro Cliente\FrmTipoCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Operacion\Registro Cliente\FrmTipoCliente.Designer.cs">
+    <Compile Include="Operacion\Registro Cliente\Clientes\FrmTipoCliente.Designer.cs">
       <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\UsrCtrlFile.cs">
@@ -200,6 +212,7 @@
       <DependentUpon>FrmConfiguracionTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Mensajes.cs" />
+    <Compile Include="Utils\UtilsEventos.cs" />
     <EmbeddedResource Include="Administrador\Altas\FrmAltaPuesto.resx">
       <DependentUpon>FrmAltaPuesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,14 +240,23 @@
     <EmbeddedResource Include="Acceso\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\UcTelefonos.resx">
-      <DependentUpon>UcTelefonos.cs</DependentUpon>
+    <EmbeddedResource Include="Operacion\FrmAltatelefono.resx">
+      <DependentUpon>FrmAltaTelefono.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\UcDireccion.resx">
+    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmAltainmueble.resx">
+      <DependentUpon>FrmAltainmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmClientePersonaFisica.resx">
+      <DependentUpon>FrmClientePersonaFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmResgistroPersonaMoral.resx">
+      <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcDireccion.resx">
       <DependentUpon>UcDireccion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\FrmConsultaRegistros.resx">
-      <DependentUpon>FrmConsultaRegistros.cs</DependentUpon>
+    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmConsultaClientes.resx">
+      <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\FrmDayView.resx">
       <DependentUpon>FrmDayView.cs</DependentUpon>
@@ -248,13 +270,10 @@
     <EmbeddedResource Include="Operacion\Polizas\FrmPolizaEscencial.resx">
       <DependentUpon>FrmPolizaEscencial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\Registro Cliente\FrmResgistroPersonaMoral.resx">
-      <DependentUpon>FrmResgistroPersonaMoral.cs</DependentUpon>
+    <EmbeddedResource Include="Operacion\Registro Cliente\FrmAtencionTelefonica.resx">
+      <DependentUpon>FrmAtencionTelefonica.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\Registro Cliente\FrmResgistroPersonaFisica.resx">
-      <DependentUpon>FrmResgistroPersonaFisica.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\Registro Cliente\FrmTipoCliente.resx">
+    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmTipoCliente.resx">
       <DependentUpon>FrmTipoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\UsrCtrlFile.resx">

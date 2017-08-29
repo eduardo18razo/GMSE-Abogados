@@ -1,4 +1,4 @@
-﻿namespace Polizas.Administrador
+﻿namespace Polizas.UserControls
 {
     partial class UcDireccion
     {

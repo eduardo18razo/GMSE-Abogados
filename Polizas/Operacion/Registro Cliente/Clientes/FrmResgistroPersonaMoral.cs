@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Polizas.Business;
 using Polizas.Business.Operacion;
 using Polizas.Entities.Clientes;
 using Polizas.Entities.Helpers;
 
-namespace Polizas.Operacion
+namespace Polizas.Operacion.Clientes
 {
     public partial class FrmRegistroPersonaMoral : Form
     {
@@ -60,15 +59,15 @@ namespace Polizas.Operacion
                         },
                         ClienteTelefono = new List<ClienteTelefono>()
                     };
-                    foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
-                    {
-                        cte.ClienteTelefono.Add(new ClienteTelefono
-                        {
-                            IdTipoTelefono = telefono.IdTipoTelefono,
-                            Telefono = telefono.Numero,
-                            Extensiones = telefono.Extension,
-                        });
-                    }
+                    //foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
+                    //{
+                    //    cte.ClienteTelefono.Add(new ClienteTelefono
+                    //    {
+                    //        IdTipoTelefono = telefono.IdTipoTelefono,
+                    //        Telefono = telefono.Numero,
+                    //        Extensiones = telefono.Extension,
+                    //    });
+                    //}
                     documentManager.GuardarCliente(cte);
                     if (EsDialog)
                     {

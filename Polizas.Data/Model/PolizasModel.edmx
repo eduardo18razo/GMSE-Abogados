@@ -38,6 +38,24 @@
           <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
           <Property Name="Extensiones" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="AtencionTelefonica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="bigint" />
+          <Property Name="IdMedioPublicidad" Type="int" />
+          <Property Name="IdTipoUso" Type="int" />
+          <Property Name="IdTipoPoliza" Type="int" />
+          <Property Name="IdEstatusPagoPoliza" Type="int" />
+          <Property Name="RentaCosto" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Observaciones" Type="nvarchar(max)" />
+          <Property Name="Pagado" Type="bit" />
+          <Property Name="Vencidas" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPagos" Type="int" />
+          <Property Name="Nota" Type="nvarchar(max)" />
+          <Property Name="FechaHoraContacto" Type="datetime" />
+        </EntityType>
         <EntityType Name="Cita">
           <Key>
             <PropertyRef Name="Id" />
@@ -63,6 +81,7 @@
           <Property Name="RepresentanteLegal" Type="nvarchar" MaxLength="500" />
           <Property Name="Rfc" Type="nvarchar" MaxLength="15" />
           <Property Name="Correo" Type="nvarchar" MaxLength="150" />
+          <Property Name="FechaNacimiento" Type="datetime" />
           <Property Name="FechaAlta" Type="datetime" />
         </EntityType>
         <EntityType Name="ClienteDireccion">
@@ -104,6 +123,14 @@
           <Property Name="Descripcion" Type="nvarchar(max)" />
           <Property Name="RegionCode" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="EstatusPagoPoliza">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Habilitado" Type="bit" />
+        </EntityType>
         <EntityType Name="InmuebleArrendado">
           <Key>
             <PropertyRef Name="Id" />
@@ -130,6 +157,14 @@
           <Property Name="Mantenimiento" Type="decimal" Precision="18" Scale="2" />
           <Property Name="NumeroDepositos" Type="decimal" Precision="18" Scale="2" />
           <Property Name="CantidadDepositos" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Habilitado" Type="bit" />
+        </EntityType>
+        <EntityType Name="MedioPublicidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
           <Property Name="Habilitado" Type="bit" />
         </EntityType>
         <EntityType Name="Municipio">
@@ -189,6 +224,14 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="Habilitado" Type="bit" />
+        </EntityType>
+        <EntityType Name="TipoPoliza">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
           <Property Name="Habilitado" Type="bit" />
         </EntityType>
         <EntityType Name="TipoTelefono">
@@ -295,6 +338,66 @@
             </Principal>
             <Dependent Role="ArrendatarioTelefono">
               <PropertyRef Name="IdTipoTelefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_EstatusPagoPoliza">
+          <End Role="EstatusPagoPoliza" Type="Self.EstatusPagoPoliza" Multiplicity="0..1" />
+          <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstatusPagoPoliza">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdEstatusPagoPoliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_MedioPublicidad">
+          <End Role="MedioPublicidad" Type="Self.MedioPublicidad" Multiplicity="0..1" />
+          <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedioPublicidad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdMedioPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_TipoPoliza">
+          <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="0..1" />
+          <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPoliza">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdTipoPoliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_TipoUso">
+          <End Role="TipoUso" Type="Self.TipoUso" Multiplicity="0..1" />
+          <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdTipoUso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -590,14 +693,17 @@
           <EntitySet Name="Arrendatario" EntityType="Self.Arrendatario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArrendatarioDireccion" EntityType="Self.ArrendatarioDireccion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ArrendatarioTelefono" EntityType="Self.ArrendatarioTelefono" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtencionTelefonica" EntityType="Self.AtencionTelefonica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClienteDireccion" EntityType="Self.ClienteDireccion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClienteTelefono" EntityType="Self.ClienteTelefono" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colonia" EntityType="Self.Colonia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstatusPagoPoliza" EntityType="Self.EstatusPagoPoliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InmuebleArrendado" EntityType="Self.InmuebleArrendado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InmuebleCliente" EntityType="Self.InmuebleCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedioPublicidad" EntityType="Self.MedioPublicidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pantalla" EntityType="Self.Pantalla" Schema="dbo" store:Type="Tables" />
@@ -605,6 +711,7 @@
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RolPantalla" EntityType="Self.RolPantalla" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoInmueble" EntityType="Self.TipoInmueble" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoTelefono" EntityType="Self.TipoTelefono" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoUso" EntityType="Self.TipoUso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -626,6 +733,26 @@
           <AssociationSet Name="FK_ArrendatarioTelefono_TipoTelefono" Association="Self.FK_ArrendatarioTelefono_TipoTelefono">
             <End Role="TipoTelefono" EntitySet="TipoTelefono" />
             <End Role="ArrendatarioTelefono" EntitySet="ArrendatarioTelefono" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_Cliente" Association="Self.FK_AtencionTelefonica_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_EstatusPagoPoliza" Association="Self.FK_AtencionTelefonica_EstatusPagoPoliza">
+            <End Role="EstatusPagoPoliza" EntitySet="EstatusPagoPoliza" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_MedioPublicidad" Association="Self.FK_AtencionTelefonica_MedioPublicidad">
+            <End Role="MedioPublicidad" EntitySet="MedioPublicidad" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_TipoPoliza" Association="Self.FK_AtencionTelefonica_TipoPoliza">
+            <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_TipoUso" Association="Self.FK_AtencionTelefonica_TipoUso">
+            <End Role="TipoUso" EntitySet="TipoUso" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
           </AssociationSet>
           <AssociationSet Name="FK_Cita_Cliente" Association="Self.FK_Cita_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
@@ -865,6 +992,30 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="UsuarioTelefono" EntitySet="UsuarioTelefono" />
           </AssociationSet>
+          <EntitySet Name="AtencionTelefonica" EntityType="DB_A28D98_userpolizasModel.AtencionTelefonica" />
+          <EntitySet Name="EstatusPagoPoliza" EntityType="DB_A28D98_userpolizasModel.EstatusPagoPoliza" />
+          <EntitySet Name="MedioPublicidad" EntityType="DB_A28D98_userpolizasModel.MedioPublicidad" />
+          <EntitySet Name="TipoPoliza" EntityType="DB_A28D98_userpolizasModel.TipoPoliza" />
+          <AssociationSet Name="FK_AtencionTelefonica_Cliente" Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_EstatusPagoPoliza" Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_EstatusPagoPoliza">
+            <End Role="EstatusPagoPoliza" EntitySet="EstatusPagoPoliza" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_MedioPublicidad" Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_MedioPublicidad">
+            <End Role="MedioPublicidad" EntitySet="MedioPublicidad" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_TipoPoliza" Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoPoliza">
+            <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtencionTelefonica_TipoUso" Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoUso">
+            <End Role="TipoUso" EntitySet="TipoUso" />
+            <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Arrendatario">
           <Key>
@@ -924,6 +1075,8 @@
           <NavigationProperty Name="InmuebleCliente" Relationship="DB_A28D98_userpolizasModel.FK_InmuebleCliente_Cliente" FromRole="Cliente" ToRole="InmuebleCliente" />
           <NavigationProperty Name="Cita" Relationship="DB_A28D98_userpolizasModel.FK_Cita_Cliente" FromRole="Cliente" ToRole="Cita" />
           <NavigationProperty Name="UsuarioReferencia" Relationship="DB_A28D98_userpolizasModel.FK_Cliente_Usuario" FromRole="Cliente" ToRole="Usuario" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AtencionTelefonica" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_Cliente" FromRole="Cliente" ToRole="AtencionTelefonica" />
         </EntityType>
         <EntityType Name="ClienteDireccion">
           <Key>
@@ -1058,6 +1211,7 @@
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Habilitado" Type="Boolean" />
           <NavigationProperty Name="InmuebleCliente" Relationship="DB_A28D98_userpolizasModel.FK_InmuebleCliente_TipoUso" FromRole="TipoUso" ToRole="InmuebleCliente" />
+          <NavigationProperty Name="AtencionTelefonica" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoUso" FromRole="TipoUso" ToRole="AtencionTelefonica" />
         </EntityType>
         <Association Name="FK_ArrendatarioDireccion_Arrendatario">
           <End Type="DB_A28D98_userpolizasModel.Arrendatario" Role="Arrendatario" Multiplicity="0..1" />
@@ -1503,6 +1657,116 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AtencionTelefonica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Int64" />
+          <Property Name="IdMedioPublicidad" Type="Int32" />
+          <Property Name="IdTipoUso" Type="Int32" />
+          <Property Name="IdTipoPoliza" Type="Int32" />
+          <Property Name="IdEstatusPagoPoliza" Type="Int32" />
+          <Property Name="RentaCosto" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pagado" Type="Boolean" />
+          <Property Name="Vencidas" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPagos" Type="Int32" />
+          <Property Name="Nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaHoraContacto" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Cliente" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_Cliente" FromRole="AtencionTelefonica" ToRole="Cliente" />
+          <NavigationProperty Name="EstatusPagoPoliza" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_EstatusPagoPoliza" FromRole="AtencionTelefonica" ToRole="EstatusPagoPoliza" />
+          <NavigationProperty Name="MedioPublicidad" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_MedioPublicidad" FromRole="AtencionTelefonica" ToRole="MedioPublicidad" />
+          <NavigationProperty Name="TipoPoliza" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoPoliza" FromRole="AtencionTelefonica" ToRole="TipoPoliza" />
+          <NavigationProperty Name="TipoUso" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoUso" FromRole="AtencionTelefonica" ToRole="TipoUso" />
+        </EntityType>
+        <EntityType Name="EstatusPagoPoliza">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Habilitado" Type="Boolean" />
+          <NavigationProperty Name="AtencionTelefonica" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_EstatusPagoPoliza" FromRole="EstatusPagoPoliza" ToRole="AtencionTelefonica" />
+        </EntityType>
+        <EntityType Name="MedioPublicidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Habilitado" Type="Boolean" />
+          <NavigationProperty Name="AtencionTelefonica" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_MedioPublicidad" FromRole="MedioPublicidad" ToRole="AtencionTelefonica" />
+        </EntityType>
+        <EntityType Name="TipoPoliza">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Habilitado" Type="Boolean" />
+          <NavigationProperty Name="AtencionTelefonica" Relationship="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoPoliza" FromRole="TipoPoliza" ToRole="AtencionTelefonica" />
+        </EntityType>
+        <Association Name="FK_AtencionTelefonica_Cliente">
+          <End Type="DB_A28D98_userpolizasModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+          <End Type="DB_A28D98_userpolizasModel.AtencionTelefonica" Role="AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_EstatusPagoPoliza">
+          <End Type="DB_A28D98_userpolizasModel.EstatusPagoPoliza" Role="EstatusPagoPoliza" Multiplicity="0..1" />
+          <End Type="DB_A28D98_userpolizasModel.AtencionTelefonica" Role="AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstatusPagoPoliza">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdEstatusPagoPoliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_MedioPublicidad">
+          <End Type="DB_A28D98_userpolizasModel.MedioPublicidad" Role="MedioPublicidad" Multiplicity="0..1" />
+          <End Type="DB_A28D98_userpolizasModel.AtencionTelefonica" Role="AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedioPublicidad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdMedioPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_TipoPoliza">
+          <End Type="DB_A28D98_userpolizasModel.TipoPoliza" Role="TipoPoliza" Multiplicity="0..1" />
+          <End Type="DB_A28D98_userpolizasModel.AtencionTelefonica" Role="AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPoliza">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdTipoPoliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtencionTelefonica_TipoUso">
+          <End Type="DB_A28D98_userpolizasModel.TipoUso" Role="TipoUso" Multiplicity="0..1" />
+          <End Type="DB_A28D98_userpolizasModel.AtencionTelefonica" Role="AtencionTelefonica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AtencionTelefonica">
+              <PropertyRef Name="IdTipoUso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1548,6 +1812,7 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Rfc" ColumnName="Rfc" />
@@ -1778,6 +2043,52 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AtencionTelefonica">
+            <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.AtencionTelefonica">
+              <MappingFragment StoreEntitySet="AtencionTelefonica">
+                <ScalarProperty Name="FechaHoraContacto" ColumnName="FechaHoraContacto" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="TotalPagos" ColumnName="TotalPagos" />
+                <ScalarProperty Name="Vencidas" ColumnName="Vencidas" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="RentaCosto" ColumnName="RentaCosto" />
+                <ScalarProperty Name="IdEstatusPagoPoliza" ColumnName="IdEstatusPagoPoliza" />
+                <ScalarProperty Name="IdTipoPoliza" ColumnName="IdTipoPoliza" />
+                <ScalarProperty Name="IdTipoUso" ColumnName="IdTipoUso" />
+                <ScalarProperty Name="IdMedioPublicidad" ColumnName="IdMedioPublicidad" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstatusPagoPoliza">
+            <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.EstatusPagoPoliza">
+              <MappingFragment StoreEntitySet="EstatusPagoPoliza">
+                <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedioPublicidad">
+            <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.MedioPublicidad">
+              <MappingFragment StoreEntitySet="MedioPublicidad">
+                <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPoliza">
+            <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoPoliza">
+              <MappingFragment StoreEntitySet="TipoPoliza">
+                <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1853,6 +2164,15 @@
         <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_UsuarioDireccion_Usuario" />
         <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_UsuarioRol_Usuario" />
         <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_UsuarioTelefono_Usuario" />
+        <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.AtencionTelefonica" Width="1.5" PointX="8" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.EstatusPagoPoliza" Width="1.5" PointX="5.75" PointY="2.5" />
+        <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.MedioPublicidad" Width="1.5" PointX="5.75" PointY="17.125" />
+        <EntityTypeShape EntityType="DB_A28D98_userpolizasModel.TipoPoliza" Width="1.5" PointX="5.75" PointY="24.625" />
+        <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_Cliente" />
+        <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_EstatusPagoPoliza" />
+        <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_MedioPublicidad" />
+        <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoPoliza" />
+        <AssociationConnector Association="DB_A28D98_userpolizasModel.FK_AtencionTelefonica_TipoUso" />
       </Diagram>
     </Diagrams>
   </Designer>

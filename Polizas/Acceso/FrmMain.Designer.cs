@@ -46,6 +46,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.atencionTelefonicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arrendatariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -56,8 +60,10 @@
             // 
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.atencionTelefonicaToolStripMenuItem,
             this.registrosToolStripMenuItem,
             this.polizasToolStripMenuItem,
+            this.arrendatariosToolStripMenuItem,
             this.agendaToolStripMenuItem,
             this.toolConfiguracion});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -73,8 +79,8 @@
             this.personaMoralToolStripMenuItem,
             this.consultaRegistrosToolStripMenuItem});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
-            this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 27);
-            this.registrosToolStripMenuItem.Text = "Registros";
+            this.registrosToolStripMenuItem.Size = new System.Drawing.Size(61, 27);
+            this.registrosToolStripMenuItem.Text = "Clientes";
             // 
             // personaFisicaToolStripMenuItem
             // 
@@ -115,14 +121,14 @@
             // esencialToolStripMenuItem
             // 
             this.esencialToolStripMenuItem.Name = "esencialToolStripMenuItem";
-            this.esencialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.esencialToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.esencialToolStripMenuItem.Text = "Esencial";
             this.esencialToolStripMenuItem.Click += new System.EventHandler(this.esencialToolStripMenuItem_Click);
             // 
             // totalToolStripMenuItem
             // 
             this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
-            this.totalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.totalToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.totalToolStripMenuItem.Text = "Total";
             // 
             // agendaToolStripMenuItem
@@ -211,6 +217,35 @@
             this.panel2.Size = new System.Drawing.Size(1008, 31);
             this.panel2.TabIndex = 5;
             // 
+            // atencionTelefonicaToolStripMenuItem
+            // 
+            this.atencionTelefonicaToolStripMenuItem.Name = "atencionTelefonicaToolStripMenuItem";
+            this.atencionTelefonicaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.atencionTelefonicaToolStripMenuItem.Size = new System.Drawing.Size(124, 27);
+            this.atencionTelefonicaToolStripMenuItem.Text = "Atencion Telefonica";
+            this.atencionTelefonicaToolStripMenuItem.Click += new System.EventHandler(this.atencionTelefonicaToolStripMenuItem_Click);
+            // 
+            // arrendatariosToolStripMenuItem
+            // 
+            this.arrendatariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroToolStripMenuItem,
+            this.consultaToolStripMenuItem});
+            this.arrendatariosToolStripMenuItem.Name = "arrendatariosToolStripMenuItem";
+            this.arrendatariosToolStripMenuItem.Size = new System.Drawing.Size(90, 27);
+            this.arrendatariosToolStripMenuItem.Text = "Arrendatarios";
+            // 
+            // registroToolStripMenuItem
+            // 
+            this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
+            this.registroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registroToolStripMenuItem.Text = "Alta";
+            // 
+            // consultaToolStripMenuItem
+            // 
+            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultaToolStripMenuItem.Text = "Consulta";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,5 +292,9 @@
         private System.Windows.Forms.ToolStripMenuItem polizasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem esencialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem totalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atencionTelefonicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arrendatariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
     }
 }

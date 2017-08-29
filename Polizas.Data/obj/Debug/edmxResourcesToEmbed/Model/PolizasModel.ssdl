@@ -33,6 +33,24 @@
     <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
     <Property Name="Extensiones" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="AtencionTelefonica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="bigint" />
+    <Property Name="IdMedioPublicidad" Type="int" />
+    <Property Name="IdTipoUso" Type="int" />
+    <Property Name="IdTipoPoliza" Type="int" />
+    <Property Name="IdEstatusPagoPoliza" Type="int" />
+    <Property Name="RentaCosto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Observaciones" Type="nvarchar(max)" />
+    <Property Name="Pagado" Type="bit" />
+    <Property Name="Vencidas" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalPagos" Type="int" />
+    <Property Name="Nota" Type="nvarchar(max)" />
+    <Property Name="FechaHoraContacto" Type="datetime" />
+  </EntityType>
   <EntityType Name="Cita">
     <Key>
       <PropertyRef Name="Id" />
@@ -58,6 +76,7 @@
     <Property Name="RepresentanteLegal" Type="nvarchar" MaxLength="500" />
     <Property Name="Rfc" Type="nvarchar" MaxLength="15" />
     <Property Name="Correo" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaNacimiento" Type="datetime" />
     <Property Name="FechaAlta" Type="datetime" />
   </EntityType>
   <EntityType Name="ClienteDireccion">
@@ -99,6 +118,14 @@
     <Property Name="Descripcion" Type="nvarchar(max)" />
     <Property Name="RegionCode" Type="nvarchar" MaxLength="150" />
   </EntityType>
+  <EntityType Name="EstatusPagoPoliza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Habilitado" Type="bit" />
+  </EntityType>
   <EntityType Name="InmuebleArrendado">
     <Key>
       <PropertyRef Name="Id" />
@@ -125,6 +152,14 @@
     <Property Name="Mantenimiento" Type="decimal" Precision="18" Scale="2" />
     <Property Name="NumeroDepositos" Type="decimal" Precision="18" Scale="2" />
     <Property Name="CantidadDepositos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Habilitado" Type="bit" />
+  </EntityType>
+  <EntityType Name="MedioPublicidad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
     <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="Municipio">
@@ -184,6 +219,14 @@
     </Key>
     <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+    <Property Name="Habilitado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoPoliza">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
     <Property Name="Habilitado" Type="bit" />
   </EntityType>
   <EntityType Name="TipoTelefono">
@@ -290,6 +333,66 @@
       </Principal>
       <Dependent Role="ArrendatarioTelefono">
         <PropertyRef Name="IdTipoTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtencionTelefonica_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AtencionTelefonica">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtencionTelefonica_EstatusPagoPoliza">
+    <End Role="EstatusPagoPoliza" Type="Self.EstatusPagoPoliza" Multiplicity="0..1" />
+    <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusPagoPoliza">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AtencionTelefonica">
+        <PropertyRef Name="IdEstatusPagoPoliza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtencionTelefonica_MedioPublicidad">
+    <End Role="MedioPublicidad" Type="Self.MedioPublicidad" Multiplicity="0..1" />
+    <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MedioPublicidad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AtencionTelefonica">
+        <PropertyRef Name="IdMedioPublicidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtencionTelefonica_TipoPoliza">
+    <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="0..1" />
+    <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPoliza">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AtencionTelefonica">
+        <PropertyRef Name="IdTipoPoliza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtencionTelefonica_TipoUso">
+    <End Role="TipoUso" Type="Self.TipoUso" Multiplicity="0..1" />
+    <End Role="AtencionTelefonica" Type="Self.AtencionTelefonica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUso">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AtencionTelefonica">
+        <PropertyRef Name="IdTipoUso" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -585,14 +688,17 @@
     <EntitySet Name="Arrendatario" EntityType="Self.Arrendatario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ArrendatarioDireccion" EntityType="Self.ArrendatarioDireccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ArrendatarioTelefono" EntityType="Self.ArrendatarioTelefono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AtencionTelefonica" EntityType="Self.AtencionTelefonica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClienteDireccion" EntityType="Self.ClienteDireccion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ClienteTelefono" EntityType="Self.ClienteTelefono" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colonia" EntityType="Self.Colonia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstatusPagoPoliza" EntityType="Self.EstatusPagoPoliza" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InmuebleArrendado" EntityType="Self.InmuebleArrendado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InmuebleCliente" EntityType="Self.InmuebleCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedioPublicidad" EntityType="Self.MedioPublicidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pantalla" EntityType="Self.Pantalla" Schema="dbo" store:Type="Tables" />
@@ -600,6 +706,7 @@
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolPantalla" EntityType="Self.RolPantalla" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoInmueble" EntityType="Self.TipoInmueble" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoTelefono" EntityType="Self.TipoTelefono" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoUso" EntityType="Self.TipoUso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
@@ -621,6 +728,26 @@
     <AssociationSet Name="FK_ArrendatarioTelefono_TipoTelefono" Association="Self.FK_ArrendatarioTelefono_TipoTelefono">
       <End Role="TipoTelefono" EntitySet="TipoTelefono" />
       <End Role="ArrendatarioTelefono" EntitySet="ArrendatarioTelefono" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtencionTelefonica_Cliente" Association="Self.FK_AtencionTelefonica_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtencionTelefonica_EstatusPagoPoliza" Association="Self.FK_AtencionTelefonica_EstatusPagoPoliza">
+      <End Role="EstatusPagoPoliza" EntitySet="EstatusPagoPoliza" />
+      <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtencionTelefonica_MedioPublicidad" Association="Self.FK_AtencionTelefonica_MedioPublicidad">
+      <End Role="MedioPublicidad" EntitySet="MedioPublicidad" />
+      <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtencionTelefonica_TipoPoliza" Association="Self.FK_AtencionTelefonica_TipoPoliza">
+      <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+      <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtencionTelefonica_TipoUso" Association="Self.FK_AtencionTelefonica_TipoUso">
+      <End Role="TipoUso" EntitySet="TipoUso" />
+      <End Role="AtencionTelefonica" EntitySet="AtencionTelefonica" />
     </AssociationSet>
     <AssociationSet Name="FK_Cita_Cliente" Association="Self.FK_Cita_Cliente">
       <End Role="Cliente" EntitySet="Cliente" />

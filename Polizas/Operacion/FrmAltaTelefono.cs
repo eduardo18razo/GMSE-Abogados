@@ -1,22 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Polizas.Business;
 using Polizas.Business.Catalogos;
 using Polizas.Business.Manager;
 using Polizas.Entities.Helpers;
 using Polizas.Utils;
 
-namespace Polizas.Administrador
+namespace Polizas.Operacion
 {
-    public partial class UcTelefonos : UserControl
+    public partial class FrmAltaTelefono : Form
     {
-        readonly BusinessTipoTelefono _bTipoTelefono = new BusinessTipoTelefono();
-
-        public UcTelefonos()
+        private readonly BusinessTipoTelefono _bTipoTelefono = new BusinessTipoTelefono();
+        public FrmAltaTelefono()
         {
             InitializeComponent();
         }
+
+        public HelperTelefonos Telefono { get; set; }
 
         private void LlenaTipoTelefono()
         {
@@ -31,36 +37,7 @@ namespace Polizas.Administrador
                 throw new Exception(e.Message);
             }
         }
-
-        public List<HelperTelefonos> Telefonos { get; set; }
-
-        private void LimpiaControles()
-        {
-            try
-            {
-                cmbTipo.SelectedIndex = BusinessVariables.ComboBoxCatalogo.IndexSeleccione;
-                txtNumero.Text = string.Empty;
-                txtExtension.Text = string.Empty;
-                gvTelefonos.DataSource = null;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public void LlenaTelefonos()
-        {
-            try
-            {
-                gvTelefonos.DataSource = Telefonos;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
+        
         private bool ValidaCaptura()
         {
             try
@@ -85,7 +62,14 @@ namespace Polizas.Administrador
 
         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            try
+            {
+                UtilsEventos.SoloNumeros(sender, e);
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
         }
 
         private void txtExtension_KeyPress(object sender, KeyPressEventArgs e)
@@ -104,20 +88,17 @@ namespace Polizas.Administrador
                     ht.TipoTelefono = cmbTipo.Text;
                     ht.Numero = txtNumero.Text.Trim();
                     ht.Extension = txtExtension.Text.Trim();
-                    if (Telefonos == null)
-                        Telefonos = new List<HelperTelefonos>();
-                    Telefonos.Add(ht);
-                    LimpiaControles();
-                    LlenaTelefonos();
+                    Telefono = ht;
+                    this.DialogResult = DialogResult.OK;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Mensajes.Error(ex.Message);
             }
         }
 
-        private void UcTelefonos_Load(object sender, EventArgs e)
+        private void FrmAltaTelefono_Load(object sender, EventArgs e)
         {
             try
             {
@@ -126,18 +107,6 @@ namespace Polizas.Administrador
             catch (Exception ex)
             {
                 Mensajes.Error(ex.Message);
-            }
-        }
-
-        private void gvTelefonos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception)
-            {
-                throw;
             }
         }
     }

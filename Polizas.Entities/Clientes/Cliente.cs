@@ -28,6 +28,8 @@ namespace Polizas.Entities.Clientes
         [DataMember]
         public string Correo { get; set; }
         [DataMember]
+        public DateTime? FechaNacimiento { get; set; }
+        [DataMember]
         public DateTime FechaAlta { get; set; }
         public virtual Usuario UsuarioReferencia { get; set; }
         [DataMember]
@@ -36,6 +38,8 @@ namespace Polizas.Entities.Clientes
         public virtual List<ClienteDireccion> ClienteDireccion { get; set; }
         [DataMember]
         public virtual List<ClienteTelefono> ClienteTelefono { get; set; }
+        [DataMember]
+        public virtual List<AtencionTelefonica> AtencionTelefonica { get; set; }
         [DataMember]
         public virtual List<InmuebleCliente> InmuebleCliente { get; set; }
     }

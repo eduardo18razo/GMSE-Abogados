@@ -69,8 +69,8 @@ namespace Polizas.Administrador.Altas
                     telefonos.Add(ht);
                 }
 
-                ucTelefonos.Telefonos = telefonos;
-                ucTelefonos.LlenaTelefonos();
+                //ucTelefonos.Telefonos = telefonos;
+                //ucTelefonos.LlenaTelefonos();
             }
         }
 
@@ -200,16 +200,16 @@ namespace Polizas.Administrador.Altas
                         }
                     };
                     _empleado.UsuarioTelefono = new List<UsuarioTelefono>();
-                    foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
-                    {
-                        _empleado.UsuarioTelefono.Add(new UsuarioTelefono
-                        {
-                            IdTipoTelefono = telefono.IdTipoTelefono,
-                            Telefono = telefono.Numero,
-                            Extension = telefono.Extension,
-                            Principal = false
-                        });
-                    }
+                    //foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
+                    //{
+                    //    _empleado.UsuarioTelefono.Add(new UsuarioTelefono
+                    //    {
+                    //        IdTipoTelefono = telefono.IdTipoTelefono,
+                    //        Telefono = telefono.Numero,
+                    //        Extension = telefono.Extension,
+                    //        Principal = false
+                    //    });
+                    //}
                 }
                 else
                 {
@@ -235,16 +235,16 @@ namespace Polizas.Administrador.Altas
                         }
                     };
                     _empleado.UsuarioTelefono = new List<UsuarioTelefono>();
-                    foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
-                    {
-                        _empleado.UsuarioTelefono.Add(new UsuarioTelefono
-                        {
-                            IdTipoTelefono = telefono.IdTipoTelefono,
-                            Telefono = telefono.Numero,
-                            Extension = telefono.Extension,
-                            Principal = false
-                        });
-                    }
+                    //foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
+                    //{
+                    //    _empleado.UsuarioTelefono.Add(new UsuarioTelefono
+                    //    {
+                    //        IdTipoTelefono = telefono.IdTipoTelefono,
+                    //        Telefono = telefono.Numero,
+                    //        Extension = telefono.Extension,
+                    //        Principal = false
+                    //    });
+                    //}
                 }
 
                 if (nuevo)

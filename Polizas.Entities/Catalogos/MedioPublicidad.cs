@@ -1,13 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
-namespace Polizas.Entities.Inmueble
+namespace Polizas.Entities.Catalogos
 {
-    public class TipoUso
+    [DataContract(IsReference = true)]
+    public class MedioPublicidad
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Descripcion { get; set; }
+        [DataMember]
         public bool Habilitado { get; set; }
-        public virtual List<InmuebleCliente> InmuebleCliente { get; set; }
+
+        [DataMember]
         public virtual List<AtencionTelefonica> AtencionTelefonica { get; set; }
     }
 }

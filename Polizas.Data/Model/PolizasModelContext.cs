@@ -4,7 +4,9 @@ using System.Data.EntityClient;
 using System.Data.Objects;
 using Polizas.Entities;
 using Polizas.Entities.Arrendatario;
+using Polizas.Entities.Catalogos;
 using Polizas.Entities.Clientes;
+using Polizas.Entities.Inmueble;
 using Polizas.Entities.Roles;
 using Polizas.Entities.Ubicacion;
 using Polizas.Entities.Usuarios;
@@ -37,6 +39,12 @@ namespace Polizas.Data.Model
         private readonly ObjectSet<Cliente> _cliente;
         private readonly ObjectSet<ClienteDireccion> _clienteDireccion;
         private readonly ObjectSet<ClienteTelefono> _clienteTelefono;
+        private readonly ObjectSet<AtencionTelefonica> _atencionTelefonica; 
+
+        //Catalogos
+        private readonly ObjectSet<MedioPublicidad> _medioContacto;
+        private readonly ObjectSet<TipoPoliza> _tipoPoliza;
+        private readonly ObjectSet<TipoUso> _tipoUso;
 
         //Region Sin Utilizar
         private readonly ObjectSet<Cita> _cita;
@@ -141,6 +149,28 @@ namespace Polizas.Data.Model
         {
             get { return _usuarioTelefono; }
         }
+
+        public ObjectSet<AtencionTelefonica> AtencionTelefonica
+        {
+            get { return _atencionTelefonica; }
+        }
+
+        //Catalogos
+        public ObjectSet<MedioPublicidad> MedioPublicidad
+        {
+            get { return _medioContacto; }
+        }
+
+        public ObjectSet<TipoPoliza> TipoPoliza
+        {
+            get { return _tipoPoliza; }
+        }
+
+        public ObjectSet<TipoUso> TipoUso
+        {
+            get { return _tipoUso; }
+        }
+
         #endregion Public Properties
         
         public PolizasModelContext(EntityConnection connection) : base(connection)
@@ -180,7 +210,12 @@ namespace Polizas.Data.Model
                 _cliente = CreateObjectSet<Cliente>();
                 _clienteDireccion = CreateObjectSet<ClienteDireccion>();
                 _clienteTelefono = CreateObjectSet<ClienteTelefono>();
+                _atencionTelefonica = CreateObjectSet<AtencionTelefonica>();
 
+                //Catalogos
+                _medioContacto = CreateObjectSet<MedioPublicidad>();
+                _tipoPoliza = CreateObjectSet<TipoPoliza>();
+                _tipoUso = CreateObjectSet<TipoUso>();
                 //Sin utilizar
                 //_audiencia = CreateObjectSet<Audiencia>();
                 //_caso = CreateObjectSet<Caso>();

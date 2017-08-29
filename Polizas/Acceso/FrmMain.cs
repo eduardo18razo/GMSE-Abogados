@@ -6,6 +6,7 @@ using Polizas.Administrador.Consultas;
 using Polizas.Entities;
 using Polizas.Entities.Usuarios;
 using Polizas.Operacion;
+using Polizas.Operacion.Clientes;
 using Polizas.Operacion.Polizas;
 using Polizas.Utils;
 
@@ -36,7 +37,7 @@ namespace Polizas.Acceso
 
         private void personaFisicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRegistroPersonaFisica registroPersonafisica = new FrmRegistroPersonaFisica();
+            FrmClientePersonaFisica registroPersonafisica = new FrmClientePersonaFisica();
             registroPersonafisica.MdiParent = this;
             registroPersonafisica.Show();
         }
@@ -125,6 +126,19 @@ namespace Polizas.Acceso
                 FrmPolizaEscencial frmPoliza = new FrmPolizaEscencial();
                 frmPoliza.MdiParent = this;
                 frmPoliza.Show();
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+        private void atencionTelefonicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmAtencionTelefonica frmAtencion = new FrmAtencionTelefonica();
+                frmAtencion.MdiParent = this;
+                frmAtencion.Show();
             }
             catch (Exception ex)
             {

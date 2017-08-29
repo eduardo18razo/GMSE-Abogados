@@ -1,4 +1,4 @@
-﻿namespace Polizas.Operacion
+﻿namespace Polizas.Operacion.Clientes
 {
     partial class FrmConsultaRegistros
     {

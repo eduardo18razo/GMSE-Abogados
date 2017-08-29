@@ -39,5 +39,25 @@ namespace Polizas.Business.Catalogos
             }
             return result;
         }
+
+        public Colonia ObtenerColonia(int idColonia)
+        {
+            Colonia result;
+            PolizasModelContext db = new PolizasModelContext();
+            try
+            {
+                db.ContextOptions.ProxyCreationEnabled = _proxy;
+                result = db.Colonia.SingleOrDefault(w => w.Id == idColonia);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return result;
+        }
     }
 }

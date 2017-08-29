@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using Polizas.Business;
 using Polizas.Business.Catalogos;
 using Polizas.Business.Manager;
 using Polizas.Entities.Helpers;
 using Polizas.Utils;
 
-namespace Polizas.Administrador
+namespace Polizas.UserControls
 {
     public partial class UcDireccion : UserControl
     {
@@ -34,12 +33,15 @@ namespace Polizas.Administrador
             }
             set
             {
-                txtCp.Text = value.Cp.ToString();
-                LlenaColonias();
-                cmbColonia.SelectedValue = value.IdColonia;
-                txtCalle.Text = value.Calle;
-                txtNoExt.Text = value.NoExt;
-                txtNoInt.Text = value.NoInt;
+                if (value != null)
+                {
+                    txtCp.Text = value.Cp.ToString();
+                    LlenaColonias();
+                    cmbColonia.SelectedValue = value.IdColonia;
+                    txtCalle.Text = value.Calle;
+                    txtNoExt.Text = value.NoExt;
+                    txtNoInt.Text = value.NoInt;
+                }
             }
         }
 
@@ -96,16 +98,17 @@ namespace Polizas.Administrador
         }
         private void txtCp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
             }
-
-            //// only allow one decimal point
-            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            //{
-            //    e.Handled = true;
-            //}
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
         }
 
         private void txtCp_KeyDown(object sender, KeyEventArgs e)

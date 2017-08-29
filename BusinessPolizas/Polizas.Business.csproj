@@ -73,11 +73,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operacion\BusinessArrendatario.cs" />
+    <Compile Include="Operacion\BusinessAtencionTelefonica.cs" />
     <Compile Include="Operacion\BusinessCita.cs" />
     <Compile Include="Operacion\BusinessCliente.cs" />
     <Compile Include="Catalogos\BusinessColonia.cs" />
     <Compile Include="Catalogos\BusinessPuesto.cs" />
     <Compile Include="Catalogos\BusinessRol.cs" />
+    <Compile Include="Sistema\BusinessMedioContacto.cs" />
     <Compile Include="Sistema\BusinessSecurity.cs" />
     <Compile Include="Catalogos\BusinessTipoTelefono.cs" />
     <Compile Include="Manager\BusinessVariables.cs" />
@@ -89,6 +91,8 @@
     <Compile Include="Manager\DropBoxManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Operacion\BusinessUsuario.cs" />
+    <Compile Include="Sistema\BusinessTipoUso.cs" />
+    <Compile Include="Sistema\BusinessTipoPoliza.cs" />
     <Compile Include="Utils\FileManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

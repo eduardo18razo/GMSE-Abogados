@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Polizas.Business;
 using Polizas.Business.Operacion;
 using Polizas.Entities.Clientes;
 using Polizas.Utils;
 
-namespace Polizas.Operacion
+namespace Polizas.Operacion.Clientes
 {
     public partial class FrmConsultaRegistros : Form
     {

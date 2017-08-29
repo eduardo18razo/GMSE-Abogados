@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Polizas.Business;
 using Polizas.Business.Operacion;
 using Polizas.Entities.Clientes;
 using Polizas.Entities.Helpers;
 using Polizas.Utils;
 
-namespace Polizas.Operacion
+namespace Polizas.Operacion.Clientes
 {
-    public partial class FrmRegistroPersonaFisica : Form
+    public partial class FrmClientePersonaFisica : Form
     {
-        public FrmRegistroPersonaFisica()
+        public FrmClientePersonaFisica()
         {
             InitializeComponent();
         }
@@ -55,9 +54,19 @@ namespace Polizas.Operacion
                 return false;
             return true;
         }
+        private List<HelperTelefonos> Telefonos { get; set; }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private void btnGenerarDocumento_Click(object sender, EventArgs e)
@@ -92,10 +101,10 @@ namespace Polizas.Operacion
                                 NoInt = ucDireccion1.Direccion.NoInt
                             }
                         };
-                    if (ucTelefonos.Telefonos != null && ucTelefonos.Telefonos.Count > 0)
+                    if (Telefonos != null && Telefonos.Count > 0)
                     {
                         cte.ClienteTelefono = new List<ClienteTelefono>();
-                        foreach (HelperTelefonos telefono in ucTelefonos.Telefonos)
+                        foreach (HelperTelefonos telefono in Telefonos)
                         {
                             cte.ClienteTelefono.Add(new ClienteTelefono
                             {
@@ -123,6 +132,54 @@ namespace Polizas.Operacion
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmAltaTelefono altaTelefono = new FrmAltaTelefono();
+                altaTelefono.StartPosition = FormStartPosition.CenterParent;
+                if (altaTelefono.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (Telefonos == null)
+                        Telefonos = new List<HelperTelefonos>();
+                    Telefonos.Add(altaTelefono.Telefono);
+                    dgvTelefonos.DataSource = dgvTelefonos.DataSource != null ? null : Telefonos;
+                    dgvTelefonos.DataSource = Telefonos;
+                    dgvTelefonos.Update();
+                    dgvTelefonos.Refresh();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmAltainmueble altaInmueble = new FrmAltainmueble();
+                altaInmueble.StartPosition = FormStartPosition.CenterParent;
+                if (altaInmueble.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (Telefonos == null)
+                        Telefonos = new List<HelperTelefonos>();
+                    Telefonos.Add(altaTelefono.Telefono);
+                    dgvTelefonos.DataSource = dgvTelefonos.DataSource != null ? null : Telefonos;
+                    dgvTelefonos.DataSource = Telefonos;
+                    dgvTelefonos.Update();
+                    dgvTelefonos.Refresh();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

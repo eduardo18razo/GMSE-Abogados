@@ -44,11 +44,16 @@
     <Compile Include="Arrendatario\Arrendatario.cs" />
     <Compile Include="Arrendatario\ArrendatarioDireccion.cs" />
     <Compile Include="Arrendatario\ArrendatarioTelefono.cs" />
+    <Compile Include="AtencionTelefonica.cs" />
+    <Compile Include="Catalogos\EstatusPagoPoliza.cs" />
+    <Compile Include="Catalogos\MedioPublicidad.cs" />
+    <Compile Include="Catalogos\TipoPoliza.cs" />
     <Compile Include="Cita.cs" />
     <Compile Include="Clientes\ClienteDireccion.cs" />
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteTelefono.cs" />
     <Compile Include="Helpers\HelperDireccion.cs" />
+    <Compile Include="Helpers\HelperInmueble.cs" />
     <Compile Include="Helpers\HelperTelefonos.cs" />
     <Compile Include="Inmueble\InmuebleArrendado.cs" />
     <Compile Include="Inmueble\InmuebleCliente.cs" />

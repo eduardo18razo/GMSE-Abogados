@@ -40,6 +40,7 @@
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
           <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Rfc" ColumnName="Rfc" />
@@ -266,6 +267,52 @@
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdTipoTelefono" ColumnName="IdTipoTelefono" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtencionTelefonica">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.AtencionTelefonica">
+        <MappingFragment StoreEntitySet="AtencionTelefonica">
+          <ScalarProperty Name="FechaHoraContacto" ColumnName="FechaHoraContacto" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="TotalPagos" ColumnName="TotalPagos" />
+          <ScalarProperty Name="Vencidas" ColumnName="Vencidas" />
+          <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="RentaCosto" ColumnName="RentaCosto" />
+          <ScalarProperty Name="IdEstatusPagoPoliza" ColumnName="IdEstatusPagoPoliza" />
+          <ScalarProperty Name="IdTipoPoliza" ColumnName="IdTipoPoliza" />
+          <ScalarProperty Name="IdTipoUso" ColumnName="IdTipoUso" />
+          <ScalarProperty Name="IdMedioPublicidad" ColumnName="IdMedioPublicidad" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstatusPagoPoliza">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.EstatusPagoPoliza">
+        <MappingFragment StoreEntitySet="EstatusPagoPoliza">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedioPublicidad">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.MedioPublicidad">
+        <MappingFragment StoreEntitySet="MedioPublicidad">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPoliza">
+      <EntityTypeMapping TypeName="DB_A28D98_userpolizasModel.TipoPoliza">
+        <MappingFragment StoreEntitySet="TipoPoliza">
+          <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
