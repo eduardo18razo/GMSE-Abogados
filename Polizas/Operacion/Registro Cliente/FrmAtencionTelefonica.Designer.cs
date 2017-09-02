@@ -206,7 +206,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(285, 121);
-            this.txtObservaciones.TabIndex = 17;
+            this.txtObservaciones.TabIndex = 18;
             // 
             // txtNotas
             // 
@@ -214,7 +214,7 @@
             this.txtNotas.Multiline = true;
             this.txtNotas.Name = "txtNotas";
             this.txtNotas.Size = new System.Drawing.Size(321, 121);
-            this.txtNotas.TabIndex = 18;
+            this.txtNotas.TabIndex = 19;
             // 
             // cmbReferencia
             // 
@@ -223,7 +223,7 @@
             this.cmbReferencia.Location = new System.Drawing.Point(481, 91);
             this.cmbReferencia.Name = "cmbReferencia";
             this.cmbReferencia.Size = new System.Drawing.Size(300, 21);
-            this.cmbReferencia.TabIndex = 19;
+            this.cmbReferencia.TabIndex = 17;
             // 
             // btnGuardar
             // 
@@ -237,6 +237,7 @@
             // 
             // FrmAtencionTelefonica
             // 
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

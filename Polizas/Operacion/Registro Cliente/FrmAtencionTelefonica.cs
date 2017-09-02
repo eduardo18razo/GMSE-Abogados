@@ -80,6 +80,8 @@ namespace Polizas.Operacion
             {
                 txtNombre.Text = string.Empty;
                 cmbMedio.SelectedIndex = BusinessVariables.ComboBoxCatalogo.IndexSeleccione;
+                txtTelefono.Text = string.Empty;
+                txtCorreo.Text = string.Empty;
                 cmbReferencia.SelectedIndex = BusinessVariables.ComboBoxCatalogo.IndexSeleccione;
                 cmbUsoSuelo.SelectedIndex = BusinessVariables.ComboBoxCatalogo.IndexSeleccione;
                 cmbTipoPoliza.SelectedIndex = BusinessVariables.ComboBoxCatalogo.IndexSeleccione;

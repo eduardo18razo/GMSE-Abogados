@@ -45,6 +45,7 @@ namespace Polizas.Data.Model
         private readonly ObjectSet<MedioPublicidad> _medioContacto;
         private readonly ObjectSet<TipoPoliza> _tipoPoliza;
         private readonly ObjectSet<TipoUso> _tipoUso;
+        private readonly ObjectSet<TipoInmueble> _tipoinmueble; 
 
         //Region Sin Utilizar
         private readonly ObjectSet<Cita> _cita;
@@ -170,6 +171,10 @@ namespace Polizas.Data.Model
         {
             get { return _tipoUso; }
         }
+        public ObjectSet<TipoInmueble> TipoInmueble
+        {
+            get { return _tipoinmueble; }
+        }
 
         #endregion Public Properties
         
@@ -216,6 +221,7 @@ namespace Polizas.Data.Model
                 _medioContacto = CreateObjectSet<MedioPublicidad>();
                 _tipoPoliza = CreateObjectSet<TipoPoliza>();
                 _tipoUso = CreateObjectSet<TipoUso>();
+                _tipoinmueble = CreateObjectSet<TipoInmueble>();
                 //Sin utilizar
                 //_audiencia = CreateObjectSet<Audiencia>();
                 //_caso = CreateObjectSet<Caso>();

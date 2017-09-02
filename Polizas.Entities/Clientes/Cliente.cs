@@ -32,6 +32,7 @@ namespace Polizas.Entities.Clientes
         [DataMember]
         public DateTime FechaAlta { get; set; }
         public virtual Usuario UsuarioReferencia { get; set; }
+
         [DataMember]
         public virtual List<Cita> Cita { get; set; }
         [DataMember]

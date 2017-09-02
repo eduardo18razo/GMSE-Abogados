@@ -200,6 +200,8 @@ namespace Polizas.Business.Manager
             Dictionary<string, string> result;
             try
             {
+                if (!FolderExists(registryName))
+                    CreateFolder(registryName);
                 var response = DBClient.Files.ListFolderAsync(string.Format("{0}/{1}", BusinessVariables.Directorio.CarpetaPrincipalDropBox, registryName));
                 ListFolderResult rest = response.Result;
                 result = rest.Entries.Where(metadata => metadata.IsFile).ToDictionary(metadata => metadata.PathDisplay, metadata => metadata.Name);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.atencionTelefonicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personaFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.personaMoralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,9 @@
             this.polizasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.esencialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.totalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arrendatariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,10 +50,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.atencionTelefonicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arrendatariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -68,9 +68,17 @@
             this.toolConfiguracion});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1040, 31);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // atencionTelefonicaToolStripMenuItem
+            // 
+            this.atencionTelefonicaToolStripMenuItem.Name = "atencionTelefonicaToolStripMenuItem";
+            this.atencionTelefonicaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.atencionTelefonicaToolStripMenuItem.Size = new System.Drawing.Size(124, 27);
+            this.atencionTelefonicaToolStripMenuItem.Text = "Atencion Telefonica";
+            this.atencionTelefonicaToolStripMenuItem.Click += new System.EventHandler(this.atencionTelefonicaToolStripMenuItem_Click);
             // 
             // registrosToolStripMenuItem
             // 
@@ -130,6 +138,27 @@
             this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
             this.totalToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.totalToolStripMenuItem.Text = "Total";
+            // 
+            // arrendatariosToolStripMenuItem
+            // 
+            this.arrendatariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroToolStripMenuItem,
+            this.consultaToolStripMenuItem});
+            this.arrendatariosToolStripMenuItem.Name = "arrendatariosToolStripMenuItem";
+            this.arrendatariosToolStripMenuItem.Size = new System.Drawing.Size(90, 27);
+            this.arrendatariosToolStripMenuItem.Text = "Arrendatarios";
+            // 
+            // registroToolStripMenuItem
+            // 
+            this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
+            this.registroToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.registroToolStripMenuItem.Text = "Alta";
+            // 
+            // consultaToolStripMenuItem
+            // 
+            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // agendaToolStripMenuItem
             // 
@@ -192,7 +221,7 @@
             this.pictureBox1.Image = global::Polizas.Properties.Resources.LOGO_WEB_1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1008, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(1040, 85);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -205,7 +234,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1008, 115);
+            this.panel1.Size = new System.Drawing.Size(1040, 115);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -214,48 +243,18 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 85);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 31);
+            this.panel2.Size = new System.Drawing.Size(1040, 31);
             this.panel2.TabIndex = 5;
-            // 
-            // atencionTelefonicaToolStripMenuItem
-            // 
-            this.atencionTelefonicaToolStripMenuItem.Name = "atencionTelefonicaToolStripMenuItem";
-            this.atencionTelefonicaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.atencionTelefonicaToolStripMenuItem.Size = new System.Drawing.Size(124, 27);
-            this.atencionTelefonicaToolStripMenuItem.Text = "Atencion Telefonica";
-            this.atencionTelefonicaToolStripMenuItem.Click += new System.EventHandler(this.atencionTelefonicaToolStripMenuItem_Click);
-            // 
-            // arrendatariosToolStripMenuItem
-            // 
-            this.arrendatariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registroToolStripMenuItem,
-            this.consultaToolStripMenuItem});
-            this.arrendatariosToolStripMenuItem.Name = "arrendatariosToolStripMenuItem";
-            this.arrendatariosToolStripMenuItem.Size = new System.Drawing.Size(90, 27);
-            this.arrendatariosToolStripMenuItem.Text = "Arrendatarios";
-            // 
-            // registroToolStripMenuItem
-            // 
-            this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
-            this.registroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.registroToolStripMenuItem.Text = "Alta";
-            // 
-            // consultaToolStripMenuItem
-            // 
-            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1040, 787);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1024, 768);
             this.MinimumSize = new System.Drawing.Size(1024, 726);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

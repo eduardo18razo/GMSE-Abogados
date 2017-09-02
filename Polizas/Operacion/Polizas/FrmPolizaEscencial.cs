@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Polizas.Business.Documentos;
 using Polizas.Business.Operacion;
 using Polizas.Operacion.Clientes;
 using Polizas.Utils;
@@ -11,9 +12,12 @@ namespace Polizas.Operacion.Polizas
         public FrmPolizaEscencial()
         {
             InitializeComponent();
+            LlenaClientes();
+            LlenaEmpleados();
+
         }
 
-        private void LLenaClientes()
+        private void LlenaClientes()
         {
             try
             {
@@ -27,11 +31,25 @@ namespace Polizas.Operacion.Polizas
             }
         }
 
+        private void LlenaEmpleados()
+        {
+            try
+            {
+                cmbReferencia.DataSource = new BusinessUsuario().ObtenerUsuarios(true);
+                cmbReferencia.DisplayMember = "Nombre";
+                cmbReferencia.ValueMember = "Id";
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         private void FrmPolizaEscencial_Load(object sender, EventArgs e)
         {
             try
             {
-                LLenaClientes();
+                
             }
             catch (Exception ex)
             {
@@ -71,6 +89,18 @@ namespace Polizas.Operacion.Polizas
                     //    return;
                     //    break;
                 }
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+        private void btnGenerarDocumentos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AutorizacionBuroCredito().GeneraDocumento(int.Parse(cmbCliente.SelectedValue.ToString()), dateTimePicker1.Value);
             }
             catch (Exception ex)
             {

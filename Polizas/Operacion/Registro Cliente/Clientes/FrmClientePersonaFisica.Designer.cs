@@ -42,24 +42,24 @@ namespace Polizas.Operacion.Clientes
             this.txtRepLegal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtRfc = new System.Windows.Forms.TextBox();
-            this.ucDireccion1 = new Polizas.UserControls.UcDireccion();
+            this.ucDireccion1 = new UserControls.UcDireccion();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminarTelefono = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvTelefonos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnEliminarTelefono = new System.Windows.Forms.Button();
             this.btneliminarInmueble = new System.Windows.Forms.Button();
+            this.btnAgregarInmueble = new System.Windows.Forms.Button();
+            this.dgvInmuebles = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonos)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGenerardocumento
             // 
-            this.btnGenerardocumento.Location = new System.Drawing.Point(542, 588);
+            this.btnGenerardocumento.Location = new System.Drawing.Point(542, 563);
             this.btnGenerardocumento.Name = "btnGenerardocumento";
             this.btnGenerardocumento.Size = new System.Drawing.Size(125, 23);
             this.btnGenerardocumento.TabIndex = 7;
@@ -175,10 +175,20 @@ namespace Polizas.Operacion.Clientes
             this.groupBox1.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox1.Location = new System.Drawing.Point(27, 254);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(640, 161);
+            this.groupBox1.Size = new System.Drawing.Size(640, 148);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Telefonos";
+            // 
+            // btnEliminarTelefono
+            // 
+            this.btnEliminarTelefono.Location = new System.Drawing.Point(559, 49);
+            this.btnEliminarTelefono.Name = "btnEliminarTelefono";
+            this.btnEliminarTelefono.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarTelefono.TabIndex = 2;
+            this.btnEliminarTelefono.Text = "Eliminar";
+            this.btnEliminarTelefono.UseVisualStyleBackColor = true;
+            this.btnEliminarTelefono.Click += new System.EventHandler(this.btnEliminarTelefono_Click);
             // 
             // btnAgregar
             // 
@@ -192,53 +202,31 @@ namespace Polizas.Operacion.Clientes
             // 
             // dgvTelefonos
             // 
+            this.dgvTelefonos.AllowUserToAddRows = false;
+            this.dgvTelefonos.AllowUserToDeleteRows = false;
+            this.dgvTelefonos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTelefonos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvTelefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefonos.Location = new System.Drawing.Point(23, 19);
             this.dgvTelefonos.Name = "dgvTelefonos";
+            this.dgvTelefonos.ReadOnly = true;
             this.dgvTelefonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTelefonos.Size = new System.Drawing.Size(483, 136);
+            this.dgvTelefonos.Size = new System.Drawing.Size(530, 120);
             this.dgvTelefonos.TabIndex = 0;
+            this.dgvTelefonos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTelefonos_CellDoubleClick);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btneliminarInmueble);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.btnAgregarInmueble);
+            this.groupBox2.Controls.Add(this.dgvInmuebles);
             this.groupBox2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.groupBox2.Location = new System.Drawing.Point(27, 421);
+            this.groupBox2.Location = new System.Drawing.Point(27, 408);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(640, 161);
+            this.groupBox2.Size = new System.Drawing.Size(640, 149);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inmuebles";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(483, 136);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(559, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Agregar...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnEliminarTelefono
-            // 
-            this.btnEliminarTelefono.Location = new System.Drawing.Point(559, 49);
-            this.btnEliminarTelefono.Name = "btnEliminarTelefono";
-            this.btnEliminarTelefono.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminarTelefono.TabIndex = 2;
-            this.btnEliminarTelefono.Text = "Eliminar";
-            this.btnEliminarTelefono.UseVisualStyleBackColor = true;
             // 
             // btneliminarInmueble
             // 
@@ -248,13 +236,39 @@ namespace Polizas.Operacion.Clientes
             this.btneliminarInmueble.TabIndex = 3;
             this.btneliminarInmueble.Text = "Eliminar";
             this.btneliminarInmueble.UseVisualStyleBackColor = true;
+            this.btneliminarInmueble.Click += new System.EventHandler(this.btneliminarInmueble_Click);
+            // 
+            // btnAgregarInmueble
+            // 
+            this.btnAgregarInmueble.Location = new System.Drawing.Point(559, 19);
+            this.btnAgregarInmueble.Name = "btnAgregarInmueble";
+            this.btnAgregarInmueble.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarInmueble.TabIndex = 2;
+            this.btnAgregarInmueble.Text = "Agregar...";
+            this.btnAgregarInmueble.UseVisualStyleBackColor = true;
+            this.btnAgregarInmueble.Click += new System.EventHandler(this.btnAgregarInmueble_Click);
+            // 
+            // dgvInmuebles
+            // 
+            this.dgvInmuebles.AllowUserToAddRows = false;
+            this.dgvInmuebles.AllowUserToDeleteRows = false;
+            this.dgvInmuebles.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInmuebles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvInmuebles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInmuebles.Location = new System.Drawing.Point(23, 19);
+            this.dgvInmuebles.Name = "dgvInmuebles";
+            this.dgvInmuebles.ReadOnly = true;
+            this.dgvInmuebles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInmuebles.Size = new System.Drawing.Size(530, 120);
+            this.dgvInmuebles.TabIndex = 0;
+            this.dgvInmuebles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInmuebles_CellDoubleClick);
             // 
             // FrmClientePersonaFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(694, 622);
+            this.ClientSize = new System.Drawing.Size(694, 591);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ucDireccion1);
@@ -271,8 +285,6 @@ namespace Polizas.Operacion.Clientes
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGenerardocumento);
             this.ForeColor = System.Drawing.Color.MediumBlue;
-            this.MaximumSize = new System.Drawing.Size(710, 661);
-            this.MinimumSize = new System.Drawing.Size(710, 661);
             this.Name = "FrmClientePersonaFisica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Persona Fisica";
@@ -280,7 +292,7 @@ namespace Polizas.Operacion.Clientes
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonos)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,7 +318,7 @@ namespace Polizas.Operacion.Clientes
         private System.Windows.Forms.Button btnEliminarTelefono;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btneliminarInmueble;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAgregarInmueble;
+        private System.Windows.Forms.DataGridView dgvInmuebles;
     }
 }

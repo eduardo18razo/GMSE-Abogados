@@ -45,5 +45,17 @@ C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Clientes.FrmTipoCliente.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Clientes.FrmClientePersonaFisica.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Clientes.FrmRegistroPersonaMoral.resources
-C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Clientes.FrmAltainmueble.resources
 C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.FrmAltaTelefono.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Genericos.FrmAltaInmueble.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\obj\Debug\Polizas.Operacion.Registro_Cliente.Clientes.ActualizarCliente.resources
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\AUTORIZACIÓN CONSULTA BURO DE CRÉDITO.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\AVISO DE PRIVACIDAD.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\CONTRATO DE ARRENDAMIENTO NUEVO MEJORADO.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES ESENCIAL.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES TOTAL.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\ETIQUETAS PARA POLIZA.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\FORMATO ATENCION TELEFONICA.xlsx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\PAGARÉS.doc
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\RECIBOS DE PAGO.doc
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\SEGURIDAD EN ARRENDAMIENTO ESENCIAL 1RA VEZ.docx
+C:\Users\Eduardo Cerritos\documents\visual studio 2013\Projects\Polizas\Polizas\bin\Debug\Templates\SEGURIDAD EN ARRENDAMIENTO TOTAL 1RA VEZ.docx

@@ -119,17 +119,23 @@
     <Compile Include="Acceso\FrmSplash.Designer.cs">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\FrmAltaTelefono.cs">
+    <Compile Include="Operacion\Genericos\FrmAltaTelefono.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\FrmAltaTelefono.Designer.cs">
+    <Compile Include="Operacion\Genericos\FrmAltaTelefono.Designer.cs">
       <DependentUpon>FrmAltaTelefono.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\Registro Cliente\Clientes\FrmAltainmueble.cs">
+    <Compile Include="Operacion\Genericos\FrmAltaInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\Registro Cliente\Clientes\FrmAltainmueble.Designer.cs">
-      <DependentUpon>FrmAltainmueble.cs</DependentUpon>
+    <Compile Include="Operacion\Genericos\FrmAltaInmueble.Designer.cs">
+      <DependentUpon>FrmAltaInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\ActualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacion\Registro Cliente\Clientes\ActualizarCliente.Designer.cs">
+      <DependentUpon>ActualizarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\Registro Cliente\Clientes\FrmClientePersonaFisica.cs">
       <SubType>Form</SubType>
@@ -155,10 +161,10 @@
     <Compile Include="Operacion\Registro Cliente\Clientes\FrmConsultaClientes.Designer.cs">
       <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\FrmDayView.cs">
+    <Compile Include="Operacion\Agenda\FrmDayView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\FrmDayView.Designer.cs">
+    <Compile Include="Operacion\Agenda\FrmDayView.Designer.cs">
       <DependentUpon>FrmDayView.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\FrmDetalleRegistro.cs">
@@ -167,10 +173,10 @@
     <Compile Include="Operacion\FrmDetalleRegistro.Designer.cs">
       <DependentUpon>FrmDetalleRegistro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operacion\FrmNuevaCita.cs">
+    <Compile Include="Operacion\Agenda\FrmNuevaCita.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacion\FrmNuevaCita.Designer.cs">
+    <Compile Include="Operacion\Agenda\FrmNuevaCita.Designer.cs">
       <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </Compile>
     <Compile Include="Operacion\Polizas\FrmPolizaEscencial.cs">
@@ -240,11 +246,14 @@
     <EmbeddedResource Include="Acceso\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\FrmAltatelefono.resx">
+    <EmbeddedResource Include="Operacion\Genericos\FrmAltatelefono.resx">
       <DependentUpon>FrmAltaTelefono.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmAltainmueble.resx">
-      <DependentUpon>FrmAltainmueble.cs</DependentUpon>
+    <EmbeddedResource Include="Operacion\Genericos\FrmAltaInmueble.resx">
+      <DependentUpon>FrmAltaInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\ActualizarCliente.resx">
+      <DependentUpon>ActualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmClientePersonaFisica.resx">
       <DependentUpon>FrmClientePersonaFisica.cs</DependentUpon>
@@ -258,13 +267,13 @@
     <EmbeddedResource Include="Operacion\Registro Cliente\Clientes\FrmConsultaClientes.resx">
       <DependentUpon>FrmConsultaClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\FrmDayView.resx">
+    <EmbeddedResource Include="Operacion\Agenda\FrmDayView.resx">
       <DependentUpon>FrmDayView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\FrmDetalleRegistro.resx">
       <DependentUpon>FrmDetalleRegistro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacion\FrmNuevaCita.resx">
+    <EmbeddedResource Include="Operacion\Agenda\FrmNuevaCita.resx">
       <DependentUpon>FrmNuevaCita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\Polizas\FrmPolizaEscencial.resx">
@@ -302,17 +311,39 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Templates\AUTORIZACIÓN CONSULTA BURO DE CRÉDITO.docx" />
-    <None Include="Templates\AVISO DE PRIVACIDAD.docx" />
-    <None Include="Templates\CONTRATO DE ARRENDAMIENTO NUEVO MEJORADO.docx" />
-    <None Include="Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES ESENCIAL.docx" />
-    <None Include="Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES TOTAL.docx" />
-    <None Include="Templates\ETIQUETAS PARA POLIZA.docx" />
-    <None Include="Templates\FORMATO ATENCION TELEFONICA.xlsx" />
-    <None Include="Templates\PAGARÉS.doc" />
-    <None Include="Templates\RECIBOS DE PAGO.doc" />
-    <None Include="Templates\SEGURIDAD EN ARRENDAMIENTO ESENCIAL 1RA VEZ.docx" />
-    <None Include="Templates\SEGURIDAD EN ARRENDAMIENTO TOTAL 1RA VEZ.docx" />
+    <None Include="Templates\AUTORIZACIÓN CONSULTA BURO DE CRÉDITO.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\AVISO DE PRIVACIDAD.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CONTRATO DE ARRENDAMIENTO NUEVO MEJORADO.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES ESENCIAL.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CONTRATO DE PRESTACIÓN DE SERVICIOS PROFESIONALES TOTAL.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ETIQUETAS PARA POLIZA.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\FORMATO ATENCION TELEFONICA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\PAGARÉS.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\RECIBOS DE PAGO.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\SEGURIDAD EN ARRENDAMIENTO ESENCIAL 1RA VEZ.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\SEGURIDAD EN ARRENDAMIENTO TOTAL 1RA VEZ.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

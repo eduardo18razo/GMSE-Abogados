@@ -1,17 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Polizas.Entities.Helpers
 {
     public class HelperInmueble
     {
+        [DataMember]
         public Int64 IdTipoInmueble { get; set; }
         [DataMember]
+        [DisplayName("Tipo de inmueble")]
+        public string TipoInmueble { get; set; }
+        [DataMember]
         public int IdTipoUso { get; set; }
+        [DataMember]
+        [DisplayName("Uso de suelo")]
+        public string UsoSuelo { get; set; }
         [DataMember]
         public string Calle { get; set; }
         [DataMember]
@@ -21,13 +25,21 @@ namespace Polizas.Entities.Helpers
         [DataMember]
         public int IdColonia { get; set; }
         [DataMember]
+        [DisplayName("Colonia")]
+        public string Colonia { get; set; }
+        [DataMember]
+        [DisplayName("Delegacion o Municipio")]
+        public string Municipio { get; set; }
+        [DataMember]
+        [DisplayName("Estado")]
+        public string Estado { get; set; }
+        [DataMember]
         public decimal Renta { get; set; }
         [DataMember]
         public decimal Mantenimiento { get; set; }
         [DataMember]
+        [DisplayName("Depositos Requeridos")]
         public decimal NumeroDepositos { get; set; }
-        [DataMember]
-        public decimal CantidadDepositos { get; set; }
         [DataMember]
         public bool Habilitado { get; set; }
     }

@@ -48,6 +48,11 @@ namespace Polizas.Business.Catalogos
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
                 result = db.Colonia.SingleOrDefault(w => w.Id == idColonia);
+                if (result != null)
+                {
+                    db.LoadProperty(result, "Municipio");
+                    db.LoadProperty(result.Municipio, "Estado");
+                }
             }
             catch (Exception ex)
             {

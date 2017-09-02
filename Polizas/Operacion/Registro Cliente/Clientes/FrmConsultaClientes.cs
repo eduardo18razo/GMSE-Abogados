@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Polizas.Business.Operacion;
@@ -22,8 +23,20 @@ namespace Polizas.Operacion.Clientes
             {
                 string filtro = txtFiltro.Text.Trim();
                 List<Cliente> lstRegistros = string.IsNullOrEmpty(filtro) ? _bRegistro.ObtenerClientes(false) : _bRegistro.BuscarClientes(filtro);
+                //var x = new BindingList<Cliente>();
+                //
+                //foreach (Cliente source in lstRegistros.ToList())
+                //{
+                //    x.Add(source);
+                //}
                 dgvRegistros.DataSource = lstRegistros.Select(s => new { s.Id, s.Nombre, s.Correo, s.FechaAlta }).ToList();
                 dgvRegistros.Columns[0].Visible = false;
+
+                foreach (DataGridViewColumn column in dgvRegistros.Columns)
+                {
+
+                    column.SortMode = DataGridViewColumnSortMode.Automatic;
+                }
             }
             catch (Exception e)
             {
@@ -71,11 +84,14 @@ namespace Polizas.Operacion.Clientes
         {
             try
             {
-                int idRegistro = int.Parse(dgvRegistros.Rows[e.RowIndex].Cells[0].Value.ToString());
-                FrmDetalleRegistro frmDetalle = new FrmDetalleRegistro(idRegistro);
-                frmDetalle.MdiParent = this.MdiParent;
-                frmDetalle.StartPosition = FormStartPosition.CenterParent;
-                frmDetalle.Show();
+                if (e.RowIndex != -1)
+                {
+                    int idRegistro = int.Parse(dgvRegistros.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    FrmDetalleRegistro frmDetalle = new FrmDetalleRegistro(idRegistro);
+                    frmDetalle.MdiParent = this.MdiParent;
+                    frmDetalle.StartPosition = FormStartPosition.CenterParent;
+                    frmDetalle.Show();
+                }
             }
             catch (Exception ex)
             {
@@ -83,6 +99,48 @@ namespace Polizas.Operacion.Clientes
             }
         }
 
-        
+        private void dgvRegistros_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                return;
+                // Check which column is selected, otherwise set NewColumn to null.
+                DataGridViewColumn newColumn = dgvRegistros.Columns[e.ColumnIndex];
+
+                DataGridViewColumn oldColumn = dgvRegistros.SortedColumn;
+                ListSortDirection direction;
+
+                // If oldColumn is null, then the DataGridView is not currently sorted.
+                if (oldColumn != null)
+                {
+                    // Sort the same column again, reversing the SortOrder.
+                    if (oldColumn == newColumn &&
+                        dgvRegistros.SortOrder == SortOrder.Ascending)
+                    {
+                        direction = ListSortDirection.Descending;
+                    }
+                    else
+                    {
+                        // Sort a new column and remove the old SortGlyph.
+                        direction = ListSortDirection.Ascending;
+                        oldColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
+                    }
+                }
+                else
+                {
+                    direction = ListSortDirection.Ascending;
+                }
+
+                dgvRegistros.Sort(newColumn, direction);
+
+                newColumn.HeaderCell.SortGlyphDirection = direction == ListSortDirection.Ascending ? SortOrder.Ascending : SortOrder.Descending;
+            }
+            catch (Exception ex)
+            {
+                Mensajes.Error(ex.Message);
+            }
+        }
+
+
     }
 }

@@ -110,6 +110,22 @@ namespace Polizas.Business.Operacion
             {
                 db.ContextOptions.ProxyCreationEnabled = _proxy;
                 result = db.Cliente.SingleOrDefault(s => s.Id == id);
+                if (result != null)
+                {
+                    db.LoadProperty(result, "ClienteDireccion");
+                    foreach (ClienteDireccion direccion in result.ClienteDireccion)
+                    {
+                        db.LoadProperty(direccion, "Colonia");
+                        db.LoadProperty(direccion.Colonia, "Municipio");
+                        db.LoadProperty(direccion.Colonia.Municipio, "Estado");
+                        db.LoadProperty(direccion.Colonia.Municipio.Estado, "Pais");
+                    }
+                    db.LoadProperty(result, "ClienteTelefono");
+                    foreach (ClienteTelefono telefono in result.ClienteTelefono)
+                    {
+                        db.LoadProperty(telefono, "TipoTelefono");
+                    }
+                }
             }
             catch (Exception ex)
             {
